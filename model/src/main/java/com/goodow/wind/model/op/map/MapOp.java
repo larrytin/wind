@@ -16,13 +16,12 @@ package com.goodow.wind.model.op.map;
 import com.goodow.wind.model.op.ComposeException;
 import com.goodow.wind.model.op.Op;
 import com.goodow.wind.model.op.TransformException;
-import com.goodow.wind.model.util.JsonUtil;
 import com.goodow.wind.model.util.Pair;
+import com.goodow.wind.model.util.Serializer;
 
 import elemental.json.Json;
 import elemental.json.JsonArray;
 import elemental.json.JsonObject;
-import elemental.json.JsonValue;
 import elemental.util.ArrayOfString;
 import elemental.util.Collections;
 import elemental.util.MapFromStringTo;
@@ -32,27 +31,35 @@ public class MapOp<T> implements Op<MapTarget<T>>, MapTarget<T> {
   private static final String INSERT = "i";
   private static final String DELETE = "d";
   protected final MapFromStringTo<Pair<T, T>> components;
+  private final Serializer<T> serializer;
 
   public MapOp() {
+    this(null);
+  }
+
+  @SuppressWarnings("unchecked")
+  public MapOp(Serializer<T> serializer) {
+    this.serializer = serializer == null ? (Serializer<T>) Serializer.PRIMITIVE : serializer;
     components = Collections.mapFromStringTo();
   }
 
-  public MapOp(String json) {
-    this();
+  public MapOp(String json, Serializer<T> serializer) {
+    this(serializer);
     JsonArray components = Json.instance().parse(json);
     for (int i = 0, len = components.length(); i < len; i++) {
       JsonArray component = components.getArray(i);
       if (component.length() == 3) {
-        update(component.getString(0), fromJson(component.get(1)), fromJson(component.get(2)));
+        update(component.getString(0), this.serializer.fromJson(component.get(1)), this.serializer
+            .fromJson(component.get(2)));
       } else {
         assert component.length() == 2;
         JsonObject obj = component.getObject(1);
         assert obj.keys().length == 1;
         if (INSERT.equals(obj.keys()[0])) {
-          update(component.getString(0), null, fromJson(obj.get(INSERT)));
+          update(component.getString(0), null, this.serializer.fromJson(obj.get(INSERT)));
         } else {
           assert DELETE.equals(obj.keys()[0]);
-          update(component.getString(0), fromJson(obj.get(DELETE)), null);
+          update(component.getString(0), this.serializer.fromJson(obj.get(DELETE)), null);
         }
       }
     }
@@ -70,7 +77,7 @@ public class MapOp<T> implements Op<MapTarget<T>>, MapTarget<T> {
   @Override
   public MapOp<T> composeWith(Op<MapTarget<T>> op) {
     assert op instanceof MapOp;
-    MapOp<T> toRtn = clone();
+    MapOp<T> toRtn = copy();
     MapOp<T> o = (MapOp<T>) op;
     ArrayOfString keys = o.components.keys();
     for (int i = 0, len = keys.length(); i < len; i++) {
@@ -141,12 +148,12 @@ public class MapOp<T> implements Op<MapTarget<T>>, MapTarget<T> {
       }
       T serverOldValue = components.get(clientKey).first;
       T serverNewValue = components.get(clientKey).second;
-      if (!areEqual(serverOldValue, clientOldValue)) {
+      if (!serializer.areEqual(serverOldValue, clientOldValue)) {
         throw new TransformException("Mismatched initial value: attempt to transform "
             + toJson(clientKey, serverOldValue, serverNewValue) + " with "
             + toJson(clientKey, clientOldValue, clientNewValue));
       }
-      if (areEqual(serverNewValue, clientNewValue)) {
+      if (serializer.areEqual(serverNewValue, clientNewValue)) {
         continue;
       }
       transformedClientOp.update(clientKey, serverNewValue, clientNewValue);
@@ -158,19 +165,19 @@ public class MapOp<T> implements Op<MapTarget<T>>, MapTarget<T> {
   @Override
   public MapOp<T> update(String key, T oldValue, T newValue) {
     assert key != null : "Null key";
-    if (areEqual(oldValue, newValue)) {
+    if (serializer.areEqual(oldValue, newValue)) {
       return this;
     }
     if (!components.hasKey(key)) {
       components.put(key, Pair.of(oldValue, newValue));
       return this;
     }
-    if (!areEqual(components.get(key).second, oldValue)) {
+    if (!serializer.areEqual(components.get(key).second, oldValue)) {
       throw new ComposeException("Mismatched value: attempt to compose "
           + toJson(key, components.get(key).first, components.get(key).second) + " with "
           + toJson(key, oldValue, newValue));
     }
-    if (areEqual(components.get(key).first, newValue)) {
+    if (serializer.areEqual(components.get(key).first, newValue)) {
       components.remove(key);
     } else {
       components.put(key, Pair.of(components.get(key).first, newValue));
@@ -178,12 +185,7 @@ public class MapOp<T> implements Op<MapTarget<T>>, MapTarget<T> {
     return this;
   }
 
-  protected boolean areEqual(T a, T b) {
-    return (a == null) ? b == null : a.equals(b);
-  }
-
-  @Override
-  protected MapOp<T> clone() {
+  protected MapOp<T> copy() {
     MapOp<T> toRtn = newInstance();
     ArrayOfString keys = components.keys();
     for (int i = 0, len = keys.length(); i < len; i++) {
@@ -193,17 +195,8 @@ public class MapOp<T> implements Op<MapTarget<T>>, MapTarget<T> {
     return toRtn;
   }
 
-  @SuppressWarnings("unchecked")
-  protected T fromJson(JsonValue json) {
-    return (T) JsonUtil.fromJson(json);
-  }
-
   protected MapOp<T> newInstance() {
-    return new MapOp<T>();
-  }
-
-  protected String toJson(T value) {
-    return JsonUtil.toJson(value);
+    return new MapOp<T>(serializer);
   }
 
   private MapOp<T> exclude(MapOp<T> clientOp) {
@@ -222,12 +215,12 @@ public class MapOp<T> implements Op<MapTarget<T>>, MapTarget<T> {
     StringBuilder sb = new StringBuilder("[\"").append(key).append("\"").append(",");
     if (oldVal == null) {
       assert newVal != null;
-      sb.append("{\"" + INSERT + "\":").append(toJson(newVal)).append("}");
+      sb.append("{\"" + INSERT + "\":").append(serializer.toString(newVal)).append("}");
     } else if (newVal == null) {
-      sb.append("{\"" + DELETE + "\":").append(toJson(oldVal)).append("}");
+      sb.append("{\"" + DELETE + "\":").append(serializer.toString(oldVal)).append("}");
     } else {
-      sb.append(toJson(oldVal)).append(",");
-      sb.append(toJson(newVal));
+      sb.append(serializer.toString(oldVal)).append(",");
+      sb.append(serializer.toString(newVal));
     }
     return sb.append("]").toString();
   }

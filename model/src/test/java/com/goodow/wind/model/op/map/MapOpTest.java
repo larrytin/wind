@@ -112,7 +112,7 @@ public class MapOpTest extends TestCase {
     MapOp<?> op =
         new MapOp<Object>().update("a", "old a", null).update("b", false, 1f).update("c",
             Boolean.TRUE, -2.2);
-    assertEquals(op, new MapOp<Object>(op.toString()));
+    assertEquals(op, new MapOp<Object>(op.toString(), null));
   }
 
   public void testTransformDifferentKey() {

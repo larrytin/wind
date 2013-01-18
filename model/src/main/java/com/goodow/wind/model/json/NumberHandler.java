@@ -11,18 +11,25 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.goodow.wind.model.op.list.algorithm;
+package com.goodow.wind.model.json;
 
-public interface ListHelper<T> {
-  ListNormalizer<T> createNormalizer();
+import elemental.json.JsonType;
 
-  int length(T list);
+@SuppressWarnings("unused")
+public abstract class NumberHandler extends JValue.JsonHandler {
+  @Override
+  public JNumber getValue() {
+    return (JNumber) super.getValue();
+  }
 
-  ListOp<T> newOp();
+  public void onAdd(double num) {
+  }
 
-  boolean startsWith(T list, T prefix);
+  public void render(JNumber num) {
+  }
 
-  T subset(T list, int beginIdx);
-
-  T subset(T list, int beginIdx, int endIdx);
+  @Override
+  public String toString() {
+    return JsonType.NUMBER.name();
+  }
 }

@@ -105,6 +105,7 @@ public abstract class ListOp<T> implements Op<ListTarget<T>>, ListTarget<T> {
   public static final String TYPE = "l";
   private boolean frozen;
   protected final ArrayOf<Component<T>> components;
+  private ListHelper<T> helper;
 
   protected ListOp() {
     components = Collections.arrayOf();
@@ -112,7 +113,7 @@ public abstract class ListOp<T> implements Op<ListTarget<T>>, ListTarget<T> {
 
   protected ListOp(boolean isInsert, int idx, T list, int initLength) {
     this();
-    if (list == null || getLength(list) <= 0) {
+    if (list == null || getListHelper().length(list) <= 0) {
       if (initLength > 0) {
         retain(initLength);
       }
@@ -125,7 +126,7 @@ public abstract class ListOp<T> implements Op<ListTarget<T>>, ListTarget<T> {
       insert(list);
     } else {
       delete(list);
-      idx += getLength(list);
+      idx += getListHelper().length(list);
     }
     assert idx <= initLength;
     if (initLength > idx) {
@@ -178,7 +179,7 @@ public abstract class ListOp<T> implements Op<ListTarget<T>>, ListTarget<T> {
   @Override
   public ListOp<T> delete(T list) {
     assert !frozen;
-    assert list != null && getLength(list) > 0;
+    assert list != null && getListHelper().length(list) > 0;
     components.push(new Delete(list));
     return this;
   }
@@ -199,7 +200,7 @@ public abstract class ListOp<T> implements Op<ListTarget<T>>, ListTarget<T> {
   @Override
   public ListOp<T> insert(T list) {
     assert !frozen;
-    assert list != null && getLength(list) > 0;
+    assert list != null && getListHelper().length(list) > 0;
     components.push(new Insert(list));
     return this;
   }
@@ -234,11 +235,9 @@ public abstract class ListOp<T> implements Op<ListTarget<T>>, ListTarget<T> {
     return new ListOpTransformer<T>(getListHelper()).transform(this, (ListOp<T>) clientOp);
   }
 
+  protected abstract ListHelper<T> createListHelper();
+
   protected abstract T fromJson(JsonValue json);
-
-  protected abstract int getLength(T list);
-
-  protected abstract ListHelper<T> getListHelper();
 
   protected abstract String toJson(T list);
 
@@ -249,5 +248,12 @@ public abstract class ListOp<T> implements Op<ListTarget<T>>, ListTarget<T> {
 
   int size() {
     return components.length();
+  }
+
+  private ListHelper<T> getListHelper() {
+    if (helper == null) {
+      helper = createListHelper();
+    }
+    return helper;
   }
 }

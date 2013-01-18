@@ -16,25 +16,32 @@ package com.goodow.wind.model.op.basic;
 import com.goodow.wind.model.op.ComposeException;
 import com.goodow.wind.model.op.Op;
 import com.goodow.wind.model.op.TransformException;
-import com.goodow.wind.model.util.JsonUtil;
 import com.goodow.wind.model.util.Pair;
+import com.goodow.wind.model.util.Serializer;
 
 import elemental.json.Json;
 import elemental.json.JsonArray;
-import elemental.json.JsonValue;
 
 public class ReplaceOp<T> implements Op<ReplaceTarget<T>>, ReplaceTarget<T> {
   public static final String TYPE = "x";
   private T oldValue;
   private T newValue;
+  private final Serializer<T> serializer;
 
   public ReplaceOp() {
+    this(null);
   }
 
-  public ReplaceOp(String json) {
+  @SuppressWarnings("unchecked")
+  public ReplaceOp(Serializer<T> serializer) {
+    this.serializer = serializer == null ? (Serializer<T>) Serializer.PRIMITIVE : serializer;
+  }
+
+  public ReplaceOp(String json, Serializer<T> serializer) {
+    this(serializer);
     JsonArray op = Json.instance().parse(json);
     assert op.length() == 2;
-    replace(fromJson(op.get(0)), fromJson(op.get(1)));
+    replace(this.serializer.fromJson(op.get(0)), this.serializer.fromJson(op.get(1)));
   }
 
   @Override
@@ -48,7 +55,7 @@ public class ReplaceOp<T> implements Op<ReplaceTarget<T>>, ReplaceTarget<T> {
   public ReplaceOp<T> composeWith(Op<ReplaceTarget<T>> op) {
     assert op instanceof ReplaceOp;
     ReplaceOp<T> o = (ReplaceOp<T>) op;
-    return new ReplaceOp<T>().replace(oldValue, newValue).replace(o.oldValue, o.newValue);
+    return newInstance().replace(oldValue, newValue).replace(o.oldValue, o.newValue);
   }
 
   @Override
@@ -97,7 +104,7 @@ public class ReplaceOp<T> implements Op<ReplaceTarget<T>>, ReplaceTarget<T> {
 
   @Override
   public ReplaceOp<T> invert() {
-    return new ReplaceOp<T>().replace(newValue, oldValue);
+    return newInstance().replace(newValue, oldValue);
   }
 
   @Override
@@ -107,7 +114,7 @@ public class ReplaceOp<T> implements Op<ReplaceTarget<T>>, ReplaceTarget<T> {
 
   @Override
   public ReplaceOp<T> replace(T oldValue, T newValue) {
-    if (areEqual(oldValue, newValue)) {
+    if (serializer.areEqual(oldValue, newValue)) {
       return this;
     }
     if (isNoOp()) {
@@ -115,11 +122,11 @@ public class ReplaceOp<T> implements Op<ReplaceTarget<T>>, ReplaceTarget<T> {
       this.newValue = newValue;
       return this;
     }
-    if (!areEqual(this.newValue, oldValue)) {
+    if (!serializer.areEqual(this.newValue, oldValue)) {
       throw new ComposeException("Mismatched value: attempt to compose " + toString() + " with "
-          + "[" + toJson(oldValue) + "," + toJson(newValue) + "]");
+          + "[" + serializer.toString(oldValue) + "," + serializer.toString(newValue) + "]");
     }
-    if (areEqual(this.oldValue, newValue)) {
+    if (serializer.areEqual(this.oldValue, newValue)) {
       this.oldValue = null;
       this.newValue = null;
     } else {
@@ -130,7 +137,7 @@ public class ReplaceOp<T> implements Op<ReplaceTarget<T>>, ReplaceTarget<T> {
 
   @Override
   public String toString() {
-    return "[" + toJson(oldValue) + "," + toJson(newValue) + "]";
+    return "[" + serializer.toString(oldValue) + "," + serializer.toString(newValue) + "]";
   }
 
   @Override
@@ -139,27 +146,18 @@ public class ReplaceOp<T> implements Op<ReplaceTarget<T>>, ReplaceTarget<T> {
     @SuppressWarnings("unchecked")
     ReplaceOp<T> op = (ReplaceOp<T>) clientOp;
     if (isNoOp()) {
-      return Pair.of(new ReplaceOp<T>(), new ReplaceOp<T>().composeWith(op));
+      return Pair.of(newInstance(), newInstance().composeWith(op));
     } else if (op.isNoOp()) {
-      return Pair.of(new ReplaceOp<T>().composeWith(this), new ReplaceOp<T>());
+      return Pair.of(newInstance().composeWith(this), newInstance());
     }
-    if (!areEqual(oldValue, op.oldValue)) {
+    if (!serializer.areEqual(oldValue, op.oldValue)) {
       throw new TransformException("Mismatched initial value: attempt to transform " + toString()
           + " with " + op.toString());
     }
-    return Pair.of(new ReplaceOp<T>(), new ReplaceOp<T>().replace(this.newValue, op.newValue));
+    return Pair.of(newInstance(), newInstance().replace(this.newValue, op.newValue));
   }
 
-  protected boolean areEqual(Object a, Object b) {
-    return (a == null) ? b == null : a.equals(b);
-  }
-
-  @SuppressWarnings("unchecked")
-  protected T fromJson(JsonValue json) {
-    return (T) JsonUtil.fromJson(json);
-  }
-
-  protected String toJson(Object value) {
-    return JsonUtil.toJson(value);
+  private ReplaceOp<T> newInstance() {
+    return new ReplaceOp<T>(serializer);
   }
 }

@@ -11,18 +11,25 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.goodow.wind.model.op.list.algorithm;
+package com.goodow.wind.model.json;
 
-public interface ListHelper<T> {
-  ListNormalizer<T> createNormalizer();
+import junit.framework.TestCase;
 
-  int length(T list);
+public class JNumberTest extends TestCase {
 
-  ListOp<T> newOp();
+  public void testAddNumber() {
+    JNumber num = new JNumber(0);
+    assertEquals(0, num.getNumber(), 0);
+    final double[] d = {0};
+    num.on(new NumberHandler() {
 
-  boolean startsWith(T list, T prefix);
-
-  T subset(T list, int beginIdx);
-
-  T subset(T list, int beginIdx, int endIdx);
+      @Override
+      public void onAdd(double num) {
+        d[0] = num;
+      }
+    });
+    num.add(5);
+    assertEquals(5, d[0], 0);
+    assertEquals(5, num.getNumber(), 0);
+  }
 }

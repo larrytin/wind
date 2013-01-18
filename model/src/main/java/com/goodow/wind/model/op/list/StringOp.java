@@ -40,18 +40,13 @@ public class StringOp extends ListOp<String> {
   }
 
   @Override
+  protected ListHelper<String> createListHelper() {
+    return new StringHelper();
+  }
+
+  @Override
   protected String fromJson(JsonValue json) {
     return ((JsonString) json).getString();
-  }
-
-  @Override
-  protected int getLength(String value) {
-    return value.length();
-  }
-
-  @Override
-  protected ListHelper<String> getListHelper() {
-    return new StringHelper();
   }
 
   @Override

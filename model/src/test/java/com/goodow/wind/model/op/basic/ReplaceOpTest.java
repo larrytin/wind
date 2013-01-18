@@ -56,9 +56,9 @@ public class ReplaceOpTest extends TestCase {
 
   public void testParseFromJson() {
     ReplaceOp<Object> op = new ReplaceOp<Object>().replace(null, "a");
-    assertEquals(op, new ReplaceOp<Object>(op.toString()));
+    assertEquals(op, new ReplaceOp<Object>(op.toString(), null));
     op = new ReplaceOp<Object>().replace(-5.3d, true);
-    assertEquals(op, new ReplaceOp<Object>(op.toString()));
+    assertEquals(op, new ReplaceOp<Object>(op.toString(), null));
   }
 
   public void testTransformException() {
