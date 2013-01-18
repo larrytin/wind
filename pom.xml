@@ -171,8 +171,8 @@
   
   <modules>
     <module>model</module>
-    <!-- <module>channel</module>
+    <module>channel</module>
     <module>server</module>
-    <module>view</module> -->
+    <module>view</module>
   </modules>
 </project>
