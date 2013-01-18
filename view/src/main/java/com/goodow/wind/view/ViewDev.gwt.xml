@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to='view'>
+  <inherits name="com.goodow.wind.view.View"/>
+  
+  <set-configuration-property name="devModeRedirectEnabled" value="true"/>
+</module>
