@@ -1,0 +1,6 @@
+platform :ios, '5.1'
+
+pod 'jre_emul', :git => 'https://github.com/goodow/j2objc.git', :tag => 'v0.6.1'
+pod 'GDRealtime', :local => '../../../../'
+
+# podspec :path => "../../../../GDRealtime.podspec"
