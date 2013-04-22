@@ -17,8 +17,8 @@ import com.goodow.realtime.op.Op;
 import com.goodow.realtime.op.RealtimeOp;
 import com.goodow.realtime.op.list.ArrayOp;
 import com.goodow.realtime.op.list.algorithm.ListTarget;
-import com.goodow.realtime.util.JsNativeInterfaceFactory;
 import com.goodow.realtime.util.JsonSerializer;
+import com.goodow.realtime.util.NativeInterfaceFactory;
 
 import org.timepedia.exporter.client.Export;
 import org.timepedia.exporter.client.ExportPackage;
@@ -45,7 +45,7 @@ import elemental.json.JsonValue;
  * This class should not be instantiated directly. To create a new list, use
  * {@link com.goodow.realtime.Model#createList(Object...)}.
  */
-@ExportPackage(JsNativeInterfaceFactory.PACKAGE_PREFIX_REALTIME)
+@ExportPackage(NativeInterfaceFactory.PACKAGE_PREFIX_REALTIME)
 @Export(all = true)
 public class CollaborativeList extends CollaborativeObject {
   private JsonArray snapshot;

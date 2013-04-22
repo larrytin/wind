@@ -15,8 +15,9 @@ package com.goodow.realtime;
 
 import com.goodow.realtime.op.Op;
 import com.goodow.realtime.op.RealtimeOp;
-import com.goodow.realtime.util.JsNativeInterfaceFactory;
+import com.goodow.realtime.util.NativeInterfaceFactory;
 
+import org.timepedia.exporter.client.Export;
 import org.timepedia.exporter.client.ExportPackage;
 
 import java.util.HashSet;
@@ -28,7 +29,8 @@ import java.util.logging.Logger;
  * should not be instantiated directly. Use the create* methods on {@link com.goodow.realtime.Model}
  * to create specific types of collaborative objects.
  */
-@ExportPackage(JsNativeInterfaceFactory.PACKAGE_PREFIX_REALTIME)
+@ExportPackage(NativeInterfaceFactory.PACKAGE_PREFIX_REALTIME)
+@Export
 public abstract class CollaborativeObject implements EventTarget {
   String id;
   final Model model;

@@ -162,6 +162,61 @@ public class CollaborativeStringTest extends TestCase {
     assertEquals("abfgh", str.getText());
   }
 
+  public void testRegisterReference() {
+    str.append("ab");
+    final ReferenceShiftedEvent[] e = new ReferenceShiftedEvent[1];
+    IndexReference ref = str.registerReference(1, true);
+    EventHandler<ReferenceShiftedEvent> handler = new EventHandler<ReferenceShiftedEvent>() {
+      @Override
+      public void handleEvent(ReferenceShiftedEvent event) {
+        assertNull(e[0]);
+        e[0] = event;
+      }
+    };
+    ref.addReferenceShiftedListener(handler);
+    e[0] = null;
+    str.insertString(2, "2"); // "ab2"
+    assertNull(e[0]);
+    e[0] = null;
+    str.insertString(1, "1"); // "a1b2"
+    assertEquals(1, e[0].oldIndex);
+    assertEquals(2, e[0].newIndex);
+    e[0] = null;
+    str.removeRange(3, 4);// "a1b"
+    assertNull(e[0]);
+    e[0] = null;
+    str.removeRange(1, 2); // "ab"
+    assertEquals(2, e[0].oldIndex);
+    assertEquals(1, e[0].newIndex);
+    e[0] = null;
+    str.removeRange(1, 2); // "a"
+    assertEquals(1, e[0].oldIndex);
+    assertEquals(-1, e[0].newIndex);
+
+    ref.removeReferenceShiftedListener(handler);
+    str.setText("ab");
+    ref = str.registerReference(1, false);
+    ref.addReferenceShiftedListener(handler);
+    e[0] = null;
+    str.insertString(2, "2"); // "ab2"
+    assertNull(e[0]);
+    e[0] = null;
+    str.insertString(1, "1"); // "a1b2"
+    assertEquals(1, e[0].oldIndex);
+    assertEquals(2, e[0].newIndex);
+    e[0] = null;
+    str.removeRange(3, 4); // "a1b"
+    assertNull(e[0]);
+    e[0] = null;
+    str.removeRange(1, 2); // "ab"
+    assertEquals(2, e[0].oldIndex);
+    assertEquals(1, e[0].newIndex);
+    e[0] = null;
+    str.removeRange(1, 2); // "a"
+    assertEquals(1, e[0].oldIndex);
+    assertEquals(1, e[0].newIndex);
+  }
+
   public void testSetText() {
 
   }

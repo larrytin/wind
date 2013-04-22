@@ -14,7 +14,7 @@
 package com.goodow.realtime;
 
 import com.goodow.realtime.id.IdGenerator;
-import com.goodow.realtime.util.JsNativeInterfaceFactory;
+import com.goodow.realtime.util.NativeInterfaceFactory;
 
 import org.timepedia.exporter.client.Export;
 import org.timepedia.exporter.client.ExportPackage;
@@ -42,7 +42,7 @@ import java.util.logging.Logger;
  * document load process. The model can be initialized by passing an initializer function to
  * com.goodow.realtime.load.
  */
-@ExportPackage(JsNativeInterfaceFactory.PACKAGE_PREFIX_REALTIME)
+@ExportPackage(NativeInterfaceFactory.PACKAGE_PREFIX_REALTIME)
 @Export(all = true)
 public class Model implements EventTarget {
   private static final String ROOT_ID = "root";
@@ -237,15 +237,16 @@ public class Model implements EventTarget {
     return (T) objects.get(objectId);
   }
 
-  void registerIndexReference(String id) {
+  void registerIndexReference(String indexReference, String referencedObject) {
     if (indexReferences == null) {
       indexReferences = new HashMap<String, List<String>>();
     }
-    List<String> list = indexReferences.get(id);
+    List<String> list = indexReferences.get(referencedObject);
     if (list == null) {
       list = new ArrayList<String>();
+      indexReferences.put(referencedObject, list);
     }
-    list.add(id);
+    list.add(indexReference);
   }
 
   void setIndexReferenceIndex(String referencedObject, boolean isInsert, int index, int length,

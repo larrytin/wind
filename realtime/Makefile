@@ -9,7 +9,8 @@ JAVA_SRC_DIR = src/main/java
 JAVA_GEN_DIR = src/main/generated_objectivec
 JAVA_BUILD_DIR = target/objectivec
 JAVA_SOURCES = $(shell find $(JAVA_SRC_DIR) -name *.java ! -name NativeInterface.java \
-  ! -name JreNativeInterfaceFactory.java ! -name JsNativeInterfaceFactory.java)
+  ! -name JreNativeInterfaceFactory.java ! -name JsNativeInterfaceFactory.java \
+  ! -name JsJson*.java ! -name JsMap*.java)
 JAVA_TEMP_SOURCES = $(subst $(JAVA_SRC_DIR), $(JAVA_GEN_DIR), $(JAVA_SOURCES))
 JAVA_GEN_SOURCES = $(JAVA_TEMP_SOURCES:.java=.m)
 JAVA_TEMP_OBJCS = $(subst $(JAVA_SRC_DIR), $(JAVA_BUILD_DIR), $(JAVA_SOURCES))

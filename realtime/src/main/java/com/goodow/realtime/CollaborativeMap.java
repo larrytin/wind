@@ -17,8 +17,8 @@ import com.goodow.realtime.op.Op;
 import com.goodow.realtime.op.RealtimeOp;
 import com.goodow.realtime.op.map.MapOp;
 import com.goodow.realtime.op.map.MapTarget;
-import com.goodow.realtime.util.JsNativeInterfaceFactory;
 import com.goodow.realtime.util.JsonSerializer;
+import com.goodow.realtime.util.NativeInterfaceFactory;
 
 import org.timepedia.exporter.client.Export;
 import org.timepedia.exporter.client.ExportPackage;
@@ -43,7 +43,7 @@ import elemental.json.JsonValue;
  * This class should not be instantiated directly. To create a new map, use
  * {@link com.goodow.realtime.Model#createMap(Object...)}.
  */
-@ExportPackage(JsNativeInterfaceFactory.PACKAGE_PREFIX_REALTIME)
+@ExportPackage(NativeInterfaceFactory.PACKAGE_PREFIX_REALTIME)
 @Export(all = true)
 public class CollaborativeMap extends CollaborativeObject {
   private JsonObject snapshot;

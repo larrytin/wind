@@ -28,21 +28,16 @@ import org.timepedia.exporter.client.ExporterUtil;
 import java.util.Comparator;
 
 public class JsNativeInterfaceFactory implements NativeInterfaceFactory, EntryPoint {
-  @ExportPackage(JsNativeInterfaceFactory.PACKAGE_PREFIX_OVERLAY)
+  @ExportPackage(NativeInterfaceFactory.PACKAGE_PREFIX_OVERLAY)
   @ExportClosure
-  public interface ComparatorExportOverlay extends ExportOverlay<Comparator<Object>> {
+  public interface __ComparatorExportOverlay__ extends ExportOverlay<Comparator<Object>> {
     int compare(Object o1, Object o2);
   }
-  @ExportPackage(JsNativeInterfaceFactory.PACKAGE_PREFIX_OVERLAY)
+  @ExportPackage(NativeInterfaceFactory.PACKAGE_PREFIX_OVERLAY)
   @ExportClosure
-  public interface EventHandlerExportOverlay extends ExportOverlay<EventHandler<Object>> {
+  public interface __EventHandlerExportOverlay__ extends ExportOverlay<EventHandler<Object>> {
     void handleEvent(Object event);
   }
-
-  public static final String PACKAGE_PREFIX_REALTIME = "gdr";
-  public static final String PACKAGE_PREFIX_CUSTOM = "gdr.custom";
-  public static final String PACKAGE_PREFIX_DATABINDING = "gdr.databinding";
-  public static final String PACKAGE_PREFIX_OVERLAY = "gdr._ExportOverlay_";
 
   @Override
   public void onModuleLoad() {

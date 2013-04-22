@@ -18,8 +18,8 @@ import com.goodow.realtime.op.RealtimeOp;
 import com.goodow.realtime.op.list.StringOp;
 import com.goodow.realtime.op.list.algorithm.ListOp;
 import com.goodow.realtime.op.list.algorithm.ListTarget;
-import com.goodow.realtime.util.JsNativeInterfaceFactory;
 import com.goodow.realtime.util.NativeInterface;
+import com.goodow.realtime.util.NativeInterfaceFactory;
 
 import org.timepedia.exporter.client.Export;
 import org.timepedia.exporter.client.ExportPackage;
@@ -40,7 +40,7 @@ import java.util.Set;
  * This class should not be instantiated directly. To create a new collaborative string, use
  * {@link com.goodow.realtime.Model#createString(String)}
  */
-@ExportPackage(JsNativeInterfaceFactory.PACKAGE_PREFIX_REALTIME)
+@ExportPackage(NativeInterfaceFactory.PACKAGE_PREFIX_REALTIME)
 @Export(all = true)
 public class CollaborativeString extends CollaborativeObject {
   private StringBuilder snapshot;

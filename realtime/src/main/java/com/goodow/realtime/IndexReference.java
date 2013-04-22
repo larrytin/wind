@@ -15,7 +15,7 @@ package com.goodow.realtime;
 
 import com.goodow.realtime.op.Op;
 import com.goodow.realtime.op.RealtimeOp;
-import com.goodow.realtime.util.JsNativeInterfaceFactory;
+import com.goodow.realtime.util.NativeInterfaceFactory;
 
 import org.timepedia.exporter.client.Export;
 import org.timepedia.exporter.client.ExportPackage;
@@ -37,7 +37,7 @@ import elemental.json.JsonArray;
  * This class should not be instantiated directly. To create an index reference, call
  * registerReference on the appropriate string or list.
  */
-@ExportPackage(JsNativeInterfaceFactory.PACKAGE_PREFIX_REALTIME)
+@ExportPackage(NativeInterfaceFactory.PACKAGE_PREFIX_REALTIME)
 @Export(all = true)
 public class IndexReference extends CollaborativeObject {
   private JsonArray snapshot;
@@ -91,7 +91,7 @@ public class IndexReference extends CollaborativeObject {
     this.id = id;
     this.snapshot = snapshot;
     model.objects.put(id, this);
-    model.registerIndexReference(snapshot.getString(0));
+    model.registerIndexReference(id, snapshot.getString(0));
   }
 
   void initializeCreate(String id, CollaborativeObject referencedObject, int index,

@@ -13,7 +13,7 @@
  */
 package com.goodow.realtime;
 
-import com.goodow.realtime.util.JsNativeInterfaceFactory;
+import com.goodow.realtime.util.NativeInterfaceFactory;
 
 import org.timepedia.exporter.client.Export;
 import org.timepedia.exporter.client.ExportPackage;
@@ -21,7 +21,7 @@ import org.timepedia.exporter.client.ExportPackage;
 /**
  * Event fired when text is inserted into a string.
  */
-@ExportPackage(JsNativeInterfaceFactory.PACKAGE_PREFIX_REALTIME)
+@ExportPackage(NativeInterfaceFactory.PACKAGE_PREFIX_REALTIME)
 @Export(all = true)
 public class TextInsertedEvent extends BaseModelEvent {
   /**

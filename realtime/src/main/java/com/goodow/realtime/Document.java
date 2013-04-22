@@ -14,8 +14,8 @@
 package com.goodow.realtime;
 
 import com.goodow.realtime.Error.ErrorHandler;
-import com.goodow.realtime.util.JsNativeInterfaceFactory;
 import com.goodow.realtime.util.JsonSerializer;
+import com.goodow.realtime.util.NativeInterfaceFactory;
 
 import org.timepedia.exporter.client.Export;
 import org.timepedia.exporter.client.ExportPackage;
@@ -49,7 +49,7 @@ import elemental.json.JsonValue;
  * This class should not be instantiated directly. The document object is generated during the
  * document load process.
  */
-@ExportPackage(JsNativeInterfaceFactory.PACKAGE_PREFIX_REALTIME)
+@ExportPackage(NativeInterfaceFactory.PACKAGE_PREFIX_REALTIME)
 @Export(all = true)
 public class Document implements EventTarget {
   private static final String EVENT_HANDLER_KEY = "document";
@@ -164,6 +164,7 @@ public class Document implements EventTarget {
       if (isAdd) {
         if (list == null) {
           list = new ArrayList<String>();
+          parents.put(childId, list);
         }
         list.add(parentId);
       } else {

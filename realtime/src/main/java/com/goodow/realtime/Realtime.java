@@ -14,7 +14,7 @@
 package com.goodow.realtime;
 
 import com.goodow.realtime.Error.ErrorHandler;
-import com.goodow.realtime.util.JsNativeInterfaceFactory;
+import com.goodow.realtime.util.NativeInterfaceFactory;
 
 import org.timepedia.exporter.client.Export;
 import org.timepedia.exporter.client.ExportClosure;
@@ -27,14 +27,14 @@ import elemental.json.Json;
  * The Goodow Realtime API.
  */
 @ExportPackage("")
-@Export(JsNativeInterfaceFactory.PACKAGE_PREFIX_REALTIME)
+@Export(NativeInterfaceFactory.PACKAGE_PREFIX_REALTIME)
 public class Realtime implements Exportable {
-  @ExportPackage(JsNativeInterfaceFactory.PACKAGE_PREFIX_OVERLAY)
+  @ExportPackage(NativeInterfaceFactory.PACKAGE_PREFIX_OVERLAY)
   @ExportClosure
   public static interface DocumentLoadedHandler extends Exportable {
     void onLoaded(Document document);
   }
-  @ExportPackage(JsNativeInterfaceFactory.PACKAGE_PREFIX_OVERLAY)
+  @ExportPackage(NativeInterfaceFactory.PACKAGE_PREFIX_OVERLAY)
   @ExportClosure
   public interface ModelInitializerHandler extends Exportable {
     void onInitializer(Model model);

@@ -13,9 +13,16 @@
  */
 package com.goodow.realtime;
 
+import com.goodow.realtime.util.NativeInterfaceFactory;
+
+import org.timepedia.exporter.client.Export;
+import org.timepedia.exporter.client.ExportPackage;
+
 /**
  * A base class for model events.
  */
+@ExportPackage(NativeInterfaceFactory.PACKAGE_PREFIX_REALTIME)
+@Export
 public abstract class BaseModelEvent implements Disposable {
 
   /**

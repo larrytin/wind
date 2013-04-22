@@ -13,7 +13,7 @@
  */
 package com.goodow.realtime;
 
-import com.goodow.realtime.util.JsNativeInterfaceFactory;
+import com.goodow.realtime.util.NativeInterfaceFactory;
 
 import org.timepedia.exporter.client.Export;
 import org.timepedia.exporter.client.ExportPackage;
@@ -22,7 +22,7 @@ import org.timepedia.exporter.client.ExportPackage;
  * An event target which can dispatch events to interested listeners. Listeners subscribe via
  * addEventListener.
  */
-@ExportPackage(JsNativeInterfaceFactory.PACKAGE_PREFIX_REALTIME)
+@ExportPackage(NativeInterfaceFactory.PACKAGE_PREFIX_REALTIME)
 @Export
 public interface EventTarget extends Disposable {
   /**

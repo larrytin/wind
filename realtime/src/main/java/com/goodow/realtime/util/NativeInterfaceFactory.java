@@ -16,6 +16,11 @@ package com.goodow.realtime.util;
 import com.goodow.realtime.CollaborativeString;
 
 public interface NativeInterfaceFactory {
+  String PACKAGE_PREFIX_REALTIME = "gdr";
+  String PACKAGE_PREFIX_CUSTOM = "gdr.custom";
+  String PACKAGE_PREFIX_DATABINDING = "gdr.databinding";
+  String PACKAGE_PREFIX_OVERLAY = "gdr._ExportOverlay_";
+
   /**
    * A deferred command is executed after the event loop returns.
    */
