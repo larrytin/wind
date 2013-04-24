@@ -222,13 +222,13 @@ public class Document implements EventTarget {
   }
 
   @SuppressWarnings("unchecked")
-  private void fireEvent(String key, String type, Object event) {
+  private void fireEvent(String key, String type, Disposable event) {
     List<EventHandler<?>> handlers = getEventHandlers(key, type, false);
     if (handlers == null) {
       return;
     }
     for (int i = 0, len = handlers.size(); i < len; i++) {
-      ((EventHandler<Object>) handlers.get(i)).handleEvent(event);
+      ((EventHandler<Disposable>) handlers.get(i)).handleEvent(event);
     }
   }
 

@@ -170,3 +170,8 @@ initializeModel = function(mod){
 
 
 gdr.load('', function(doc){window.doc = doc;})
+mod = doc.getModel()
+str = mod.createString('ab')
+str.addObjectChangedListener(displayObjectChangedEvent)
+str.append('d')
+ee = new gdr.ObjectChangedEvent(str, 's','u',true, null)

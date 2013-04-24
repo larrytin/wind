@@ -17,8 +17,12 @@ import com.goodow.realtime.op.Op;
 import com.goodow.realtime.op.RealtimeOp;
 import com.goodow.realtime.util.NativeInterfaceFactory;
 
+import com.google.common.annotations.GwtIncompatible;
+
 import org.timepedia.exporter.client.Export;
+import org.timepedia.exporter.client.ExportAfterCreateMethod;
 import org.timepedia.exporter.client.ExportPackage;
+import org.timepedia.exporter.client.NoExport;
 
 import java.util.Set;
 
@@ -40,6 +44,37 @@ import elemental.json.JsonArray;
 @ExportPackage(NativeInterfaceFactory.PACKAGE_PREFIX_REALTIME)
 @Export(all = true)
 public class IndexReference extends CollaborativeObject {
+  @GwtIncompatible("J2ObjC blocked by JSNI")
+  @ExportAfterCreateMethod
+  public native static void __jsRegisterProperties__() /*-{
+		var _ = $wnd.gdr.IndexReference.prototype;
+		Object
+				.defineProperties(
+						_,
+						{
+							id : {
+								get : function() {
+									return this.g.@com.goodow.realtime.CollaborativeObject::id;
+								}
+							},
+							canBeDeleted : {
+								get : function() {
+									return this.g.@com.goodow.realtime.IndexReference::canBeDeleted()();
+								}
+							},
+							index : {
+								get : function() {
+									return this.g.@com.goodow.realtime.IndexReference::getIndex()();
+								}
+							},
+							referencedObject : {
+								get : function() {
+									return this.g.@com.goodow.realtime.IndexReference::getReferencedObject()();
+								}
+							}
+						});
+  }-*/;
+
   private JsonArray snapshot;
 
   /**
@@ -59,6 +94,7 @@ public class IndexReference extends CollaborativeObject {
    *         the index reference will be deleted. If it is false, the index reference will move to
    *         point at the beginning of the deleted range.
    */
+  @NoExport
   public boolean canBeDeleted() {
     return snapshot.getBoolean(2);
   }
@@ -67,6 +103,7 @@ public class IndexReference extends CollaborativeObject {
    * @return The index of the current location the reference points to. Write to this property to
    *         change the referenced index.
    */
+  @NoExport
   public int getIndex() {
     return (int) snapshot.getNumber(1);
   }
@@ -74,6 +111,7 @@ public class IndexReference extends CollaborativeObject {
   /**
    * @return The object this reference points to. Read-only.
    */
+  @NoExport
   public CollaborativeObject getReferencedObject() {
     return model.getObject(snapshot.getString(0));
   }

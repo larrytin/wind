@@ -14,6 +14,7 @@
 package com.goodow.realtime.util;
 
 import com.goodow.realtime.CollaborativeString;
+import com.goodow.realtime.Disposable;
 import com.goodow.realtime.EventHandler;
 
 import com.google.gwt.core.client.EntryPoint;
@@ -26,6 +27,7 @@ import org.timepedia.exporter.client.ExportPackage;
 import org.timepedia.exporter.client.ExporterUtil;
 
 import java.util.Comparator;
+import java.util.logging.Logger;
 
 public class JsNativeInterfaceFactory implements NativeInterfaceFactory, EntryPoint {
   @ExportPackage(NativeInterfaceFactory.PACKAGE_PREFIX_OVERLAY)
@@ -35,13 +37,35 @@ public class JsNativeInterfaceFactory implements NativeInterfaceFactory, EntryPo
   }
   @ExportPackage(NativeInterfaceFactory.PACKAGE_PREFIX_OVERLAY)
   @ExportClosure
-  public interface __EventHandlerExportOverlay__ extends ExportOverlay<EventHandler<Object>> {
-    void handleEvent(Object event);
+  public interface __EventHandlerExportOverlay__ extends ExportOverlay<EventHandler<Disposable>> {
+    void handleEvent(Disposable event);
   }
+
+  private static final Logger log = Logger.getLogger(JsNativeInterfaceFactory.class.getName());
 
   @Override
   public void onModuleLoad() {
     ExporterUtil.exportAll();
+    onLoadImpl();
+    // Realtime.load("", new DocumentLoadedHandler() {
+    //
+    // @Override
+    // public void onLoaded(Document document) {
+    // log.info("onLoaded");
+    // }
+    // }, new ModelInitializerHandler() {
+    //
+    // @Override
+    // public void onInitializer(Model model) {
+    // log.info("onInitializer");
+    // }
+    // }, new ErrorHandler() {
+    //
+    // @Override
+    // public void handleError(Error error) {
+    // log.info("handleError");
+    // }
+    // });
   }
 
   @Override
@@ -61,4 +85,8 @@ public class JsNativeInterfaceFactory implements NativeInterfaceFactory, EntryPo
 
   }
 
+  private native void onLoadImpl() /*-{
+    if ($wnd.gdr.onLoad && typeof $wnd.gdr.onLoad == 'function')
+      $wnd.gdr.onLoad();
+  }-*/;
 }

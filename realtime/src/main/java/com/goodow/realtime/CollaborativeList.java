@@ -20,8 +20,12 @@ import com.goodow.realtime.op.list.algorithm.ListTarget;
 import com.goodow.realtime.util.JsonSerializer;
 import com.goodow.realtime.util.NativeInterfaceFactory;
 
+import com.google.common.annotations.GwtIncompatible;
+
 import org.timepedia.exporter.client.Export;
+import org.timepedia.exporter.client.ExportAfterCreateMethod;
 import org.timepedia.exporter.client.ExportPackage;
+import org.timepedia.exporter.client.NoExport;
 
 import java.util.Comparator;
 import java.util.Set;
@@ -48,6 +52,27 @@ import elemental.json.JsonValue;
 @ExportPackage(NativeInterfaceFactory.PACKAGE_PREFIX_REALTIME)
 @Export(all = true)
 public class CollaborativeList extends CollaborativeObject {
+  @GwtIncompatible("J2ObjC blocked by JSNI")
+  @ExportAfterCreateMethod
+  public native static void __jsRegisterProperties__() /*-{
+		var _ = $wnd.gdr.CollaborativeList.prototype;
+		Object
+				.defineProperties(
+						_,
+						{
+							id : {
+								get : function() {
+									return this.g.@com.goodow.realtime.CollaborativeObject::id;
+								}
+							},
+							length : {
+								get : function() {
+									return this.g.@com.goodow.realtime.CollaborativeList::length()();
+								}
+							}
+						});
+  }-*/;
+
   private JsonArray snapshot;
 
   /**
@@ -205,6 +230,7 @@ public class CollaborativeList extends CollaborativeObject {
    *         Note that the length given must be < or equal to the current size. The length of a list
    *         cannot be extended in this way.
    */
+  @NoExport
   public int length() {
     return snapshot.length();
   }

@@ -16,8 +16,12 @@ package com.goodow.realtime;
 import com.goodow.realtime.id.IdGenerator;
 import com.goodow.realtime.util.NativeInterfaceFactory;
 
+import com.google.common.annotations.GwtIncompatible;
+
 import org.timepedia.exporter.client.Export;
+import org.timepedia.exporter.client.ExportAfterCreateMethod;
 import org.timepedia.exporter.client.ExportPackage;
+import org.timepedia.exporter.client.NoExport;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -48,6 +52,30 @@ public class Model implements EventTarget {
   private static final String ROOT_ID = "root";
   private static final String EVENT_HANDLER_KEY = "model";
   private static final Logger log = Logger.getLogger(Model.class.getName());
+
+  @GwtIncompatible("J2ObjC blocked by JSNI")
+  @ExportAfterCreateMethod
+  public native static void __jsRegisterProperties__() /*-{
+		var _ = $wnd.gdr.Model.prototype;
+		Object.defineProperties(_, {
+			canRedo : {
+				get : function() {
+					return this.g.@com.goodow.realtime.Model::canRedo()();
+				}
+			},
+			canUndo : {
+				get : function() {
+					return this.g.@com.goodow.realtime.Model::canUndo()();
+				}
+			},
+			isReadOnly : {
+				get : function() {
+					return this.g.@com.goodow.realtime.Model::isReadOnly()();
+				}
+			}
+		});
+  }-*/;
+
   private boolean isReadOnly;
   private boolean canRedo;
   private boolean canUndo;
@@ -92,6 +120,7 @@ public class Model implements EventTarget {
   /**
    * @return True if the model can currently redo.
    */
+  @NoExport
   public boolean canRedo() {
     return canRedo;
   }
@@ -99,6 +128,7 @@ public class Model implements EventTarget {
   /**
    * @return True if the model can currently undo.
    */
+  @NoExport
   public boolean canUndo() {
     return canUndo;
   }
@@ -186,6 +216,7 @@ public class Model implements EventTarget {
   /**
    * @return The mode of the document. If true, the document is readonly. If false it is editable.
    */
+  @NoExport
   public boolean isReadOnly() {
     return isReadOnly;
   }

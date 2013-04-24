@@ -3,6 +3,7 @@
 
 # Change to where distribution was unzipped.
 J2OBJC_DIST = ~/dev/tools/lib/j2objc/dist
+M2_REPO = ~/.m2/repository
 
 SOURCE_LIST = $(JAVA_BUILD_DIR)/java.sources.list
 JAVA_SRC_DIR = src/main/java
@@ -56,6 +57,7 @@ $(JAVA_BUILD_DIR)/%.placeholder: $(JNI_SRC_DIR)/%.java
 translate: pre_translate $(JAVA_GEN_SOURCES) $(JNI_OBJC_SOURCES)
 	@if [ `cat $(SOURCE_LIST) | wc -l` -ge 1 ] ; then \
 	  $(J2OBJC) -sourcepath $(JAVA_SRC_DIR) -d $(JAVA_GEN_DIR) \
+	    -classpath '$(J2OBJC_DIST)/lib/guava-13.0.jar:$(M2_REPO)/org/timepedia/exporter/gwtexporter/2.5.0-SNAPSHOT/gwtexporter-2.5.0-SNAPSHOT.jar' \
 	    `cat $(SOURCE_LIST)` ; \
 	fi
 

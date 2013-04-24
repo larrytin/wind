@@ -14,7 +14,7 @@
 package com.goodow.realtime.util;
 
 /*-[
- #import "java/lang/NullPointerException.h"
+ // #import "Realtime.h"
  ]-*/
 import com.goodow.realtime.CollaborativeString;
 
@@ -28,8 +28,7 @@ public class ObjcNativeInterfaceFactory implements NativeInterfaceFactory {
 
   @Override
   public native void setText(CollaborativeString str, String text) /*-[
-    // Use NSDate
-    // return (long long) ([[NSDate date] timeIntervalSince1970] * 1000);
+    // [self setTextImpl:str text:text];
   ]-*/;
 
 }

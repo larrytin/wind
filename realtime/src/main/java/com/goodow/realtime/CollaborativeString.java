@@ -21,8 +21,12 @@ import com.goodow.realtime.op.list.algorithm.ListTarget;
 import com.goodow.realtime.util.NativeInterface;
 import com.goodow.realtime.util.NativeInterfaceFactory;
 
+import com.google.common.annotations.GwtIncompatible;
+
 import org.timepedia.exporter.client.Export;
+import org.timepedia.exporter.client.ExportAfterCreateMethod;
 import org.timepedia.exporter.client.ExportPackage;
+import org.timepedia.exporter.client.NoExport;
 
 import java.util.Set;
 
@@ -43,6 +47,27 @@ import java.util.Set;
 @ExportPackage(NativeInterfaceFactory.PACKAGE_PREFIX_REALTIME)
 @Export(all = true)
 public class CollaborativeString extends CollaborativeObject {
+  @GwtIncompatible("J2ObjC blocked by JSNI")
+  @ExportAfterCreateMethod
+  public native static void __jsRegisterProperties__() /*-{
+		var _ = $wnd.gdr.CollaborativeString.prototype;
+		Object
+				.defineProperties(
+						_,
+						{
+							id : {
+								get : function() {
+									return this.g.@com.goodow.realtime.CollaborativeObject::id;
+								}
+							},
+							length : {
+								get : function() {
+									return this.g.@com.goodow.realtime.CollaborativeString::length()();
+								}
+							}
+						});
+  }-*/;
+
   private StringBuilder snapshot;
 
   CollaborativeString(Model model) {
@@ -97,6 +122,7 @@ public class CollaborativeString extends CollaborativeObject {
   /**
    * @return The length of the string. Read only.
    */
+  @NoExport
   public int length() {
     return snapshot.length();
   }

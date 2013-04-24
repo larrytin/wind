@@ -16,6 +16,7 @@ package com.goodow.realtime;
 import com.goodow.realtime.util.NativeInterfaceFactory;
 
 import org.timepedia.exporter.client.Export;
+import org.timepedia.exporter.client.ExportClosure;
 import org.timepedia.exporter.client.ExportPackage;
 import org.timepedia.exporter.client.Exportable;
 
@@ -25,7 +26,9 @@ import org.timepedia.exporter.client.Exportable;
 @ExportPackage(NativeInterfaceFactory.PACKAGE_PREFIX_REALTIME)
 @Export
 public class Error implements Exportable {
-  public static interface ErrorHandler {
+  @ExportPackage(NativeInterfaceFactory.PACKAGE_PREFIX_OVERLAY)
+  @ExportClosure
+  public static interface ErrorHandler extends Exportable {
     void handleError(Error error);
   }
 

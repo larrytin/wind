@@ -20,7 +20,10 @@ import com.goodow.realtime.op.map.MapTarget;
 import com.goodow.realtime.util.JsonSerializer;
 import com.goodow.realtime.util.NativeInterfaceFactory;
 
+import com.google.common.annotations.GwtIncompatible;
+
 import org.timepedia.exporter.client.Export;
+import org.timepedia.exporter.client.ExportAfterCreateMethod;
 import org.timepedia.exporter.client.ExportPackage;
 import org.timepedia.exporter.client.NoExport;
 
@@ -46,6 +49,27 @@ import elemental.json.JsonValue;
 @ExportPackage(NativeInterfaceFactory.PACKAGE_PREFIX_REALTIME)
 @Export(all = true)
 public class CollaborativeMap extends CollaborativeObject {
+  @GwtIncompatible("J2ObjC blocked by JSNI")
+  @ExportAfterCreateMethod
+  public native static void __jsRegisterProperties__() /*-{
+		var _ = $wnd.gdr.CollaborativeMap.prototype;
+		Object
+				.defineProperties(
+						_,
+						{
+							id : {
+								get : function() {
+									return this.g.@com.goodow.realtime.CollaborativeObject::id;
+								}
+							},
+							size : {
+								get : function() {
+									return this.g.@com.goodow.realtime.CollaborativeMap::size()();
+								}
+							}
+						});
+  }-*/;
+
   private JsonObject snapshot;
 
   CollaborativeMap(Model model) {
@@ -65,25 +89,6 @@ public class CollaborativeMap extends CollaborativeObject {
       remove(key);
     }
     model.endCompoundOperation();
-  }
-
-  /**
-   * Removes the entry for the given key (if such an entry exists).
-   * 
-   * @param key The key to unmap.
-   * @return The value that was mapped to this key, or null if there was no existing value.
-   * @exception java.lang.IllegalArgumentException
-   */
-  public Object remove(String key) {
-    checkKey(key);
-    Object oldValue = get(key);
-    if (oldValue == null) {
-      return null;
-    }
-    MapOp op = new MapOp();
-    op.update(key, snapshot.getArray(key), null);
-    consumeAndSubmit(op);
-    return oldValue;
   }
 
   /**
@@ -147,6 +152,25 @@ public class CollaborativeMap extends CollaborativeObject {
    */
   public String[] keys() {
     return snapshot.keys();
+  }
+
+  /**
+   * Removes the entry for the given key (if such an entry exists).
+   * 
+   * @param key The key to unmap.
+   * @return The value that was mapped to this key, or null if there was no existing value.
+   * @exception java.lang.IllegalArgumentException
+   */
+  public Object remove(String key) {
+    checkKey(key);
+    Object oldValue = get(key);
+    if (oldValue == null) {
+      return null;
+    }
+    MapOp op = new MapOp();
+    op.update(key, snapshot.getArray(key), null);
+    consumeAndSubmit(op);
+    return oldValue;
   }
 
   public void removeValueChangedListener(EventHandler<ValueChangedEvent> handler) {

@@ -25,4 +25,5 @@
 
   <add-linker name="xsiframe"/>
   <!-- <add-linker name="sso"/> -->
+  <set-configuration-property name="devModeRedirectEnabled" value="true"/>
 </module>

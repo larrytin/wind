@@ -13,6 +13,6 @@
  */
 package com.goodow.realtime;
 
-public interface EventHandler<T> {
+public interface EventHandler<T extends Disposable> {
   void handleEvent(T event);
 }
