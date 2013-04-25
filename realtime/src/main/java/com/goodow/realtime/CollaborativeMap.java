@@ -27,6 +27,7 @@ import org.timepedia.exporter.client.ExportAfterCreateMethod;
 import org.timepedia.exporter.client.ExportPackage;
 import org.timepedia.exporter.client.NoExport;
 
+import java.util.Map;
 import java.util.Set;
 
 import elemental.json.Json;
@@ -51,7 +52,7 @@ import elemental.json.JsonValue;
 public class CollaborativeMap extends CollaborativeObject {
   @GwtIncompatible(NativeInterfaceFactory.JS_REGISTER_PROPERTIES)
   @ExportAfterCreateMethod
-  public native static void __jsRegisterProperties__() /*-{
+  public native static void __jsRunAfter__() /*-{
     var _ = $wnd.gdr.CollaborativeMap.prototype;
     Object.defineProperties(_, {
       id : {
@@ -242,19 +243,15 @@ public class CollaborativeMap extends CollaborativeObject {
     }
   }
 
-  void initializeCreate(String id, Object... opt_initialValue) {
+  void initializeCreate(String id, Map<String, ?> opt_initialValue) {
     JsonObject snapshot = Json.createObject();
     if (opt_initialValue != null) {
-      if (opt_initialValue.length % 2 != 0) {
-        throw new IllegalArgumentException("Initial values must come in groups of two.");
-      }
-      for (int i = 0, len = opt_initialValue.length; i < len; i += 2) {
-        assert opt_initialValue[i] instanceof String;
-        JsonArray array = JsonSerializer.objToJson(opt_initialValue[i + 1]);
+      for (Map.Entry<String, ?> entry : opt_initialValue.entrySet()) {
+        JsonArray array = JsonSerializer.objToJson(entry.getValue());
         if (array == null) {
           continue;
         }
-        snapshot.put((String) opt_initialValue[i], array);
+        snapshot.put(entry.getKey(), array);
       }
     }
     initialize(id, snapshot);
@@ -284,8 +281,8 @@ public class CollaborativeMap extends CollaborativeObject {
     for (String key : keys()) {
       if (!isFirst) {
         sb.append(", ");
-        isFirst = false;
       }
+      isFirst = false;
       sb.append(key).append(": ");
       Object value = get(key);
       if (value instanceof CollaborativeObject) {

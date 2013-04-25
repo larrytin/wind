@@ -54,7 +54,7 @@ import elemental.json.JsonValue;
 public class CollaborativeList extends CollaborativeObject {
   @GwtIncompatible(NativeInterfaceFactory.JS_REGISTER_PROPERTIES)
   @ExportAfterCreateMethod
-  public native static void __jsRegisterProperties__() /*-{
+  public native static void __jsRunAfter__() /*-{
     var _ = $wnd.gdr.CollaborativeList.prototype;
     Object.defineProperties(_, {
       id : {
@@ -436,8 +436,8 @@ public class CollaborativeList extends CollaborativeObject {
     for (int i = 0, len = length(); i < len; i++) {
       if (!isFirst) {
         sb.append(", ");
-        isFirst = false;
       }
+      isFirst = false;
       Object value = get(i);
       if (value == null) {
         sb.append("null");

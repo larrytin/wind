@@ -49,7 +49,7 @@ import java.util.Set;
 public class CollaborativeString extends CollaborativeObject {
   @GwtIncompatible(NativeInterfaceFactory.JS_REGISTER_PROPERTIES)
   @ExportAfterCreateMethod
-  public native static void __jsRegisterProperties__() /*-{
+  public native static void __jsRunAfter__() /*-{
     var _ = $wnd.gdr.CollaborativeString.prototype;
     Object.defineProperties(_, {
       id : {

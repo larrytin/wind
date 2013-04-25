@@ -15,6 +15,9 @@ package com.goodow.realtime;
 
 import junit.framework.TestCase;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import elemental.json.Json;
 import elemental.json.JsonArray;
 import elemental.json.JsonObject;
@@ -57,7 +60,12 @@ public class CollaborativeMapTest extends TestCase {
 
     JsonObject v4 = Json.createObject();
     v4.put("subKey", "subValue");
-    map = mod.createMap("k1", "v1", "k2", 2, "k3", true, "k4", v4);
+    Map<String, Object> initialValue = new HashMap<String, Object>();
+    initialValue.put("k1", "v1");
+    initialValue.put("k2", 2);
+    initialValue.put("k3", true);
+    initialValue.put("k4", v4);
+    map = mod.createMap(initialValue);
     assertEquals(4, map.size());
     assertEquals("v1", map.get("k1"));
     assertEquals(2d, (Double) map.get("k2"), 0d);
@@ -121,6 +129,6 @@ public class CollaborativeMapTest extends TestCase {
     DocumentBridge bridge = new DocumentBridge();
     Document doc = bridge.create(Json.createArray());
     mod = doc.getModel();
-    map = mod.createMap();
+    map = mod.createMap(null);
   }
 }

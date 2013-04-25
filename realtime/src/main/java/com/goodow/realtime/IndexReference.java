@@ -46,7 +46,7 @@ import elemental.json.JsonArray;
 public class IndexReference extends CollaborativeObject {
   @GwtIncompatible(NativeInterfaceFactory.JS_REGISTER_PROPERTIES)
   @ExportAfterCreateMethod
-  public native static void __jsRegisterProperties__() /*-{
+  public native static void __jsRunAfter__() /*-{
     var _ = $wnd.gdr.IndexReference.prototype;
     Object.defineProperties(_, {
       id : {
@@ -66,7 +66,8 @@ public class IndexReference extends CollaborativeObject {
       },
       referencedObject : {
         get : function() {
-          return @org.timepedia.exporter.client.ExporterUtil::wrap(Ljava/lang/Object;)(this.g.@com.goodow.realtime.IndexReference::getReferencedObject()());
+          var v = this.g.@com.goodow.realtime.IndexReference::getReferencedObject()();
+          return @org.timepedia.exporter.client.ExporterUtil::wrap(Ljava/lang/Object;)(v);
         }
       }
     });

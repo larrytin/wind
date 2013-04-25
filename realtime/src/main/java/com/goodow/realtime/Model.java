@@ -29,6 +29,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
+import elemental.js.util.JsMapFromStringTo;
+import elemental.util.ArrayOfString;
+
 /**
  * The collaborative model is the data model for a Realtime document. The document's object graph
  * should be added to the model under the root object. All objects that are part of the model must
@@ -55,7 +58,7 @@ public class Model implements EventTarget {
 
   @GwtIncompatible(NativeInterfaceFactory.JS_REGISTER_PROPERTIES)
   @ExportAfterCreateMethod
-  public native static void __jsRegisterProperties__() /*-{
+  public native static void __jsRunAfter__() /*-{
     var _ = $wnd.gdr.Model.prototype;
     Object.defineProperties(_, {
       canRedo : {
@@ -74,6 +77,19 @@ public class Model implements EventTarget {
         }
       }
     });
+    _.createMap = function(opt_initialValue) {
+      var jsMap;
+      if (opt_initialValue !== undefined) {
+        jsMap = {};
+        for ( var key in opt_initialValue) {
+          if (Object.prototype.hasOwnProperty.call(opt_initialValue, key) && key != '$H') {
+            jsMap[key] = @org.timepedia.exporter.client.ExporterUtil::gwtInstance(Ljava/lang/Object;)(opt_initialValue[key]);
+          }
+        }
+      }
+      var v = this.g.@com.goodow.realtime.Model::__jsCreateMap__(Lelemental/js/util/JsMapFromStringTo;)(jsMap);
+      return @org.timepedia.exporter.client.ExporterUtil::wrap(Ljava/lang/Object;)(v);
+    };
   }-*/;
 
   private boolean isReadOnly;
@@ -165,7 +181,8 @@ public class Model implements EventTarget {
    * @param opt_initialValue Initial value for the map.
    * @return A collaborative map.
    */
-  public CollaborativeMap createMap(Object... opt_initialValue) {
+  @NoExport
+  public CollaborativeMap createMap(Map<String, ?> opt_initialValue) {
     beginCreationCompoundOperation();
     CollaborativeMap obj = new CollaborativeMap(this);
     obj.initializeCreate(generateObjectId(), opt_initialValue);
@@ -185,7 +202,7 @@ public class Model implements EventTarget {
     obj.initialize(generateObjectId(), opt_initialValue);
     endCompoundOperation();
     return obj;
-  };
+  }
 
   /**
    * Ends a compound operation. This method will throw an exception if no compound operation is in
@@ -259,7 +276,7 @@ public class Model implements EventTarget {
   void createRoot() {
     beginCreationCompoundOperation();
     CollaborativeMap obj = new CollaborativeMap(this);
-    obj.initializeCreate(ROOT_ID);
+    obj.initializeCreate(ROOT_ID, null);
     endCompoundOperation();
   }
 
@@ -292,6 +309,20 @@ public class Model implements EventTarget {
         indexReference.setIndex(isInsert, index, length, sessionId, userId);
       }
     }
+  }
+
+  @GwtIncompatible(NativeInterfaceFactory.JS_REGISTER_MATHODS)
+  private CollaborativeMap __jsCreateMap__(JsMapFromStringTo<?> map) {
+    if (map == null) {
+      return createMap(null);
+    }
+    HashMap<String, Object> opt_initialValue = new HashMap<String, Object>();
+    ArrayOfString keys = map.keys();
+    for (int i = 0, len = keys.length(); i < len; i++) {
+      String key = keys.get(i);
+      opt_initialValue.put(key, map.get(key));
+    }
+    return createMap(opt_initialValue);
   }
 
   private String generateObjectId() {
