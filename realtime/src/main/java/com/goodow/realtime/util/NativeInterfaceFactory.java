@@ -21,6 +21,8 @@ public interface NativeInterfaceFactory {
   String PACKAGE_PREFIX_DATABINDING = "gdr.databinding";
   String PACKAGE_PREFIX_OVERLAY = "gdr._ExportOverlay_";
 
+  String JS_REGISTER_PROPERTIES = "J2ObjC blocked by JSNI";
+
   /**
    * A deferred command is executed after the event loop returns.
    */

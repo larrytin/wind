@@ -44,35 +44,32 @@ import elemental.json.JsonArray;
 @ExportPackage(NativeInterfaceFactory.PACKAGE_PREFIX_REALTIME)
 @Export(all = true)
 public class IndexReference extends CollaborativeObject {
-  @GwtIncompatible("J2ObjC blocked by JSNI")
+  @GwtIncompatible(NativeInterfaceFactory.JS_REGISTER_PROPERTIES)
   @ExportAfterCreateMethod
   public native static void __jsRegisterProperties__() /*-{
-		var _ = $wnd.gdr.IndexReference.prototype;
-		Object
-				.defineProperties(
-						_,
-						{
-							id : {
-								get : function() {
-									return this.g.@com.goodow.realtime.CollaborativeObject::id;
-								}
-							},
-							canBeDeleted : {
-								get : function() {
-									return this.g.@com.goodow.realtime.IndexReference::canBeDeleted()();
-								}
-							},
-							index : {
-								get : function() {
-									return this.g.@com.goodow.realtime.IndexReference::getIndex()();
-								}
-							},
-							referencedObject : {
-								get : function() {
-									return this.g.@com.goodow.realtime.IndexReference::getReferencedObject()();
-								}
-							}
-						});
+    var _ = $wnd.gdr.IndexReference.prototype;
+    Object.defineProperties(_, {
+      id : {
+        get : function() {
+          return this.g.@com.goodow.realtime.CollaborativeObject::id;
+        }
+      },
+      canBeDeleted : {
+        get : function() {
+          return this.g.@com.goodow.realtime.IndexReference::canBeDeleted()();
+        }
+      },
+      index : {
+        get : function() {
+          return this.g.@com.goodow.realtime.IndexReference::getIndex()();
+        }
+      },
+      referencedObject : {
+        get : function() {
+          return @org.timepedia.exporter.client.ExporterUtil::wrap(Ljava/lang/Object;)(this.g.@com.goodow.realtime.IndexReference::getReferencedObject()());
+        }
+      }
+    });
   }-*/;
 
   private JsonArray snapshot;

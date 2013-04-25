@@ -53,27 +53,27 @@ public class Model implements EventTarget {
   private static final String EVENT_HANDLER_KEY = "model";
   private static final Logger log = Logger.getLogger(Model.class.getName());
 
-  @GwtIncompatible("J2ObjC blocked by JSNI")
+  @GwtIncompatible(NativeInterfaceFactory.JS_REGISTER_PROPERTIES)
   @ExportAfterCreateMethod
   public native static void __jsRegisterProperties__() /*-{
-		var _ = $wnd.gdr.Model.prototype;
-		Object.defineProperties(_, {
-			canRedo : {
-				get : function() {
-					return this.g.@com.goodow.realtime.Model::canRedo()();
-				}
-			},
-			canUndo : {
-				get : function() {
-					return this.g.@com.goodow.realtime.Model::canUndo()();
-				}
-			},
-			isReadOnly : {
-				get : function() {
-					return this.g.@com.goodow.realtime.Model::isReadOnly()();
-				}
-			}
-		});
+    var _ = $wnd.gdr.Model.prototype;
+    Object.defineProperties(_, {
+      canRedo : {
+        get : function() {
+          return this.g.@com.goodow.realtime.Model::canRedo()();
+        }
+      },
+      canUndo : {
+        get : function() {
+          return this.g.@com.goodow.realtime.Model::canUndo()();
+        }
+      },
+      isReadOnly : {
+        get : function() {
+          return this.g.@com.goodow.realtime.Model::isReadOnly()();
+        }
+      }
+    });
   }-*/;
 
   private boolean isReadOnly;

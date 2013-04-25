@@ -47,25 +47,22 @@ import java.util.Set;
 @ExportPackage(NativeInterfaceFactory.PACKAGE_PREFIX_REALTIME)
 @Export(all = true)
 public class CollaborativeString extends CollaborativeObject {
-  @GwtIncompatible("J2ObjC blocked by JSNI")
+  @GwtIncompatible(NativeInterfaceFactory.JS_REGISTER_PROPERTIES)
   @ExportAfterCreateMethod
   public native static void __jsRegisterProperties__() /*-{
-		var _ = $wnd.gdr.CollaborativeString.prototype;
-		Object
-				.defineProperties(
-						_,
-						{
-							id : {
-								get : function() {
-									return this.g.@com.goodow.realtime.CollaborativeObject::id;
-								}
-							},
-							length : {
-								get : function() {
-									return this.g.@com.goodow.realtime.CollaborativeString::length()();
-								}
-							}
-						});
+    var _ = $wnd.gdr.CollaborativeString.prototype;
+    Object.defineProperties(_, {
+      id : {
+        get : function() {
+          return this.g.@com.goodow.realtime.CollaborativeObject::id;
+        }
+      },
+      length : {
+        get : function() {
+          return this.g.@com.goodow.realtime.CollaborativeString::length()();
+        }
+      }
+    });
   }-*/;
 
   private StringBuilder snapshot;

@@ -49,25 +49,22 @@ import elemental.json.JsonValue;
 @ExportPackage(NativeInterfaceFactory.PACKAGE_PREFIX_REALTIME)
 @Export(all = true)
 public class CollaborativeMap extends CollaborativeObject {
-  @GwtIncompatible("J2ObjC blocked by JSNI")
+  @GwtIncompatible(NativeInterfaceFactory.JS_REGISTER_PROPERTIES)
   @ExportAfterCreateMethod
   public native static void __jsRegisterProperties__() /*-{
-		var _ = $wnd.gdr.CollaborativeMap.prototype;
-		Object
-				.defineProperties(
-						_,
-						{
-							id : {
-								get : function() {
-									return this.g.@com.goodow.realtime.CollaborativeObject::id;
-								}
-							},
-							size : {
-								get : function() {
-									return this.g.@com.goodow.realtime.CollaborativeMap::size()();
-								}
-							}
-						});
+    var _ = $wnd.gdr.CollaborativeMap.prototype;
+    Object.defineProperties(_, {
+      id : {
+        get : function() {
+          return this.g.@com.goodow.realtime.CollaborativeObject::id;
+        }
+      },
+      size : {
+        get : function() {
+          return this.g.@com.goodow.realtime.CollaborativeMap::size()();
+        }
+      }
+    });
   }-*/;
 
   private JsonObject snapshot;

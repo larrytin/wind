@@ -36,7 +36,7 @@ TEST_OBJCS = $(TEST_TEMP_OBJCS:.java=.o)
 TEST_BINS = $(TEST_OBJCS:.o=)
 
 J2OBJC = $(J2OBJC_DIST)/j2objc --prefixes src/main/objectivec/package-prefixes.properties \
-  --mapping src/main/objectivec/method-mappings.properties
+  --mapping src/main/objectivec/method-mappings.properties 
 J2OBJCC = $(J2OBJC_DIST)/j2objcc
 JUNIT_JAR = $(J2OBJC_DIST)/lib/junit-4.10.jar
 
