@@ -36,7 +36,7 @@ TEST_OBJCS = $(TEST_TEMP_OBJCS:.java=.o)
 TEST_BINS = $(TEST_OBJCS:.o=)
 
 J2OBJC = $(J2OBJC_DIST)/j2objc --prefixes src/main/objectivec/package-prefixes.properties \
-  --mapping src/main/objectivec/method-mappings.properties 
+  --mapping src/main/objectivec/method-mappings.properties
 J2OBJCC = $(J2OBJC_DIST)/j2objcc
 JUNIT_JAR = $(J2OBJC_DIST)/lib/junit-4.10.jar
 
@@ -57,7 +57,8 @@ $(JAVA_BUILD_DIR)/%.placeholder: $(JNI_SRC_DIR)/%.java
 translate: pre_translate $(JAVA_GEN_SOURCES) $(JNI_OBJC_SOURCES)
 	@if [ `cat $(SOURCE_LIST) | wc -l` -ge 1 ] ; then \
 	  $(J2OBJC) -sourcepath $(JAVA_SRC_DIR) -d $(JAVA_GEN_DIR) \
-	    -classpath '$(J2OBJC_DIST)/lib/guava-13.0.jar:$(M2_REPO)/org/timepedia/exporter/gwtexporter/2.5.0-SNAPSHOT/gwtexporter-2.5.0-SNAPSHOT.jar' \
+	    -classpath '$(J2OBJC_DIST)/lib/guava-13.0.jar:$(M2_REPO)/org/timepedia/exporter/gwtexporter/2.5.0-SNAPSHOT/gwtexporter-2.5.0-SNAPSHOT.jar:\
+$(M2_REPO)/com/google/gwt/gwt-elemental/2.5.1/gwt-elemental-2.5.1.jar:$(M2_REPO)/com/google/gwt/gwt-user/2.5.1/gwt-user-2.5.1.jar' \
 	    `cat $(SOURCE_LIST)` ; \
 	fi
 
@@ -81,7 +82,7 @@ $(TEST_GEN_DIR)/%.m $(TEST_GEN_DIR)/%.h: $(TEST_SRC_DIR)/%.java
 translate-test: pre_translate_test $(TEST_GEN_SOURCES)
 	@if [ `cat $(TEST_SOURCE_LIST) | wc -l` -ge 1 ] ; then \
 	  $(J2OBJC) -sourcepath $(JAVA_SRC_DIR):$(TEST_SRC_DIR) -d $(TEST_GEN_DIR) \
-	    -classpath $(JUNIT_JAR) -Werror \
+	    -classpath $(JUNIT_JAR) -Werror -use-arc \
 	    `cat $(TEST_SOURCE_LIST)` ; \
 	fi
 

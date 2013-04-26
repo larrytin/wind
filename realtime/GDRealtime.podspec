@@ -12,7 +12,8 @@ Pod::Spec.new do |s|
   s.resources = 'src/main/objectivec/Resources/**'
   s.requires_arc = false
 
-  s.dependency 'jre_emul', '~> 0.6.1'
+  s.dependency 'jre_emul'
+#, '~> 0.6.1'
   s.dependency 'Google-Diff-Match-Patch', '~> 0.0.1'
 
 end
