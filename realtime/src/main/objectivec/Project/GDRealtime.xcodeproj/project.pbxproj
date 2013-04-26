@@ -7,62 +7,233 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8D9585C71722846B00809C78 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9585C61722846B00809C78 /* Foundation.framework */; };
-		8D9585CC1722846B00809C78 /* GDRealtime.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8D9585CB1722846B00809C78 /* GDRealtime.h */; };
-		8D9585CE1722846B00809C78 /* GDRealtime.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D9585CD1722846B00809C78 /* GDRealtime.m */; };
-		B9892C86E0684C9DA1D7E25C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1E314C515942C7ABEDBA80 /* libPods.a */; };
+		5108700C8A034AA1A9932587 /* libPods-Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55A9271F7BCC449A99E5FD7C /* libPods-Demo.a */; };
+		88055E27220D465AA5E3346A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0DAA601CC5447768F677468 /* libPods.a */; };
+		8D36DB6F172A75860032DB23 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9585C61722846B00809C78 /* Foundation.framework */; };
+		8D36DB7D172A75860032DB23 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DAD948C172A6FE0003BCEA2 /* SenTestingKit.framework */; };
+		8D36DB7E172A75860032DB23 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DAD9469172A6FE0003BCEA2 /* UIKit.framework */; };
+		8D36DB7F172A75860032DB23 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9585C61722846B00809C78 /* Foundation.framework */; };
+		8D36DB82172A75860032DB23 /* libGDRealtime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D36DB6E172A75860032DB23 /* libGDRealtime.a */; };
+		8D36DB88172A75860032DB23 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D36DB86172A75860032DB23 /* InfoPlist.strings */; };
+		8D36DB8B172A75860032DB23 /* GDRealtimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D36DB8A172A75860032DB23 /* GDRealtimeTests.m */; };
+		8D36DB97172A75B10032DB23 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DAD9469172A6FE0003BCEA2 /* UIKit.framework */; };
+		8D36DB98172A75B10032DB23 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9585C61722846B00809C78 /* Foundation.framework */; };
+		8D36DB99172A75B10032DB23 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DAD946C172A6FE0003BCEA2 /* CoreGraphics.framework */; };
+		8D36DB9F172A75B10032DB23 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D36DB9D172A75B10032DB23 /* InfoPlist.strings */; };
+		8D36DBA1172A75B10032DB23 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D36DBA0172A75B10032DB23 /* main.m */; };
+		8D36DBA5172A75B10032DB23 /* GDDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D36DBA4172A75B10032DB23 /* GDDAppDelegate.m */; };
+		8D36DBA7172A75B10032DB23 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D36DBA6172A75B10032DB23 /* Default.png */; };
+		8D36DBA9172A75B10032DB23 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D36DBA8172A75B10032DB23 /* Default@2x.png */; };
+		8D36DBAB172A75B10032DB23 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D36DBAA172A75B10032DB23 /* Default-568h@2x.png */; };
+		8D36DBAE172A75B10032DB23 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D36DBAC172A75B10032DB23 /* MainStoryboard.storyboard */; };
+		8D36DBB1172A75B10032DB23 /* GDDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D36DBB0172A75B10032DB23 /* GDDViewController.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		8D2A5534172A811B00DCFE02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D2A552D172A811B00DCFE02 /* JreEmulation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06619385155848D70004DAFE;
+			remoteInfo = jre_emul;
+		};
+		8D2A5536172A811B00DCFE02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D2A552D172A811B00DCFE02 /* JreEmulation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0672177F15587E2C00645E1B;
+			remoteInfo = jre_emul_tests;
+		};
+		8D36DB80172A75860032DB23 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D9585BB1722846B00809C78 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D36DB6D172A75860032DB23;
+			remoteInfo = GDRealtime;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
-		8D9585C11722846B00809C78 /* CopyFiles */ = {
+		8D36DB6C172A75860032DB23 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
-				8D9585CC1722846B00809C78 /* GDRealtime.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		39507C5B41B84CA2A379DC27 /* Pods-Demo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.xcconfig"; path = "Pods/Pods-Demo.xcconfig"; sourceTree = SOURCE_ROOT; };
 		5375C75963B547B1A7479CE7 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
-		8D9585C31722846B00809C78 /* libGDRealtime.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGDRealtime.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		55A9271F7BCC449A99E5FD7C /* libPods-Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E6A3062261E470D92066DAD /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		8D2A552D172A811B00DCFE02 /* JreEmulation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JreEmulation.xcodeproj; path = ../../../../../../../../tools/lib/j2objc/jre_emul/JreEmulation.xcodeproj; sourceTree = "<group>"; };
+		8D36DB6E172A75860032DB23 /* libGDRealtime.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGDRealtime.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D36DB7C172A75860032DB23 /* GDRealtimeTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = GDRealtimeTests.octest; path = test.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D36DB85172A75860032DB23 /* GDRealtimeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GDRealtimeTests-Info.plist"; sourceTree = "<group>"; };
+		8D36DB87172A75860032DB23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8D36DB89172A75860032DB23 /* GDRealtimeTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDRealtimeTests.h; sourceTree = "<group>"; };
+		8D36DB8A172A75860032DB23 /* GDRealtimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDRealtimeTests.m; sourceTree = "<group>"; };
+		8D36DB96172A75B10032DB23 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D36DB9C172A75B10032DB23 /* Demo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Demo-Info.plist"; sourceTree = "<group>"; };
+		8D36DB9E172A75B10032DB23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8D36DBA0172A75B10032DB23 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8D36DBA2172A75B10032DB23 /* Demo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Demo-Prefix.pch"; sourceTree = "<group>"; };
+		8D36DBA3172A75B10032DB23 /* GDDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDDAppDelegate.h; sourceTree = "<group>"; };
+		8D36DBA4172A75B10032DB23 /* GDDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDDAppDelegate.m; sourceTree = "<group>"; };
+		8D36DBA6172A75B10032DB23 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		8D36DBA8172A75B10032DB23 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		8D36DBAA172A75B10032DB23 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		8D36DBAD172A75B10032DB23 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		8D36DBAF172A75B10032DB23 /* GDDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDDViewController.h; sourceTree = "<group>"; };
+		8D36DBB0172A75B10032DB23 /* GDDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDDViewController.m; sourceTree = "<group>"; };
+		8D871C4C17265C00001306C8 /* ComGoodowRealtimeUtilObjcNativeInterfaceFactory+NativeImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ComGoodowRealtimeUtilObjcNativeInterfaceFactory+NativeImpl.h"; sourceTree = "<group>"; };
+		8D871C4D17265C00001306C8 /* ComGoodowRealtimeUtilObjcNativeInterfaceFactory+NativeImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ComGoodowRealtimeUtilObjcNativeInterfaceFactory+NativeImpl.m"; sourceTree = "<group>"; };
 		8D9585C61722846B00809C78 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		8D9585CA1722846B00809C78 /* GDRealtime-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GDRealtime-Prefix.pch"; sourceTree = "<group>"; };
-		8D9585CB1722846B00809C78 /* GDRealtime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDRealtime.h; sourceTree = "<group>"; };
-		8D9585CD1722846B00809C78 /* GDRealtime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDRealtime.m; sourceTree = "<group>"; };
+		8DAD9469172A6FE0003BCEA2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		8DAD946C172A6FE0003BCEA2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8DAD948C172A6FE0003BCEA2 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		8DC109B1172A3A8900683CF4 /* GDRealtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDRealtime.h; sourceTree = "<group>"; };
+		8EFF81E4EA944B81A11C88B5 /* libPods-Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA897D8E135543728784F6C9 /* Pods-Demo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.xcconfig"; path = "Pods/Pods-Demo.xcconfig"; sourceTree = SOURCE_ROOT; };
+		D0DAA601CC5447768F677468 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA1E314C515942C7ABEDBA80 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8D9585C01722846B00809C78 /* Frameworks */ = {
+		8D36DB6B172A75860032DB23 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D9585C71722846B00809C78 /* Foundation.framework in Frameworks */,
-				B9892C86E0684C9DA1D7E25C /* libPods.a in Frameworks */,
+				8D36DB6F172A75860032DB23 /* Foundation.framework in Frameworks */,
+				88055E27220D465AA5E3346A /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D36DB78172A75860032DB23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D36DB7D172A75860032DB23 /* SenTestingKit.framework in Frameworks */,
+				8D36DB7E172A75860032DB23 /* UIKit.framework in Frameworks */,
+				8D36DB7F172A75860032DB23 /* Foundation.framework in Frameworks */,
+				8D36DB82172A75860032DB23 /* libGDRealtime.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D36DB93172A75B10032DB23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D36DB97172A75B10032DB23 /* UIKit.framework in Frameworks */,
+				8D36DB98172A75B10032DB23 /* Foundation.framework in Frameworks */,
+				8D36DB99172A75B10032DB23 /* CoreGraphics.framework in Frameworks */,
+				5108700C8A034AA1A9932587 /* libPods-Demo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D2A552E172A811B00DCFE02 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D2A5535172A811B00DCFE02 /* libjre_emul.a */,
+				8D2A5537172A811B00DCFE02 /* jre_emul_tests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8D36DB83172A75860032DB23 /* GDRealtimeTests */ = {
+			isa = PBXGroup;
+			children = (
+				8D36DB89172A75860032DB23 /* GDRealtimeTests.h */,
+				8D36DB8A172A75860032DB23 /* GDRealtimeTests.m */,
+				8D36DB84172A75860032DB23 /* Supporting Files */,
+			);
+			path = GDRealtimeTests;
+			sourceTree = "<group>";
+		};
+		8D36DB84172A75860032DB23 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8D36DB85172A75860032DB23 /* GDRealtimeTests-Info.plist */,
+				8D36DB86172A75860032DB23 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8D36DB9A172A75B10032DB23 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				8D36DBA3172A75B10032DB23 /* GDDAppDelegate.h */,
+				8D36DBA4172A75B10032DB23 /* GDDAppDelegate.m */,
+				8D36DBAC172A75B10032DB23 /* MainStoryboard.storyboard */,
+				8D36DBAF172A75B10032DB23 /* GDDViewController.h */,
+				8D36DBB0172A75B10032DB23 /* GDDViewController.m */,
+				8D36DB9B172A75B10032DB23 /* Supporting Files */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		8D36DB9B172A75B10032DB23 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8D36DB9C172A75B10032DB23 /* Demo-Info.plist */,
+				8D36DB9D172A75B10032DB23 /* InfoPlist.strings */,
+				8D36DBA0172A75B10032DB23 /* main.m */,
+				8D36DBA2172A75B10032DB23 /* Demo-Prefix.pch */,
+				8D36DBA6172A75B10032DB23 /* Default.png */,
+				8D36DBA8172A75B10032DB23 /* Default@2x.png */,
+				8D36DBAA172A75B10032DB23 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8D871C401726591E001306C8 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8D871C411726591E001306C8 /* ios */,
+			);
+			name = Classes;
+			path = ../Classes;
+			sourceTree = "<group>";
+		};
+		8D871C411726591E001306C8 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				8DC109B1172A3A8900683CF4 /* GDRealtime.h */,
+				8D871C4C17265C00001306C8 /* ComGoodowRealtimeUtilObjcNativeInterfaceFactory+NativeImpl.h */,
+				8D871C4D17265C00001306C8 /* ComGoodowRealtimeUtilObjcNativeInterfaceFactory+NativeImpl.m */,
+			);
+			path = ios;
+			sourceTree = "<group>";
+		};
 		8D9585BA1722846B00809C78 = {
 			isa = PBXGroup;
 			children = (
-				8D9585C81722846B00809C78 /* GDRealtime */,
+				8D2A552D172A811B00DCFE02 /* JreEmulation.xcodeproj */,
+				8D871C401726591E001306C8 /* Classes */,
+				8D36DB83172A75860032DB23 /* GDRealtimeTests */,
+				8D36DB9A172A75B10032DB23 /* Demo */,
 				8D9585C51722846B00809C78 /* Frameworks */,
 				8D9585C41722846B00809C78 /* Products */,
 				5375C75963B547B1A7479CE7 /* Pods.xcconfig */,
+				5E6A3062261E470D92066DAD /* Pods.xcconfig */,
+				39507C5B41B84CA2A379DC27 /* Pods-Demo.xcconfig */,
+				AA897D8E135543728784F6C9 /* Pods-Demo.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
 		8D9585C41722846B00809C78 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D9585C31722846B00809C78 /* libGDRealtime.a */,
+				8D36DB6E172A75860032DB23 /* libGDRealtime.a */,
+				8D36DB7C172A75860032DB23 /* GDRealtimeTests.octest */,
+				8D36DB96172A75B10032DB23 /* Demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -72,40 +243,28 @@
 			children = (
 				8D9585C61722846B00809C78 /* Foundation.framework */,
 				FA1E314C515942C7ABEDBA80 /* libPods.a */,
+				8DAD9469172A6FE0003BCEA2 /* UIKit.framework */,
+				8DAD946C172A6FE0003BCEA2 /* CoreGraphics.framework */,
+				8DAD948C172A6FE0003BCEA2 /* SenTestingKit.framework */,
+				D0DAA601CC5447768F677468 /* libPods.a */,
+				8EFF81E4EA944B81A11C88B5 /* libPods-Demo.a */,
+				55A9271F7BCC449A99E5FD7C /* libPods-Demo.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		8D9585C81722846B00809C78 /* GDRealtime */ = {
-			isa = PBXGroup;
-			children = (
-				8D9585CB1722846B00809C78 /* GDRealtime.h */,
-				8D9585CD1722846B00809C78 /* GDRealtime.m */,
-				8D9585C91722846B00809C78 /* Supporting Files */,
-			);
-			path = GDRealtime;
-			sourceTree = "<group>";
-		};
-		8D9585C91722846B00809C78 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				8D9585CA1722846B00809C78 /* GDRealtime-Prefix.pch */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8D9585C21722846B00809C78 /* GDRealtime */ = {
+		8D36DB6D172A75860032DB23 /* GDRealtime */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8D9585D11722846B00809C78 /* Build configuration list for PBXNativeTarget "GDRealtime" */;
+			buildConfigurationList = 8D36DB8C172A75860032DB23 /* Build configuration list for PBXNativeTarget "GDRealtime" */;
 			buildPhases = (
-				66B016AC53BA4458845CB67B /* Check Pods Manifest.lock */,
-				8D9585BF1722846B00809C78 /* Sources */,
-				8D9585C01722846B00809C78 /* Frameworks */,
-				8D9585C11722846B00809C78 /* CopyFiles */,
-				87AB042C97A748E493D271E0 /* Copy Pods Resources */,
+				F356824BE36B490785833A25 /* Check Pods Manifest.lock */,
+				8D36DB6A172A75860032DB23 /* Sources */,
+				8D36DB6B172A75860032DB23 /* Frameworks */,
+				8D36DB6C172A75860032DB23 /* CopyFiles */,
+				E6DACD0B1A844F428EFBDEBB /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -113,8 +272,48 @@
 			);
 			name = GDRealtime;
 			productName = GDRealtime;
-			productReference = 8D9585C31722846B00809C78 /* libGDRealtime.a */;
+			productReference = 8D36DB6E172A75860032DB23 /* libGDRealtime.a */;
 			productType = "com.apple.product-type.library.static";
+		};
+		8D36DB7B172A75860032DB23 /* test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D36DB8F172A75860032DB23 /* Build configuration list for PBXNativeTarget "test" */;
+			buildPhases = (
+				8D36DB77172A75860032DB23 /* Sources */,
+				8D36DB78172A75860032DB23 /* Frameworks */,
+				8D36DB79172A75860032DB23 /* Resources */,
+				8D36DB7A172A75860032DB23 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8D36DB81172A75860032DB23 /* PBXTargetDependency */,
+			);
+			name = test;
+			productName = GDRealtimeTests;
+			productReference = 8D36DB7C172A75860032DB23 /* GDRealtimeTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+		8D36DB95172A75B10032DB23 /* Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D36DBB2172A75B10032DB23 /* Build configuration list for PBXNativeTarget "Demo" */;
+			buildPhases = (
+				3F64C38E067B45268A10F72D /* Check Pods Manifest.lock */,
+				76E3370BDB36411E9556287C /* Check Pods Manifest.lock */,
+				8D36DB92172A75B10032DB23 /* Sources */,
+				8D36DB93172A75B10032DB23 /* Frameworks */,
+				8D36DB94172A75B10032DB23 /* Resources */,
+				A2E2EDEDD3104FCE8D577937 /* Copy Pods Resources */,
+				78B1EC37A51944D18B8CFFF9 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Demo;
+			productName = Demo;
+			productReference = 8D36DB96172A75B10032DB23 /* Demo.app */;
+			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
@@ -135,15 +334,63 @@
 			mainGroup = 8D9585BA1722846B00809C78;
 			productRefGroup = 8D9585C41722846B00809C78 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 8D2A552E172A811B00DCFE02 /* Products */;
+					ProjectRef = 8D2A552D172A811B00DCFE02 /* JreEmulation.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
-				8D9585C21722846B00809C78 /* GDRealtime */,
+				8D36DB6D172A75860032DB23 /* GDRealtime */,
+				8D36DB95172A75B10032DB23 /* Demo */,
+				8D36DB7B172A75860032DB23 /* test */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		8D2A5535172A811B00DCFE02 /* libjre_emul.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libjre_emul.a;
+			remoteRef = 8D2A5534172A811B00DCFE02 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8D2A5537172A811B00DCFE02 /* jre_emul_tests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = jre_emul_tests.octest;
+			remoteRef = 8D2A5536172A811B00DCFE02 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D36DB79172A75860032DB23 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D36DB88172A75860032DB23 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D36DB94172A75B10032DB23 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D36DB9F172A75B10032DB23 /* InfoPlist.strings in Resources */,
+				8D36DBA7172A75B10032DB23 /* Default.png in Resources */,
+				8D36DBA9172A75B10032DB23 /* Default@2x.png in Resources */,
+				8D36DBAB172A75B10032DB23 /* Default-568h@2x.png in Resources */,
+				8D36DBAE172A75B10032DB23 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXShellScriptBuildPhase section */
-		66B016AC53BA4458845CB67B /* Check Pods Manifest.lock */ = {
+		3F64C38E067B45268A10F72D /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -157,7 +404,62 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sanbox is not in sync with the Podfile.lock. Run 'pod install'.\nEOM\n    exit 1\nfi\n";
 		};
-		87AB042C97A748E493D271E0 /* Copy Pods Resources */ = {
+		76E3370BDB36411E9556287C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sanbox is not in sync with the Podfile.lock. Run 'pod install'.\nEOM\n    exit 1\nfi\n";
+		};
+		78B1EC37A51944D18B8CFFF9 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-Demo-resources.sh\"\n";
+		};
+		8D36DB7A172A75860032DB23 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		A2E2EDEDD3104FCE8D577937 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-Demo-resources.sh\"\n";
+		};
+		E6DACD0B1A844F428EFBDEBB /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -171,20 +473,169 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 		};
+		F356824BE36B490785833A25 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sanbox is not in sync with the Podfile.lock. Run 'pod install'.\nEOM\n    exit 1\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8D9585BF1722846B00809C78 /* Sources */ = {
+		8D36DB6A172A75860032DB23 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D9585CE1722846B00809C78 /* GDRealtime.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D36DB77172A75860032DB23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D36DB8B172A75860032DB23 /* GDRealtimeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D36DB92172A75B10032DB23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D36DBA1172A75B10032DB23 /* main.m in Sources */,
+				8D36DBA5172A75B10032DB23 /* GDDAppDelegate.m in Sources */,
+				8D36DBB1172A75B10032DB23 /* GDDViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		8D36DB81172A75860032DB23 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D36DB6D172A75860032DB23 /* GDRealtime */;
+			targetProxy = 8D36DB80172A75860032DB23 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8D36DB86172A75860032DB23 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8D36DB87172A75860032DB23 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8D36DB9D172A75B10032DB23 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8D36DB9E172A75B10032DB23 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8D36DBAC172A75B10032DB23 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8D36DBAD172A75B10032DB23 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		8D36DB8D172A75860032DB23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E6A3062261E470D92066DAD /* Pods.xcconfig */;
+			buildSettings = {
+				DSTROOT = /tmp/GDRealtime.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GDRealtime/GDRealtime-Prefix.pch";
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		8D36DB8E172A75860032DB23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E6A3062261E470D92066DAD /* Pods.xcconfig */;
+			buildSettings = {
+				DSTROOT = /tmp/GDRealtime.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GDRealtime/GDRealtime-Prefix.pch";
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		8D36DB90172A75860032DB23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GDRealtime/GDRealtime-Prefix.pch";
+				INFOPLIST_FILE = "GDRealtimeTests/GDRealtimeTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		8D36DB91172A75860032DB23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GDRealtime/GDRealtime-Prefix.pch";
+				INFOPLIST_FILE = "GDRealtimeTests/GDRealtimeTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+		8D36DBB3172A75B10032DB23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA897D8E135543728784F6C9 /* Pods-Demo.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Demo/Demo-Prefix.pch";
+				INFOPLIST_FILE = "Demo/Demo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		8D36DBB4172A75B10032DB23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA897D8E135543728784F6C9 /* Pods-Demo.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Demo/Demo-Prefix.pch";
+				INFOPLIST_FILE = "Demo/Demo-Info.plist";
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		8D9585CF1722846B00809C78 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -238,51 +689,41 @@
 			};
 			name = Release;
 		};
-		8D9585D21722846B00809C78 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5375C75963B547B1A7479CE7 /* Pods.xcconfig */;
-			buildSettings = {
-				DSTROOT = /tmp/GDRealtime.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "GDRealtime/GDRealtime-Prefix.pch";
-				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "$(inherited)";
-			};
-			name = Debug;
-		};
-		8D9585D31722846B00809C78 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5375C75963B547B1A7479CE7 /* Pods.xcconfig */;
-			buildSettings = {
-				DSTROOT = /tmp/GDRealtime.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "GDRealtime/GDRealtime-Prefix.pch";
-				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "$(inherited)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8D36DB8C172A75860032DB23 /* Build configuration list for PBXNativeTarget "GDRealtime" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D36DB8D172A75860032DB23 /* Debug */,
+				8D36DB8E172A75860032DB23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8D36DB8F172A75860032DB23 /* Build configuration list for PBXNativeTarget "test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D36DB90172A75860032DB23 /* Debug */,
+				8D36DB91172A75860032DB23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8D36DBB2172A75B10032DB23 /* Build configuration list for PBXNativeTarget "Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D36DBB3172A75B10032DB23 /* Debug */,
+				8D36DBB4172A75B10032DB23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		8D9585BE1722846B00809C78 /* Build configuration list for PBXProject "GDRealtime" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8D9585CF1722846B00809C78 /* Debug */,
 				8D9585D01722846B00809C78 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8D9585D11722846B00809C78 /* Build configuration list for PBXNativeTarget "GDRealtime" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8D9585D21722846B00809C78 /* Debug */,
-				8D9585D31722846B00809C78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

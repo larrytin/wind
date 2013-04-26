@@ -1,24 +1,29 @@
 PODS:
+  - CocoaLumberjack (1.6.2)
   - GDRealtime (0.0.1):
+    - GDRealtime/generated
     - Google-Diff-Match-Patch (~> 0.0.1)
-    - jre_emul (~> 0.6.1)
+  - GDRealtime/generated (0.0.1):
+    - Google-Diff-Match-Patch (~> 0.0.1)
+    - jre_emul
   - Google-Diff-Match-Patch (0.0.1)
-  - jre_emul (0.6.1)
+  - jre_emul (0.7.2)
 
 DEPENDENCIES:
+  - CocoaLumberjack
   - GDRealtime (from `../../../../`)
-  - jre_emul (from `https://github.com/goodow/j2objc.git`, tag `v0.6.1`)
+  - jre_emul (from `https://github.com/goodow/j2objc.git`)
 
 EXTERNAL SOURCES:
   GDRealtime:
     :local: ../../../../
   jre_emul:
     :git: https://github.com/goodow/j2objc.git
-    :tag: v0.6.1
 
 SPEC CHECKSUMS:
-  GDRealtime: ec1c75d82813e8c486f65eab5329f8eb51a2c151
+  CocoaLumberjack: d73e1e317ced14ab930797dda6c17156ff17aaa1
+  GDRealtime: c034b2203c25b00db80acecf47d343bfb2909d98
   Google-Diff-Match-Patch: a4f62e11af850bea98689c8f24e382e47c46bf59
-  jre_emul: 2aee63ba3f73f905d9d1792b15448aab7beb657a
+  jre_emul: 95f3ecb92cbbd59029105149386fdebfc0515a97
 
 COCOAPODS: 0.18.1

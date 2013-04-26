@@ -5,3 +5,8 @@ pod 'jre_emul', :git => 'https://github.com/goodow/j2objc.git'
 pod 'GDRealtime', :local => '../../../../'
 
 # podspec :path => "../../../../GDRealtime.podspec"
+
+#target :Demo, :exclusive => true do
+target :Demo do
+  pod 'CocoaLumberjack'
+end
