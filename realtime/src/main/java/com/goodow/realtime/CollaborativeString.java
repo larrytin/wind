@@ -72,11 +72,11 @@ public class CollaborativeString extends CollaborativeObject {
   }
 
   public void addTextDeletedListener(EventHandler<TextDeletedEvent> handler) {
-    addEventListener(EventType.TEXT_DELETED.toString(), handler, false);
+    addEventListener(EventType.TEXT_DELETED, handler, false);
   }
 
   public void addTextInsertedListener(EventHandler<TextInsertedEvent> handler) {
-    addEventListener(EventType.TEXT_INSERTED.toString(), handler, false);
+    addEventListener(EventType.TEXT_INSERTED, handler, false);
   }
 
   /**
@@ -157,8 +157,8 @@ public class CollaborativeString extends CollaborativeObject {
   }
 
   public void removeStringListener(EventHandler<?> handler) {
-    removeEventListener(EventType.TEXT_INSERTED.toString(), handler, false);
-    removeEventListener(EventType.TEXT_DELETED.toString(), handler, false);
+    removeEventListener(EventType.TEXT_INSERTED, handler, false);
+    removeEventListener(EventType.TEXT_DELETED, handler, false);
   }
 
   /**

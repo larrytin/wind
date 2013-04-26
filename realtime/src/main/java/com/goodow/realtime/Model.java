@@ -110,12 +110,12 @@ public class Model implements EventTarget {
   }
 
   @Override
-  public void addEventListener(String type, EventHandler<?> handler, boolean opt_capture) {
+  public void addEventListener(EventType type, EventHandler<?> handler, boolean opt_capture) {
     document.addEventListener(EVENT_HANDLER_KEY, type, handler, opt_capture);
   }
 
   public void addUndoRedoStateChangedListener(EventHandler<UndoRedoStateChangedEvent> handler) {
-    addEventListener(EventType.UNDO_REDO_STATE_CHANGED.toString(), handler, false);
+    addEventListener(EventType.UNDO_REDO_STATE_CHANGED, handler, false);
   }
 
   /**
@@ -246,7 +246,7 @@ public class Model implements EventTarget {
   }
 
   @Override
-  public void removeEventListener(String type, EventHandler<?> handler, boolean opt_capture) {
+  public void removeEventListener(EventType type, EventHandler<?> handler, boolean opt_capture) {
     document.removeEventListener(EVENT_HANDLER_KEY, type, handler, opt_capture);
   }
 

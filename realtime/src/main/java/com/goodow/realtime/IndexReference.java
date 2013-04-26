@@ -83,7 +83,7 @@ public class IndexReference extends CollaborativeObject {
   }
 
   public void addReferenceShiftedListener(EventHandler<ReferenceShiftedEvent> handler) {
-    addEventListener(EventType.REFERENCE_SHIFTED.toString(), handler, false);
+    addEventListener(EventType.REFERENCE_SHIFTED, handler, false);
   }
 
   /**
@@ -115,7 +115,7 @@ public class IndexReference extends CollaborativeObject {
   }
 
   public void removeReferenceShiftedListener(EventHandler<ReferenceShiftedEvent> handler) {
-    removeEventListener(EventType.REFERENCE_SHIFTED.toString(), handler, false);
+    removeEventListener(EventType.REFERENCE_SHIFTED, handler, false);
   }
 
   @Override

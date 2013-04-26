@@ -40,7 +40,7 @@ public abstract class BaseModelEvent implements Disposable {
   /**
    * Event type.
    */
-  public final String type;
+  public final EventType type;
   /**
    * The user id of the user that initiated the event.
    */
@@ -57,7 +57,7 @@ public abstract class BaseModelEvent implements Disposable {
    */
   protected BaseModelEvent(EventType type, CollaborativeObject target, String sessionId,
       String userId, boolean isLocal, boolean bubbles) {
-    this.type = type.toString();
+    this.type = type;
     this.target = target;
     this.sessionId = sessionId;
     this.userId = userId;

@@ -57,7 +57,7 @@ public class Document implements EventTarget {
   private List<Collaborator> collaborators;
   String sessionId;
   private final Model model;
-  private Map<String, Map<String, List<EventHandler<?>>>> handlers;
+  private Map<String, Map<EventType, List<EventHandler<?>>>> handlers;
   private final Map<String, List<String>> parents = new HashMap<String, List<String>>();
 
   /**
@@ -70,19 +70,19 @@ public class Document implements EventTarget {
   }
 
   public void addCollaboratorJoinedListener(EventHandler<CollaboratorJoinedEvent> handler) {
-    addEventListener(EventType.COLLABORATOR_JOINED.toString(), handler, false);
+    addEventListener(EventType.COLLABORATOR_JOINED, handler, false);
   }
 
   public void addCollaboratorLeftListener(EventHandler<CollaboratorLeftEvent> handler) {
-    addEventListener(EventType.COLLABORATOR_LEFT.toString(), handler, false);
+    addEventListener(EventType.COLLABORATOR_LEFT, handler, false);
   }
 
   public void addDocumentSaveStateListener(EventHandler<DocumentSaveStateChangedEvent> handler) {
-    addEventListener(EventType.DOCUMENT_SAVE_STATE_CHANGED.toString(), handler, false);
+    addEventListener(EventType.DOCUMENT_SAVE_STATE_CHANGED, handler, false);
   }
 
   @Override
-  public void addEventListener(String type, EventHandler<?> handler, boolean opt_capture) {
+  public void addEventListener(EventType type, EventHandler<?> handler, boolean opt_capture) {
     addEventListener(EVENT_HANDLER_KEY, type, handler, opt_capture);
   }
 
@@ -128,19 +128,19 @@ public class Document implements EventTarget {
   }
 
   public void removeCollaboratorJoinedListener(EventHandler<CollaboratorJoinedEvent> handler) {
-    removeEventListener(EventType.COLLABORATOR_JOINED.toString(), handler, false);
+    removeEventListener(EventType.COLLABORATOR_JOINED, handler, false);
   }
 
   public void removeCollaboratorLeftListener(EventHandler<CollaboratorLeftEvent> handler) {
-    removeEventListener(EventType.COLLABORATOR_LEFT.toString(), handler, false);
+    removeEventListener(EventType.COLLABORATOR_LEFT, handler, false);
   }
 
   @Override
-  public void removeEventListener(String type, EventHandler<?> handler, boolean opt_capture) {
+  public void removeEventListener(EventType type, EventHandler<?> handler, boolean opt_capture) {
     removeEventListener(EVENT_HANDLER_KEY, type, handler, opt_capture);
   }
 
-  void addEventListener(String key, String type, EventHandler<?> handler, boolean opt_capture) {
+  void addEventListener(String key, EventType type, EventHandler<?> handler, boolean opt_capture) {
     if (key == null || type == null || handler == null) {
       throw new NullPointerException((key == null ? "Key" : type == null ? "Type" : "Handler")
           + " was null.");
@@ -197,11 +197,11 @@ public class Document implements EventTarget {
     return this.sessionId == null || this.sessionId.equals(sessionId);
   }
 
-  void removeEventListener(String key, String type, EventHandler<?> handler, boolean opt_capture) {
+  void removeEventListener(String key, EventType type, EventHandler<?> handler, boolean opt_capture) {
     if (handlers == null || handler == null) {
       return;
     }
-    Map<String, List<EventHandler<?>>> handlersPerKey = handlers.get(key);
+    Map<EventType, List<EventHandler<?>>> handlersPerKey = handlers.get(key);
     if (handlersPerKey == null) {
       return;
     }
@@ -222,7 +222,7 @@ public class Document implements EventTarget {
   }
 
   @SuppressWarnings("unchecked")
-  private void fireEvent(String key, String type, Disposable event) {
+  private void fireEvent(String key, EventType type, Disposable event) {
     List<EventHandler<?>> handlers = getEventHandlers(key, type, false);
     if (handlers == null) {
       return;
@@ -232,19 +232,20 @@ public class Document implements EventTarget {
     }
   }
 
-  private List<EventHandler<?>> getEventHandlers(String key, String type, boolean createIfNotExist) {
+  private List<EventHandler<?>> getEventHandlers(String key, EventType type,
+      boolean createIfNotExist) {
     if (handlers == null) {
       if (!createIfNotExist) {
         return null;
       }
-      handlers = new HashMap<String, Map<String, List<EventHandler<?>>>>();
+      handlers = new HashMap<String, Map<EventType, List<EventHandler<?>>>>();
     }
-    Map<String, List<EventHandler<?>>> handlersPerKey = handlers.get(key);
+    Map<EventType, List<EventHandler<?>>> handlersPerKey = handlers.get(key);
     if (handlersPerKey == null) {
       if (!createIfNotExist) {
         return null;
       }
-      handlersPerKey = new HashMap<String, List<EventHandler<?>>>();
+      handlersPerKey = new HashMap<EventType, List<EventHandler<?>>>();
       handlers.put(key, handlersPerKey);
     }
     List<EventHandler<?>> handlersPerType = handlersPerKey.get(type);

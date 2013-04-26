@@ -80,15 +80,15 @@ public class CollaborativeList extends CollaborativeObject {
   }
 
   public void addValuesAddedListener(EventHandler<ValuesAddedEvent> handler) {
-    addEventListener(EventType.VALUES_ADDED.toString(), handler, false);
+    addEventListener(EventType.VALUES_ADDED, handler, false);
   }
 
   public void addValuesRemovedListener(EventHandler<ValuesRemovedEvent> handler) {
-    addEventListener(EventType.VALUES_REMOVED.toString(), handler, false);
+    addEventListener(EventType.VALUES_REMOVED, handler, false);
   }
 
   public void addValuesSetListener(EventHandler<ValuesSetEvent> handler) {
-    addEventListener(EventType.VALUES_SET.toString(), handler, false);
+    addEventListener(EventType.VALUES_SET, handler, false);
   }
 
   /**
@@ -279,9 +279,9 @@ public class CollaborativeList extends CollaborativeObject {
   }
 
   public void removeListListener(EventHandler<?> handler) {
-    removeEventListener(EventType.VALUES_ADDED.toString(), handler, false);
-    removeEventListener(EventType.VALUES_REMOVED.toString(), handler, false);
-    removeEventListener(EventType.VALUES_SET.toString(), handler, false);
+    removeEventListener(EventType.VALUES_ADDED, handler, false);
+    removeEventListener(EventType.VALUES_REMOVED, handler, false);
+    removeEventListener(EventType.VALUES_SET, handler, false);
   }
 
   /**

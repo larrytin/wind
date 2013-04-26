@@ -36,7 +36,7 @@ public interface EventTarget extends Disposable {
    * @param opt_capture In DOM-compliant browsers, this determines whether the listener is fired
    *          during the capture or bubble phase of the event.
    */
-  void addEventListener(String type, EventHandler<?> handler, boolean opt_capture);
+  void addEventListener(EventType type, EventHandler<?> handler, boolean opt_capture);
 
   /**
    * Removes an event listener from the event target. The handler must be the same object as the one
@@ -48,5 +48,5 @@ public interface EventTarget extends Disposable {
    * @param opt_capture In DOM-compliant browsers, this determines whether the listener is fired
    *          during the capture or bubble phase of the event.
    */
-  void removeEventListener(String type, EventHandler<?> handler, boolean opt_capture);
+  void removeEventListener(EventType type, EventHandler<?> handler, boolean opt_capture);
 }

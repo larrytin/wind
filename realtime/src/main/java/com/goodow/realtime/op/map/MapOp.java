@@ -158,7 +158,6 @@ public class MapOp implements Op<MapTarget>, MapTarget {
   @Override
   public MapOp update(String key, JsonValue oldValue, JsonValue newValue) {
     assert key != null : "Null key";
-    assert Json.createNull() != oldValue && Json.createNull() != newValue;
     if (JsonSerializer.jsonEqual(oldValue, newValue)) {
       return this;
     }

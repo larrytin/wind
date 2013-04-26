@@ -27,6 +27,8 @@ import org.timepedia.exporter.client.ExportAfterCreateMethod;
 import org.timepedia.exporter.client.ExportPackage;
 import org.timepedia.exporter.client.NoExport;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -66,6 +68,45 @@ public class CollaborativeMap extends CollaborativeObject {
         }
       }
     });
+    _.get = function(key) {
+      this.g.@com.goodow.realtime.CollaborativeMap::checkKey(Ljava/lang/String;)(key)
+      var p = this.g.@com.goodow.realtime.CollaborativeMap::snapshot[key];
+      if (p === undefined) {
+        return undefined;
+      } else if (p[0] != @com.goodow.realtime.util.JsonSerializer::REFERENCE_TYPE) {
+        return p[1];
+      } else {
+        var v = this.g.@com.goodow.realtime.CollaborativeMap::get(Ljava/lang/String;)(key);
+        return @org.timepedia.exporter.client.ExporterUtil::wrap(Ljava/lang/Object;)(v);
+      }
+    };
+    _.remove = function(key) {
+      var old = this.get(key);
+      this.g.@com.goodow.realtime.CollaborativeMap::remove(Ljava/lang/String;)(key);
+      return old;
+    };
+    _.values = function() {
+      var keys = this.keys();
+      var values = [];
+      for ( var i in keys) {
+        values[i] = this.get(keys[i]);
+      }
+      return values;
+    };
+    _.items = function() {
+      var items = [];
+      var keys = this.keys();
+      for ( var i in keys) {
+        items[i] = [ keys[i], this.get(keys[i]) ];
+      }
+      return items;
+    };
+    _.set = function(key, value) {
+      var old = this.get(key);
+      var v = @org.timepedia.exporter.client.ExporterUtil::gwtInstance(Ljava/lang/Object;)(value);
+      this.g.@com.goodow.realtime.CollaborativeMap::set(Ljava/lang/String;Ljava/lang/Object;)(key,v);
+      return old;
+    };
   }-*/;
 
   private JsonObject snapshot;
@@ -75,7 +116,7 @@ public class CollaborativeMap extends CollaborativeObject {
   }
 
   public void addValueChangedListener(EventHandler<ValueChangedEvent> handler) {
-    addEventListener(EventType.VALUE_CHANGED.toString(), handler, false);
+    addEventListener(EventType.VALUE_CHANGED, handler, false);
   }
 
   /**
@@ -97,6 +138,7 @@ public class CollaborativeMap extends CollaborativeObject {
    * @exception java.lang.IllegalArgumentException
    */
   @SuppressWarnings("unchecked")
+  @NoExport
   public <T> T get(String key) {
     checkKey(key);
     return (T) JsonSerializer.jsonToObj(snapshot.getArray(key), model.objects);
@@ -159,6 +201,7 @@ public class CollaborativeMap extends CollaborativeObject {
    * @return The value that was mapped to this key, or null if there was no existing value.
    * @exception java.lang.IllegalArgumentException
    */
+  @NoExport
   public Object remove(String key) {
     checkKey(key);
     Object oldValue = get(key);
@@ -172,7 +215,7 @@ public class CollaborativeMap extends CollaborativeObject {
   }
 
   public void removeValueChangedListener(EventHandler<ValueChangedEvent> handler) {
-    removeEventListener(EventType.VALUE_CHANGED.toString(), handler, false);
+    removeEventListener(EventType.VALUE_CHANGED, handler, false);
   }
 
   /**
@@ -183,6 +226,7 @@ public class CollaborativeMap extends CollaborativeObject {
    * @return The old map value, if any, that used to be mapped to the given key.
    * @exception java.lang.IllegalArgumentException
    */
+  @NoExport
   public Object set(String key, Object value) {
     checkKey(key);
     MapOp op = new MapOp();
@@ -209,11 +253,12 @@ public class CollaborativeMap extends CollaborativeObject {
    * 
    * @return The values in this map.
    */
-  public Object[] values() {
-    Object[] values = new Object[size()];
+  @NoExport
+  public List<Object> values() {
+    List<Object> values = new ArrayList<Object>();
     String[] keys = keys();
     for (int i = 0, len = size(); i < len; i++) {
-      values[i] = get(keys[i]);
+      values.add(get(keys[i]));
     }
     return values;
   }

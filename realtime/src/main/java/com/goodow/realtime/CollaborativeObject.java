@@ -44,12 +44,12 @@ public abstract class CollaborativeObject implements EventTarget {
   }
 
   @Override
-  public void addEventListener(String type, EventHandler<?> handler, boolean opt_capture) {
+  public void addEventListener(EventType type, EventHandler<?> handler, boolean opt_capture) {
     model.document.addEventListener(id, type, handler, opt_capture);
   }
 
   public void addObjectChangedListener(EventHandler<ObjectChangedEvent> handler) {
-    addEventListener(EventType.OBJECT_CHANGED.toString(), handler, false);
+    addEventListener(EventType.OBJECT_CHANGED, handler, false);
   }
 
   /**
@@ -62,12 +62,12 @@ public abstract class CollaborativeObject implements EventTarget {
   }
 
   @Override
-  public void removeEventListener(String type, EventHandler<?> handler, boolean opt_capture) {
+  public void removeEventListener(EventType type, EventHandler<?> handler, boolean opt_capture) {
     model.document.removeEventListener(id, type, handler, opt_capture);
   }
 
   public void removeObjectChangedListener(EventHandler<ObjectChangedEvent> handler) {
-    removeEventListener(EventType.OBJECT_CHANGED.toString(), handler, false);
+    removeEventListener(EventType.OBJECT_CHANGED, handler, false);
   }
 
   /**
