@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GDDAppDelegate : UIResponder <UIApplicationDelegate>
+@interface GDRAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

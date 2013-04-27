@@ -6,13 +6,13 @@
 //  Copyright (c) 2013年 Larry Tin. All rights reserved.
 //
 
-#import "GDDViewController.h"
+#import "GDRViewController.h"
 
-@interface GDDViewController ()
+@interface GDRViewController ()
 
 @end
 
-@implementation GDDViewController
+@implementation GDRViewController
 
 - (void)viewDidLoad
 {

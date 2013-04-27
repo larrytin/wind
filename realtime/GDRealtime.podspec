@@ -7,17 +7,25 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/goodow/realtime.git", :tag => "v#{s.version}" }
   s.platform     = :ios, '5.1'
 
+  s.default_subspec = 'Core'
   s.source_files = 'src/main/objectivec/Classes/**/*.{h,m}'
   s.header_mappings_dir = 'src/main/generated_objectivec'
   s.resources = 'src/main/objectivec/Resources/**'
   s.requires_arc = true
 
+  s.dependency 'jre_emul'
+#, '~> 0.6.1'
   s.dependency 'Google-Diff-Match-Patch', '~> 0.0.1'
 
-  s.subspec 'generated' do |g|
-    g.source_files = 'src/main/generated_objectivec/**/*.{h,m}'
-    g.requires_arc = false
-    g.dependency 'jre_emul'
-#, '~> 0.6.1'
+  s.subspec 'Core' do |r|
+    r.source_files = 'src/main/generated_objectivec/**/*.{h,m}'
+    r.requires_arc = false
   end
+
+  s.subspec 'test' do |test|
+    test.source_files = 'src/test/generated_objectivec/**/*.{h,m}'
+
+    test.dependency 'GDRealtime/Core'
+  end
+
 end

@@ -14,7 +14,7 @@
 package com.goodow.realtime.util;
 
 /*-[
- // #import "Realtime.h"
+ // #import "Realtime2.h"
  ]-*/
 import com.goodow.realtime.CollaborativeString;
 

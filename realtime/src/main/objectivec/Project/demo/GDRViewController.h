@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GDDViewController : UIViewController
+@interface GDRViewController : UIViewController
 
 @end

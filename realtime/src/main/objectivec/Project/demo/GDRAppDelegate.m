@@ -6,9 +6,9 @@
 //  Copyright (c) 2013年 Larry Tin. All rights reserved.
 //
 
-#import "GDDAppDelegate.h"
+#import "GDRAppDelegate.h"
 
-@implementation GDDAppDelegate
+@implementation GDRAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
