@@ -1,14 +1,14 @@
 //
-//  GDRealtimeTests.m
-//  GDRealtimeTests
+//  test.m
+//  test
 //
-//  Created by dev on 13-4-26.
+//  Created by dev on 13-4-27.
 //  Copyright (c) 2013年 Larry Tin. All rights reserved.
 //
 
-#import "GDRealtimeTests.h"
+#import "test.h"
 
-@implementation GDRealtimeTests
+@implementation test
 
 - (void)setUp
 {
@@ -26,7 +26,7 @@
 
 - (void)testExample
 {
-    STFail(@"Unit tests are not implemented yet in GDRealtimeTests");
+    STFail(@"Unit tests are not implemented yet in test");
 }
 
 @end

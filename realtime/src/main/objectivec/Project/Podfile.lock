@@ -1,0 +1,32 @@
+PODS:
+  - GDRealtime (0.0.1):
+    - GDRealtime/Core
+    - Google-Diff-Match-Patch (~> 0.0.1)
+    - jre_emul
+  - GDRealtime/Core (0.0.1):
+    - Google-Diff-Match-Patch (~> 0.0.1)
+    - jre_emul
+  - GDRealtime/test (0.0.1):
+    - GDRealtime/Core
+    - Google-Diff-Match-Patch (~> 0.0.1)
+    - jre_emul
+  - Google-Diff-Match-Patch (0.0.1)
+  - jre_emul (0.7.2)
+
+DEPENDENCIES:
+  - GDRealtime (from `../../../../`)
+  - GDRealtime/test
+  - jre_emul (from `https://github.com/goodow/j2objc.git`)
+
+EXTERNAL SOURCES:
+  GDRealtime:
+    :local: ../../../../
+  jre_emul:
+    :git: https://github.com/goodow/j2objc.git
+
+SPEC CHECKSUMS:
+  GDRealtime: c68a006b0ef12c08e6dbc70d454aabbbc1ab59b2
+  Google-Diff-Match-Patch: a4f62e11af850bea98689c8f24e382e47c46bf59
+  jre_emul: 317e6550ca7bdc628146827102e2c5463af128a4
+
+COCOAPODS: 0.18.1

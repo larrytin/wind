@@ -1,8 +1,8 @@
 //
-//  GDDAppDelegate.h
-//  Demo
+//  GDRAppDelegate.h
+//  demo
 //
-//  Created by dev on 13-4-26.
+//  Created by dev on 13-4-27.
 //  Copyright (c) 2013年 Larry Tin. All rights reserved.
 //
 
