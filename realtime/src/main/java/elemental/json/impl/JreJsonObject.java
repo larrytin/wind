@@ -171,7 +171,8 @@ public class JreJsonObject extends JreJsonValue implements JsonObject {
   public void traverse(JsonVisitor visitor, JsonContext ctx) {
     if (visitor.visit(this, ctx)) {
       JsonObjectContext objCtx = new JsonObjectContext(this);
-      for (String key : stringifyOrder(keys())) {
+      // for (String key : stringifyOrder(keys())) {
+      for (String key : keys()) {
         objCtx.setCurrentKey(key);
         if (visitor.visitKey(objCtx.getCurrentKey(), objCtx)) {
           visitor.accept(get(key), objCtx);

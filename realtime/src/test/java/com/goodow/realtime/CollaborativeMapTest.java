@@ -182,20 +182,20 @@ public class CollaborativeMapTest extends TestCase {
 
   public void testRemove() {
     map.set("k1", "v1");
-    map.remove("k1");
-    map.remove("k2");
+    assertEquals("v1", map.remove("k1"));
+    assertNull(map.remove("k2"));
     assertEquals(0, map.size());
   }
 
   public void testSet() {
     JsonArray v4 = Json.createArray();
     v4.set(0, "abc");
-    map.set("k1", "v1");
-    map.set("k2", 4);
-    map.set("k3", false);
-    map.set("k4", v4);
-    map.set("k5", null);
-    map.set("k6", Json.createNull());
+    assertNull(map.set("k1", "v1"));
+    assertNull(map.set("k2", 4));
+    assertNull(map.set("k3", false));
+    assertNull(map.set("k4", v4));
+    assertNull(map.set("k5", null));
+    assertNull(map.set("k6", Json.createNull()));
 
     assertEquals(4, map.size());
     assertEquals("v1", map.get("k1"));
@@ -203,9 +203,9 @@ public class CollaborativeMapTest extends TestCase {
     assertEquals(false, map.get("k3"));
     assertTrue(v4.jsEquals((JsonValue) map.get("k4")));
 
-    map.set("k1", "");
-    map.set("k2", null);
-    map.set("k3", Json.createNull());
+    assertEquals("v1", map.set("k1", ""));
+    assertEquals(4.0, map.set("k2", null));
+    assertEquals(false, map.set("k3", Json.createNull()));
     assertEquals(2, map.size());
     assertEquals("", map.get("k1"));
     assertFalse(map.has("k2"));
