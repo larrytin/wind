@@ -1,13 +1,15 @@
 platform :ios, '6.0'
 
-link_with ['GDRealtime', 'demo']
-
-pod 'jre_emul', :git => 'https://github.com/goodow/j2objc.git'
-#, :tag => 'v0.6.1'
-pod 'GDRealtime', :local => '../../../../'
+pod 'GDRealtime/generated', :local => '../../../../'
 # podspec :path => "../../../../GDRealtime.podspec"
 
-target :test do
-  pod 'GDRealtime/test'
+target :demo, :exclusive => true do
+  pod 'GDRealtime'
+  pod 'BlocksKit'
 end
 
+target :test, :exclusive => true do
+  platform :osx
+
+  pod 'GDRealtime/test'
+end

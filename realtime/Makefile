@@ -100,8 +100,11 @@ $(TEST_BUILD_DIR)/%: $(TEST_BUILD_DIR)/%.o $(JAVA_LIB)
 
 link-test: link translate-test $(TEST_GEN_DIR) $(TEST_OBJCS) $(TEST_BINS)
 
-test: link-test $(TEST_BINS)
+test2: link-test $(TEST_BINS)
 	@/bin/sh runtests.sh $(TEST_BINS)
+	
+test: translate translate-test
+	@cd src/main/objectivec/Project;xcodebuild -workspace GDRealtime.xcworkspace/ -scheme test
 
 $(JAVA_GEN_DIR):
 	@mkdir -p $(JAVA_GEN_DIR)
@@ -114,3 +117,4 @@ $(TEST_BUILD_DIR):
 
 clean:
 	@rm -rf $(JAVA_GEN_DIR) $(TEST_GEN_DIR) $(JAVA_BUILD_DIR) $(TEST_BUILD_DIR)
+	@cd src/main/objectivec/Project;xcodebuild -workspace GDRealtime.xcworkspace/ -scheme test clean

@@ -65,6 +65,9 @@ public class CollaborativeList extends CollaborativeObject {
       length : {
         get : function() {
           return this.g.@com.goodow.realtime.CollaborativeList::length()();
+        },
+        set : function(length) {
+          return this.g.@com.goodow.realtime.CollaborativeList::setLength(I)(length);
         }
       }
     });
@@ -130,12 +133,11 @@ public class CollaborativeList extends CollaborativeObject {
    * Returns the first index of the given value, or -1 if it cannot be found.
    * 
    * @param value The value to find.
-   * @param opt_comparatorFn Optional comparator function used to determine the equality of two
-   *          items.
+   * @param opt_comparator Optional comparator function used to determine the equality of two items.
    * @return The index of the given value, or -1 if it cannot be found.
    */
-  public int indexOf(Object value, Comparator<Object> opt_comparatorFn) {
-    if (opt_comparatorFn == null) {
+  public int indexOf(Object value, Comparator<Object> opt_comparator) {
+    if (opt_comparator == null) {
       JsonArray jsonValue;
       try {
         jsonValue = JsonSerializer.objToJson(value);
@@ -149,7 +151,7 @@ public class CollaborativeList extends CollaborativeObject {
       }
     } else {
       for (int i = 0, len = length(); i < len; i++) {
-        if (opt_comparatorFn.compare(value, get(i)) == 0) {
+        if (opt_comparator.compare(value, get(i)) == 0) {
           return i;
         }
       }
@@ -195,12 +197,11 @@ public class CollaborativeList extends CollaborativeObject {
    * Returns the last index of the given value, or -1 if it cannot be found.
    * 
    * @param value The value to find.
-   * @param opt_comparatorFn Optional comparator function used to determine the equality of two
-   *          items.
+   * @param opt_comparator Optional comparator function used to determine the equality of two items.
    * @return The index of the given value, or -1 if it cannot be found.
    */
-  public int lastIndexOf(Object value, Comparator<Object> opt_comparatorFn) {
-    if (opt_comparatorFn == null) {
+  public int lastIndexOf(Object value, Comparator<Object> opt_comparator) {
+    if (opt_comparator == null) {
       JsonArray jsonValue;
       try {
         jsonValue = JsonSerializer.objToJson(value);
@@ -214,7 +215,7 @@ public class CollaborativeList extends CollaborativeObject {
       }
     } else {
       for (int i = length() - 1; i >= 0; i--) {
-        if (opt_comparatorFn.compare(value, get(i)) == 0) {
+        if (opt_comparator.compare(value, get(i)) == 0) {
           return i;
         }
       }
@@ -354,6 +355,7 @@ public class CollaborativeList extends CollaborativeObject {
    * @param length the new length of the array
    * @exception java.lang.ArrayIndexOutOfBoundsException
    */
+  @NoExport
   public void setLength(int length) {
     checkIndex(length, true);
     int len = length();

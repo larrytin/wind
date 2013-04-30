@@ -18,6 +18,8 @@ import junit.framework.TestCase;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 import elemental.json.Json;
 import elemental.json.JsonArray;
@@ -120,7 +122,7 @@ public class CollaborativeMapTest extends TestCase {
 
     map.removeValueChangedListener(valueChangedHandler);
     map.removeEventListener(EventType.OBJECT_CHANGED, objectChangedHandler, false);
-    CollaborativeList list = mod.createList(null);
+    CollaborativeList list = mod.createList();
     CollaborativeMap map2 = mod.createMap(null);
     list.push(map2);
     map.set("cc", list);
@@ -173,11 +175,17 @@ public class CollaborativeMapTest extends TestCase {
   public void testItems() {
     map.set("k1", "v1");
     map.set("k2", "v2");
-    Object[][] items = map.items();
-    assertEquals("k1", items[0][0]);
-    assertEquals("v1", items[0][1]);
-    assertEquals("k2", items[1][0]);
-    assertEquals("v2", items[1][1]);
+    Set<Entry<String, Object>> items = map.items();
+    assertEquals(2, items.size());
+    for (Entry<String, Object> item : items) {
+      if ("k1".equals(item.getKey())) {
+        assertEquals("v1", item.getValue());
+      } else if ("k2".equals(item.getKey())) {
+        assertEquals("v2", item.getValue());
+      } else {
+        fail();
+      }
+    }
   }
 
   public void testRemove() {

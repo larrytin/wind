@@ -1,32 +1,39 @@
 PODS:
+  - BlocksKit (1.8.2):
+    - libffi
   - GDRealtime (0.0.1):
-    - GDRealtime/Core
+    - GDRealtime/default
+  - GDRealtime/core (0.0.1):
     - Google-Diff-Match-Patch (~> 0.0.1)
+  - GDRealtime/default (0.0.1):
+    - GDRealtime/core
+    - GDRealtime/generated
     - jre_emul
-  - GDRealtime/Core (0.0.1):
-    - Google-Diff-Match-Patch (~> 0.0.1)
-    - jre_emul
+  - GDRealtime/generated (0.0.1)
   - GDRealtime/test (0.0.1):
-    - GDRealtime/Core
-    - Google-Diff-Match-Patch (~> 0.0.1)
-    - jre_emul
+    - GDRealtime/core
+    - GDRealtime/generated
   - Google-Diff-Match-Patch (0.0.1)
-  - jre_emul (0.7.2)
+  - jre_emul (0.7.2):
+    - jre_emul/jre
+  - jre_emul/jre (0.7.2)
+  - libffi (3.0.11)
 
 DEPENDENCIES:
-  - GDRealtime (from `../../../../`)
+  - BlocksKit
+  - GDRealtime
+  - GDRealtime/generated (from `../../../../`)
   - GDRealtime/test
-  - jre_emul (from `https://github.com/goodow/j2objc.git`)
 
 EXTERNAL SOURCES:
   GDRealtime:
     :local: ../../../../
-  jre_emul:
-    :git: https://github.com/goodow/j2objc.git
 
 SPEC CHECKSUMS:
-  GDRealtime: c68a006b0ef12c08e6dbc70d454aabbbc1ab59b2
+  BlocksKit: 7396526b0816734103f6133fbb1a520c8b04e80c
+  GDRealtime: 1b8b0cde91e39e1cf384b9b7d065ad656b262365
   Google-Diff-Match-Patch: a4f62e11af850bea98689c8f24e382e47c46bf59
-  jre_emul: 317e6550ca7bdc628146827102e2c5463af128a4
+  jre_emul: d4d14f21215f74c88830c834e6e46f63e285e149
+  libffi: 8a1d9ba43c0c84b546b42c6f742714e73aa07ae1
 
 COCOAPODS: 0.18.1

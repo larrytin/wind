@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		055817FB9E054A578C8DE214 /* libPods-demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE324FAA28F4670B4B27AEC /* libPods-demo.a */; };
 		0CA3B6C16AFA4502A56E2629 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31DD2DBBD4894B0A890BE47B /* libPods.a */; };
 		8D8CA154172BC9B400652CC1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D8CA153172BC9B400652CC1 /* Foundation.framework */; };
 		8DBB745C172BD0B60052F0ED /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DBB745B172BD0B60052F0ED /* UIKit.framework */; };
@@ -20,13 +21,15 @@
 		8DBB7471172BD0B70052F0ED /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DBB7470172BD0B70052F0ED /* Default-568h@2x.png */; };
 		8DBB7474172BD0B70052F0ED /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DBB7472172BD0B70052F0ED /* MainStoryboard.storyboard */; };
 		8DBB7477172BD0B70052F0ED /* GDRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB7476172BD0B70052F0ED /* GDRViewController.m */; };
-		8DBB7499172BD0F20052F0ED /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DBB747E172BD0B70052F0ED /* SenTestingKit.framework */; };
-		8DBB749A172BD0F20052F0ED /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DBB745B172BD0B60052F0ED /* UIKit.framework */; };
-		8DBB749B172BD0F20052F0ED /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D8CA153172BC9B400652CC1 /* Foundation.framework */; };
-		8DBB74A1172BD0F20052F0ED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8DBB749F172BD0F20052F0ED /* InfoPlist.strings */; };
-		8DBB74A4172BD0F20052F0ED /* test.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB74A3172BD0F20052F0ED /* test.m */; };
-		B395736D5C0B4B4187540B12 /* libPods-test.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E260BA2602094A24924ACF4D /* libPods-test.a */; };
-		F319FF0F701C4FF0B243E069 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB8E7EADF911421F977C3180 /* libPods.a */; };
+		8DBB74C8172C136C0052F0ED /* ObjcNativeInterfaceFactory+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB74AC172BD1300052F0ED /* ObjcNativeInterfaceFactory+ObjC.m */; };
+		8DBB74C9172C13700052F0ED /* GDRealtime.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB74AE172BD1300052F0ED /* GDRealtime.m */; };
+		8DBB74D1172D68EF0052F0ED /* GDRCollaborativeString+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB74D0172D68EF0052F0ED /* GDRCollaborativeString+ObjC.m */; };
+		8DBB74D4172D6D650052F0ED /* GDRCollaborativeMap+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB74D3172D6D650052F0ED /* GDRCollaborativeMap+ObjC.m */; };
+		8DBB74D7172D70AF0052F0ED /* GDRCollaborativeList+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB74D6172D70AF0052F0ED /* GDRCollaborativeList+ObjC.m */; };
+		8DBB74DA172D7D180052F0ED /* GDRIndexReference+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB74D9172D7D180052F0ED /* GDRIndexReference+ObjC.m */; };
+		8DBB74DD172D82350052F0ED /* GDRModel+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB74DC172D82340052F0ED /* GDRModel+ObjC.m */; };
+		8DD88ADB172F7811006DCFA8 /* test.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD88ADA172F7811006DCFA8 /* test.m */; };
+		E358178C59DA4C24A7880E03 /* libPods-test.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 934154E8F61A46D3939CD886 /* libPods-test.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -42,9 +45,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1B27C811878C4903993E274E /* Pods-test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test.xcconfig"; path = "Pods/Pods-test.xcconfig"; sourceTree = SOURCE_ROOT; };
+		1EA2B19E5F2040AC9E967E49 /* Pods-test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test.xcconfig"; path = "Pods/Pods-test.xcconfig"; sourceTree = SOURCE_ROOT; };
 		31DD2DBBD4894B0A890BE47B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F5F6C85D6754E1298D8F166 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		7902CBF143B343B1A5AF066B /* Pods-demo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demo.xcconfig"; path = "Pods/Pods-demo.xcconfig"; sourceTree = SOURCE_ROOT; };
 		8D8CA150172BC9B400652CC1 /* libGDRealtime.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGDRealtime.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D8CA153172BC9B400652CC1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8DBB745A172BD0B60052F0ED /* demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,19 +66,39 @@
 		8DBB7475172BD0B70052F0ED /* GDRViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDRViewController.h; sourceTree = "<group>"; };
 		8DBB7476172BD0B70052F0ED /* GDRViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDRViewController.m; sourceTree = "<group>"; };
 		8DBB747E172BD0B70052F0ED /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		8DBB7498172BD0F20052F0ED /* test.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = test.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DBB749E172BD0F20052F0ED /* test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "test-Info.plist"; sourceTree = "<group>"; };
 		8DBB74A0172BD0F20052F0ED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8DBB74A2172BD0F20052F0ED /* test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
 		8DBB74A3172BD0F20052F0ED /* test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = test.m; sourceTree = "<group>"; };
 		8DBB74A5172BD0F20052F0ED /* test-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "test-Prefix.pch"; sourceTree = "<group>"; };
-		8DBB74AB172BD1300052F0ED /* ComGoodowRealtimeUtilObjcNativeInterfaceFactory+NativeImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ComGoodowRealtimeUtilObjcNativeInterfaceFactory+NativeImpl.h"; sourceTree = "<group>"; };
-		8DBB74AC172BD1300052F0ED /* ComGoodowRealtimeUtilObjcNativeInterfaceFactory+NativeImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ComGoodowRealtimeUtilObjcNativeInterfaceFactory+NativeImpl.m"; sourceTree = "<group>"; };
+		8DBB74AB172BD1300052F0ED /* ObjcNativeInterfaceFactory+ObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ObjcNativeInterfaceFactory+ObjC.h"; sourceTree = "<group>"; };
+		8DBB74AC172BD1300052F0ED /* ObjcNativeInterfaceFactory+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ObjcNativeInterfaceFactory+ObjC.m"; sourceTree = "<group>"; };
 		8DBB74AD172BD1300052F0ED /* GDRealtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDRealtime.h; sourceTree = "<group>"; };
 		8DBB74AE172BD1300052F0ED /* GDRealtime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDRealtime.m; sourceTree = "<group>"; };
+		8DBB74CF172D68EF0052F0ED /* GDRCollaborativeString+ObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRCollaborativeString+ObjC.h"; sourceTree = "<group>"; };
+		8DBB74D0172D68EF0052F0ED /* GDRCollaborativeString+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRCollaborativeString+ObjC.m"; sourceTree = "<group>"; };
+		8DBB74D2172D6D650052F0ED /* GDRCollaborativeMap+ObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRCollaborativeMap+ObjC.h"; sourceTree = "<group>"; };
+		8DBB74D3172D6D650052F0ED /* GDRCollaborativeMap+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRCollaborativeMap+ObjC.m"; sourceTree = "<group>"; };
+		8DBB74D5172D70AF0052F0ED /* GDRCollaborativeList+ObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRCollaborativeList+ObjC.h"; sourceTree = "<group>"; };
+		8DBB74D6172D70AF0052F0ED /* GDRCollaborativeList+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRCollaborativeList+ObjC.m"; sourceTree = "<group>"; };
+		8DBB74D8172D7D180052F0ED /* GDRIndexReference+ObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRIndexReference+ObjC.h"; sourceTree = "<group>"; };
+		8DBB74D9172D7D180052F0ED /* GDRIndexReference+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRIndexReference+ObjC.m"; sourceTree = "<group>"; };
+		8DBB74DB172D82340052F0ED /* GDRModel+ObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRModel+ObjC.h"; sourceTree = "<group>"; };
+		8DBB74DC172D82340052F0ED /* GDRModel+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRModel+ObjC.m"; sourceTree = "<group>"; };
+		8DD88ACF172F7811006DCFA8 /* libtest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libtest.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DD88AD0172F7811006DCFA8 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		8DD88AD3172F7811006DCFA8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		8DD88AD4172F7811006DCFA8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		8DD88AD5172F7811006DCFA8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8DD88AD8172F7811006DCFA8 /* test-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "test-Prefix.pch"; sourceTree = "<group>"; };
+		8DD88AD9172F7811006DCFA8 /* test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
+		8DD88ADA172F7811006DCFA8 /* test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = test.m; sourceTree = "<group>"; };
+		934154E8F61A46D3939CD886 /* libPods-test.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-test.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EE324FAA28F4670B4B27AEC /* libPods-demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB8E7EADF911421F977C3180 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC32686C9A964CE998DA7A84 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		E260BA2602094A24924ACF4D /* libPods-test.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-test.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFB495390FFE472690E604A5 /* libPods-test.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-test.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,18 +118,15 @@
 				8DBB745C172BD0B60052F0ED /* UIKit.framework in Frameworks */,
 				8DBB745D172BD0B60052F0ED /* Foundation.framework in Frameworks */,
 				8DBB745F172BD0B60052F0ED /* CoreGraphics.framework in Frameworks */,
-				F319FF0F701C4FF0B243E069 /* libPods.a in Frameworks */,
+				055817FB9E054A578C8DE214 /* libPods-demo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8DBB7494172BD0F20052F0ED /* Frameworks */ = {
+		8DD88ACC172F7811006DCFA8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DBB7499172BD0F20052F0ED /* SenTestingKit.framework in Frameworks */,
-				8DBB749A172BD0F20052F0ED /* UIKit.framework in Frameworks */,
-				8DBB749B172BD0F20052F0ED /* Foundation.framework in Frameworks */,
-				B395736D5C0B4B4187540B12 /* libPods-test.a in Frameworks */,
+				E358178C59DA4C24A7880E03 /* libPods-test.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,11 +139,12 @@
 				8DBB74A9172BD1300052F0ED /* Classes */,
 				8DBB7460172BD0B60052F0ED /* demo */,
 				8DBB749C172BD0F20052F0ED /* test */,
+				8DD88AD6172F7811006DCFA8 /* test */,
 				8D8CA152172BC9B400652CC1 /* Frameworks */,
 				8D8CA151172BC9B400652CC1 /* Products */,
 				CC32686C9A964CE998DA7A84 /* Pods.xcconfig */,
-				4F5F6C85D6754E1298D8F166 /* Pods.xcconfig */,
-				1B27C811878C4903993E274E /* Pods-test.xcconfig */,
+				7902CBF143B343B1A5AF066B /* Pods-demo.xcconfig */,
+				1EA2B19E5F2040AC9E967E49 /* Pods-test.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,7 +153,7 @@
 			children = (
 				8D8CA150172BC9B400652CC1 /* libGDRealtime.a */,
 				8DBB745A172BD0B60052F0ED /* demo.app */,
-				8DBB7498172BD0F20052F0ED /* test.octest */,
+				8DD88ACF172F7811006DCFA8 /* libtest.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -147,6 +168,11 @@
 				8DBB747E172BD0B70052F0ED /* SenTestingKit.framework */,
 				BB8E7EADF911421F977C3180 /* libPods.a */,
 				E260BA2602094A24924ACF4D /* libPods-test.a */,
+				9EE324FAA28F4670B4B27AEC /* libPods-demo.a */,
+				EFB495390FFE472690E604A5 /* libPods-test.a */,
+				8DD88AD0172F7811006DCFA8 /* Cocoa.framework */,
+				8DD88AD2172F7811006DCFA8 /* Other Frameworks */,
+				934154E8F61A46D3939CD886 /* libPods-test.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -210,15 +236,63 @@
 		8DBB74AA172BD1300052F0ED /* ios */ = {
 			isa = PBXGroup;
 			children = (
-				8DBB74AB172BD1300052F0ED /* ComGoodowRealtimeUtilObjcNativeInterfaceFactory+NativeImpl.h */,
-				8DBB74AC172BD1300052F0ED /* ComGoodowRealtimeUtilObjcNativeInterfaceFactory+NativeImpl.m */,
+				8DBB74DB172D82340052F0ED /* GDRModel+ObjC.h */,
+				8DBB74DC172D82340052F0ED /* GDRModel+ObjC.m */,
+				8DBB74CF172D68EF0052F0ED /* GDRCollaborativeString+ObjC.h */,
+				8DBB74D0172D68EF0052F0ED /* GDRCollaborativeString+ObjC.m */,
+				8DBB74D2172D6D650052F0ED /* GDRCollaborativeMap+ObjC.h */,
+				8DBB74D3172D6D650052F0ED /* GDRCollaborativeMap+ObjC.m */,
+				8DBB74D5172D70AF0052F0ED /* GDRCollaborativeList+ObjC.h */,
+				8DBB74D6172D70AF0052F0ED /* GDRCollaborativeList+ObjC.m */,
+				8DBB74D8172D7D180052F0ED /* GDRIndexReference+ObjC.h */,
+				8DBB74D9172D7D180052F0ED /* GDRIndexReference+ObjC.m */,
+				8DBB74AB172BD1300052F0ED /* ObjcNativeInterfaceFactory+ObjC.h */,
+				8DBB74AC172BD1300052F0ED /* ObjcNativeInterfaceFactory+ObjC.m */,
 				8DBB74AD172BD1300052F0ED /* GDRealtime.h */,
 				8DBB74AE172BD1300052F0ED /* GDRealtime.m */,
 			);
 			path = ios;
 			sourceTree = "<group>";
 		};
+		8DD88AD2172F7811006DCFA8 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8DD88AD3172F7811006DCFA8 /* AppKit.framework */,
+				8DD88AD4172F7811006DCFA8 /* CoreData.framework */,
+				8DD88AD5172F7811006DCFA8 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		8DD88AD6172F7811006DCFA8 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				8DD88AD9172F7811006DCFA8 /* test.h */,
+				8DD88ADA172F7811006DCFA8 /* test.m */,
+				8DD88AD7172F7811006DCFA8 /* Supporting Files */,
+			);
+			path = test;
+			sourceTree = "<group>";
+		};
+		8DD88AD7172F7811006DCFA8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8DD88AD8172F7811006DCFA8 /* test-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		8DD88ACD172F7811006DCFA8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		8D8CA14F172BC9B400652CC1 /* GDRealtime */ = {
@@ -244,11 +318,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8DBB7491172BD0B70052F0ED /* Build configuration list for PBXNativeTarget "demo" */;
 			buildPhases = (
+				4FCD2EBE48B549F5B664059A /* Check Pods Manifest.lock */,
 				5693BAD3825545FE90DA92DF /* Check Pods Manifest.lock */,
 				8DBB7456172BD0B60052F0ED /* Sources */,
 				8DBB7457172BD0B60052F0ED /* Frameworks */,
 				8DBB7458172BD0B60052F0ED /* Resources */,
 				177A272A02834CC8A112C7DA /* Copy Pods Resources */,
+				E4D86D0F8F3B4AB1A096CAF3 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -259,16 +335,14 @@
 			productReference = 8DBB745A172BD0B60052F0ED /* demo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8DBB7497172BD0F20052F0ED /* test */ = {
+		8DD88ACE172F7811006DCFA8 /* test */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8DBB74A6172BD0F20052F0ED /* Build configuration list for PBXNativeTarget "test" */;
+			buildConfigurationList = 8DD88ADC172F7811006DCFA8 /* Build configuration list for PBXNativeTarget "test" */;
 			buildPhases = (
-				71C072328BA44D1CAE57F18A /* Check Pods Manifest.lock */,
-				8DBB7493172BD0F20052F0ED /* Sources */,
-				8DBB7494172BD0F20052F0ED /* Frameworks */,
-				8DBB7495172BD0F20052F0ED /* Resources */,
-				8DBB7496172BD0F20052F0ED /* ShellScript */,
-				FA8ED8537D8D4BD8A1160C55 /* Copy Pods Resources */,
+				8DD88ACB172F7811006DCFA8 /* Sources */,
+				8DD88ACC172F7811006DCFA8 /* Frameworks */,
+				8DD88ACD172F7811006DCFA8 /* Headers */,
+				8D57F28A172F811A00F1B0FE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -276,8 +350,8 @@
 			);
 			name = test;
 			productName = test;
-			productReference = 8DBB7498172BD0F20052F0ED /* test.octest */;
-			productType = "com.apple.product-type.bundle";
+			productReference = 8DD88ACF172F7811006DCFA8 /* libtest.a */;
+			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
@@ -302,7 +376,7 @@
 			targets = (
 				8D8CA14F172BC9B400652CC1 /* GDRealtime */,
 				8DBB7459172BD0B60052F0ED /* demo */,
-				8DBB7497172BD0F20052F0ED /* test */,
+				8DD88ACE172F7811006DCFA8 /* test */,
 			);
 		};
 /* End PBXProject section */
@@ -317,14 +391,6 @@
 				8DBB746F172BD0B70052F0ED /* Default@2x.png in Resources */,
 				8DBB7471172BD0B70052F0ED /* Default-568h@2x.png in Resources */,
 				8DBB7474172BD0B70052F0ED /* MainStoryboard.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8DBB7495172BD0F20052F0ED /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8DBB74A1172BD0F20052F0ED /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +425,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 		};
+		4FCD2EBE48B549F5B664059A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sanbox is not in sync with the Podfile.lock. Run 'pod install'.\nEOM\n    exit 1\nfi\n";
+		};
 		5693BAD3825545FE90DA92DF /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -373,21 +453,7 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sanbox is not in sync with the Podfile.lock. Run 'pod install'.\nEOM\n    exit 1\nfi\n";
 		};
-		71C072328BA44D1CAE57F18A /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sanbox is not in sync with the Podfile.lock. Run 'pod install'.\nEOM\n    exit 1\nfi\n";
-		};
-		8DBB7496172BD0F20052F0ED /* ShellScript */ = {
+		8D57F28A172F811A00F1B0FE /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -398,7 +464,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+			shellScript = "if [ x$ACTION == xclean ]; then make clean; else make; fi";
 		};
 		B560A6E7B3354EA78C7B9449 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -414,7 +480,7 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 		};
-		FA8ED8537D8D4BD8A1160C55 /* Copy Pods Resources */ = {
+		E4D86D0F8F3B4AB1A096CAF3 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -426,7 +492,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-test-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Pods-demo-resources.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -435,6 +501,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DBB74C8172C136C0052F0ED /* ObjcNativeInterfaceFactory+ObjC.m in Sources */,
+				8DBB74C9172C13700052F0ED /* GDRealtime.m in Sources */,
+				8DBB74D1172D68EF0052F0ED /* GDRCollaborativeString+ObjC.m in Sources */,
+				8DBB74D4172D6D650052F0ED /* GDRCollaborativeMap+ObjC.m in Sources */,
+				8DBB74D7172D70AF0052F0ED /* GDRCollaborativeList+ObjC.m in Sources */,
+				8DBB74DA172D7D180052F0ED /* GDRIndexReference+ObjC.m in Sources */,
+				8DBB74DD172D82350052F0ED /* GDRModel+ObjC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,11 +521,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8DBB7493172BD0F20052F0ED /* Sources */ = {
+		8DD88ACB172F7811006DCFA8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DBB74A4172BD0F20052F0ED /* test.m in Sources */,
+				8DD88ADB172F7811006DCFA8 /* test.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,7 +618,7 @@
 			buildSettings = {
 				DSTROOT = /tmp/GDRealtime.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "GDRealtime/GDRealtime-Prefix.pch";
+				GCC_PREFIX_HEADER = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -558,7 +631,7 @@
 			buildSettings = {
 				DSTROOT = /tmp/GDRealtime.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "GDRealtime/GDRealtime-Prefix.pch";
+				GCC_PREFIX_HEADER = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -567,7 +640,7 @@
 		};
 		8DBB748D172BD0B70052F0ED /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4F5F6C85D6754E1298D8F166 /* Pods.xcconfig */;
+			baseConfigurationReference = 7902CBF143B343B1A5AF066B /* Pods-demo.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -580,7 +653,7 @@
 		};
 		8DBB748E172BD0B70052F0ED /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4F5F6C85D6754E1298D8F166 /* Pods.xcconfig */;
+			baseConfigurationReference = 7902CBF143B343B1A5AF066B /* Pods-demo.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -592,35 +665,46 @@
 			};
 			name = Release;
 		};
-		8DBB74A7172BD0F20052F0ED /* Debug */ = {
+		8DD88ADD172F7811006DCFA8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1B27C811878C4903993E274E /* Pods-test.xcconfig */;
+			baseConfigurationReference = 1EA2B19E5F2040AC9E967E49 /* Pods-test.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
 				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "test/test-Prefix.pch";
-				INFOPLIST_FILE = "test/test-Info.plist";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
-		8DBB74A8172BD0F20052F0ED /* Release */ = {
+		8DD88ADE172F7811006DCFA8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1B27C811878C4903993E274E /* Pods-test.xcconfig */;
+			baseConfigurationReference = 1EA2B19E5F2040AC9E967E49 /* Pods-test.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
 				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "test/test-Prefix.pch";
-				INFOPLIST_FILE = "test/test-Info.plist";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -654,11 +738,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8DBB74A6172BD0F20052F0ED /* Build configuration list for PBXNativeTarget "test" */ = {
+		8DD88ADC172F7811006DCFA8 /* Build configuration list for PBXNativeTarget "test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8DBB74A7172BD0F20052F0ED /* Debug */,
-				8DBB74A8172BD0F20052F0ED /* Release */,
+				8DD88ADD172F7811006DCFA8 /* Debug */,
+				8DD88ADE172F7811006DCFA8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

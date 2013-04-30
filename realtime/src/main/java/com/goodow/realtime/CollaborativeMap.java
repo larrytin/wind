@@ -28,6 +28,7 @@ import org.timepedia.exporter.client.ExportPackage;
 import org.timepedia.exporter.client.NoExport;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -52,6 +53,55 @@ import elemental.json.JsonValue;
 @ExportPackage(NativeInterfaceFactory.PACKAGE_PREFIX_REALTIME)
 @Export(all = true)
 public class CollaborativeMap extends CollaborativeObject {
+  private static class MapEntry<V> implements Map.Entry<String, V> {
+
+    private final String key;
+    private final V value;
+
+    MapEntry(String theKey, V theValue) {
+      key = theKey;
+      value = theValue;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+      if (this == object) {
+        return true;
+      }
+      if (object instanceof Map.Entry) {
+        Map.Entry<?, ?> entry = (Map.Entry<?, ?>) object;
+        return (key == null ? entry.getKey() == null : key.equals(entry.getKey()))
+            && (value == null ? entry.getValue() == null : value.equals(entry.getValue()));
+      }
+      return false;
+    }
+
+    @Override
+    public String getKey() {
+      return key;
+    }
+
+    @Override
+    public V getValue() {
+      return value;
+    }
+
+    @Override
+    public int hashCode() {
+      return (key == null ? 0 : key.hashCode()) ^ (value == null ? 0 : value.hashCode());
+    }
+
+    @Override
+    public V setValue(V object) {
+      throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public String toString() {
+      return key + "=" + value;
+    }
+  }
+
   @GwtIncompatible(NativeInterfaceFactory.JS_REGISTER_PROPERTIES)
   @ExportAfterCreateMethod
   public native static void __jsRunAfter__() /*-{
@@ -172,14 +222,13 @@ public class CollaborativeMap extends CollaborativeObject {
    * @return The items in this map. Each item is a [key, value] pair.
    */
   @NoExport
-  public Object[][] items() {
-    Object[][] items = new Object[size()][2];
+  public <T> Set<Map.Entry<String, T>> items() {
+
+    Set<Map.Entry<String, T>> items = new LinkedHashSet<Map.Entry<String, T>>();
     String[] keys = keys();
     for (int i = 0, len = size(); i < len; i++) {
-      Object[] item = new Object[2];
-      item[0] = keys[i];
-      item[1] = get(keys[i]);
-      items[i] = item;
+      MapEntry<T> entry = new MapEntry<T>(keys[i], this.<T> get(keys[i]));
+      items.add(entry);
     }
     return items;
   }
@@ -254,11 +303,11 @@ public class CollaborativeMap extends CollaborativeObject {
    * @return The values in this map.
    */
   @NoExport
-  public List<Object> values() {
-    List<Object> values = new ArrayList<Object>();
+  public <T> List<T> values() {
+    List<T> values = new ArrayList<T>();
     String[] keys = keys();
     for (int i = 0, len = size(); i < len; i++) {
-      values.add(get(keys[i]));
+      values.add(this.<T> get(keys[i]));
     }
     return values;
   }

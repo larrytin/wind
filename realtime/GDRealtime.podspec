@@ -5,27 +5,43 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/goodow/realtime"
   s.author       = { "Larry Tin" => "dev@goodow.com" }
   s.source       = { :git => "https://github.com/goodow/realtime.git", :tag => "v#{s.version}" }
-  s.platform     = :ios, '5.1'
+#  s.platform     = :ios, '5.1'
 
-  s.default_subspec = 'Core'
-  s.source_files = 'src/main/objectivec/Classes/**/*.{h,m}'
+  s.default_subspec = 'default'
   s.header_mappings_dir = 'src/main/generated_objectivec'
+#  s.preserve_paths = 'src/main/generated_objectivec/**/*.h', 'src/test/generated_objectivec/**/*.h'
   s.resources = 'src/main/objectivec/Resources/**'
   s.requires_arc = true
 
-  s.dependency 'jre_emul'
-#, '~> 0.6.1'
-  s.dependency 'Google-Diff-Match-Patch', '~> 0.0.1'
+#  s.xcconfig = { 'HEADER_SEARCH_PATHS' => \
+#    '"${PODS_ROOT}/GDRealtime/src/main/generated_objectivec" "${PODS_ROOT}/GDRealtime/src/test/generated_objectivec"' }
 
-  s.subspec 'Core' do |r|
-    r.source_files = 'src/main/generated_objectivec/**/*.{h,m}'
-    r.requires_arc = false
+  s.subspec 'default' do |d|
+    d.dependency 'jre_emul'
+#, '~> 0.7.2'
+    d.dependency 'GDRealtime/core'
+    d.dependency 'GDRealtime/generated'
+  end
+
+  s.subspec 'core' do |c|
+    c.source_files = 'src/main/objectivec/Classes/**/*.{h,m}'
+
+    c.dependency 'Google-Diff-Match-Patch', '~> 0.0.1'
+  end
+
+  s.subspec 'generated' do |gen|
+    gen.source_files = 'src/main/generated_objectivec/**/*.{h,m}'
+    gen.requires_arc = false
   end
 
   s.subspec 'test' do |test|
-    test.source_files = 'src/test/generated_objectivec/**/*.{h,m}'
+#    test.source_files = 'src/test/generated_objectivec/**/*.{h,m}'
 
-    test.dependency 'GDRealtime/Core'
+    test.dependency 'GDRealtime/core'
+    test.dependency 'GDRealtime/generated'
+
+    test.xcconfig = { 'HEADER_SEARCH_PATHS' => \
+      '"${PODS_ROOT}/jre_emul/dist/include" "${PODS_ROOT}/jre_emul/jre_emul/icu4c/i18n/include" "${PODS_ROOT}/jre_emul/jre_emul/icu4c/common"' }
   end
 
 end
