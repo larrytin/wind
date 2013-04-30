@@ -174,7 +174,7 @@ public class CollaborativeString extends CollaborativeObject {
       throw new IllegalArgumentException("Expected string for text, but was: null");
     }
     model.beginCompoundOperation(null);
-    NativeInterface.instance().setText(this, text);
+    NativeInterface.get().setText(this, text);
     model.endCompoundOperation();
   }
 

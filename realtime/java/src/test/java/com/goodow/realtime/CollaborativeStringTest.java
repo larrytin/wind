@@ -197,32 +197,35 @@ public class CollaborativeStringTest extends TestCase {
     assertEquals(1, e[0].oldIndex);
     assertEquals(-1, e[0].newIndex);
 
-    // ref.removeReferenceShiftedListener(handler);
-    // str.setText("ab");
-    // ref = str.registerReference(1, false);
-    // ref.addReferenceShiftedListener(handler);
-    // e[0] = null;
-    // str.insertString(2, "2"); // "ab2"
-    // assertNull(e[0]);
-    // e[0] = null;
-    // str.insertString(1, "1"); // "a1b2"
-    // assertEquals(1, e[0].oldIndex);
-    // assertEquals(2, e[0].newIndex);
-    // e[0] = null;
-    // str.removeRange(3, 4); // "a1b"
-    // assertNull(e[0]);
-    // e[0] = null;
-    // str.removeRange(1, 2); // "ab"
-    // assertEquals(2, e[0].oldIndex);
-    // assertEquals(1, e[0].newIndex);
-    // e[0] = null;
-    // str.removeRange(1, 2); // "a"
-    // assertEquals(1, e[0].oldIndex);
-    // assertEquals(1, e[0].newIndex);
+    ref.removeReferenceShiftedListener(handler);
+    str.setText("ab");
+    ref = str.registerReference(1, false);
+    ref.addReferenceShiftedListener(handler);
+    e[0] = null;
+    str.insertString(2, "2"); // "ab2"
+    assertNull(e[0]);
+    e[0] = null;
+    str.insertString(1, "1"); // "a1b2"
+    assertEquals(1, e[0].oldIndex);
+    assertEquals(2, e[0].newIndex);
+    e[0] = null;
+    str.removeRange(3, 4); // "a1b"
+    assertNull(e[0]);
+    e[0] = null;
+    str.removeRange(1, 2); // "ab"
+    assertEquals(2, e[0].oldIndex);
+    assertEquals(1, e[0].newIndex);
+    e[0] = null;
+    str.removeRange(1, 2); // "a"
+    assertEquals(1, e[0].oldIndex);
+    assertEquals(1, e[0].newIndex);
   }
 
   public void testSetText() {
-
+    str.setText("abc");
+    assertEquals("abc", str.getText());
+    str.setText("ddabd");
+    assertEquals("ddabd", str.getText());
   }
 
   @Override

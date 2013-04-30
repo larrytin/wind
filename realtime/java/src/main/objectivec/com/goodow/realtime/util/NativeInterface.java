@@ -14,7 +14,7 @@
 package com.goodow.realtime.util;
 
 public class NativeInterface {
-  public static NativeInterfaceFactory instance() {
+  public static NativeInterfaceFactory get() {
     return new ObjcNativeInterfaceFactory();
   }
 }

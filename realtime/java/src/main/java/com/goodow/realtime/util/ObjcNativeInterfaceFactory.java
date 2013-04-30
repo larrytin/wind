@@ -14,7 +14,7 @@
 package com.goodow.realtime.util;
 
 /*-[
- // #import "Realtime2.h"
+ #import "GDRealtime.h"
  ]-*/
 import com.goodow.realtime.CollaborativeString;
 
@@ -28,7 +28,7 @@ public class ObjcNativeInterfaceFactory implements NativeInterfaceFactory {
 
   @Override
   public native void setText(CollaborativeString str, String text) /*-[
-    // [self setTextImpl:str text:text];
+    [self setTextImpl:str text:text];
   ]-*/;
 
 }
