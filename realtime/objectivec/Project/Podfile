@@ -1,7 +1,7 @@
 platform :ios, '6.0'
 
-pod 'GDRealtime/generated', :local => '../../../../'
-# podspec :path => "../../../../GDRealtime.podspec"
+pod 'GDRealtime/generated', :local => '..'
+# podspec :path => "../GDRealtime.podspec"
 
 target :demo, :exclusive => true do
   pod 'GDRealtime'

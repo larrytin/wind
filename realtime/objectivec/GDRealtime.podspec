@@ -8,9 +8,9 @@ Pod::Spec.new do |s|
 #  s.platform     = :ios, '5.1'
 
   s.default_subspec = 'default'
-  s.header_mappings_dir = 'src/main/generated_objectivec'
+  s.header_mappings_dir = 'Classes/generated'
 #  s.preserve_paths = 'src/main/generated_objectivec/**/*.h', 'src/test/generated_objectivec/**/*.h'
-  s.resources = 'src/main/objectivec/Resources/**'
+  s.resources = 'Resources/**'
   s.requires_arc = true
 
 #  s.xcconfig = { 'HEADER_SEARCH_PATHS' => \
@@ -24,18 +24,18 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'core' do |c|
-    c.source_files = 'src/main/objectivec/Classes/**/*.{h,m}'
+    c.source_files = 'Classes/ios/**/*.{h,m}'
 
     c.dependency 'Google-Diff-Match-Patch', '~> 0.0.1'
   end
 
   s.subspec 'generated' do |gen|
-    gen.source_files = 'src/main/generated_objectivec/**/*.{h,m}'
+    gen.source_files = 'Classes/generated/**/*.{h,m}'
     gen.requires_arc = false
   end
 
   s.subspec 'test' do |test|
-#    test.source_files = 'src/test/generated_objectivec/**/*.{h,m}'
+#    test.source_files = 'Classes/test_generated/**/*.{h,m}'
 
     test.dependency 'GDRealtime/core'
     test.dependency 'GDRealtime/generated'

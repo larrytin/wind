@@ -34,18 +34,13 @@ endif
 J2OBJCC_FLAGS = -ObjC $(WARNINGS) $(SDKFLAGS) $(ARCHFLAGS) $(DEBUGFLAGS)
 J2OBJCC = $(J2OBJC_DIST)/j2objcc $(J2OBJCC_FLAGS)
 
-#CONFIGURATION_BUILD_DIR = /Users/retechretech/Library/Developer/Xcode/DerivedData/GDRealtime-dqlyespfgoikflalqsduflxaknex/Build/Products/Debug-iphonesimulator
-#CONFIGURATION_TEMP_DIR = /Users/retechretech/Library/Developer/Xcode/DerivedData/GDRealtime-dqlyespfgoikflalqsduflxaknex/Build/Intermediates/GDRealtime.build/Debug-iphonesimulator
-pods_obj_dir = $(subst GDRealtime.build,Pods.build,$(CONFIGURATION_TEMP_DIR)/Pods-test.build/Objects-normal/$(ARCHS))
-JAVA_GEN_DIR = ../../../main/generated_objectivec
+JAVA_GEN_DIR = ../Classes/generated
+SUPPORT_LIB = $(CONFIGURATION_BUILD_DIR)/libtest.a
 
-TEST_SRC_DIR = ../../../test/java
-TEST_GEN_DIR = ../../../test/generated_objectivec
-TEST_BUILD_DIR = ../../../../target/test-objectivec
+TEST_SRC_DIR = ../../java/src/test/java
+TEST_GEN_DIR = ../Classes/test_generated
+TEST_BUILD_DIR = ../../java/target/j2objc
 TEST_SOURCES = $(shell find $(TEST_SRC_DIR) -name *.java)
-TEST_SOURCE_LIST = $(TEST_BUILD_DIR)/test.sources.list
-TEST_TEMP_SOURCES = $(subst $(TEST_SRC_DIR), $(TEST_GEN_DIR), $(TEST_SOURCES))
-TEST_GEN_SOURCES = $(TEST_TEMP_SOURCES:.java=.m)
 TEST_TEMP_OBJCS = $(subst $(TEST_SRC_DIR), $(TEST_BUILD_DIR), $(TEST_SOURCES))
 TEST_OBJCS = $(TEST_TEMP_OBJCS:.java=.o)
 TEST_BINS = $(TEST_OBJCS:.o=)
@@ -59,20 +54,15 @@ $(TEST_BUILD_DIR)/%.o: $(TEST_GEN_DIR)/%.m $(TEST_SRC_DIR)/%.java
 	  -Wno-objc-redundant-literal-use -Wno-format \
 	  -Werror -Wno-parentheses
 
-$(TEST_BUILD_DIR)/%: $(TEST_BUILD_DIR)/%.o $(JAVA_LIB)
+$(TEST_BUILD_DIR)/%: $(TEST_BUILD_DIR)/%.o $(SUPPORT_LIB)
 	@$(J2OBJCC) $< -o $@ \
 	  -g -Werror \
 	  -ljunit -ltest -L$(CONFIGURATION_BUILD_DIR)
 
-link-test: $(TEST_GEN_DIR) $(TEST_OBJCS) $(TEST_BINS)
+link-test: $(TEST_OBJCS) $(TEST_BINS)
 
 test: link-test $(TEST_BINS)
 	@/bin/sh runtests.sh $(TEST_BINS)
 
-$(TEST_GEN_DIR):
-	@mkdir -p $(TEST_GEN_DIR)
-$(TEST_BUILD_DIR):
-	@mkdir -p $(TEST_BUILD_DIR)
-	
 clean:
 	@rm -rf $(TEST_BUILD_DIR)

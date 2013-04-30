@@ -1,46 +1,37 @@
 .SUFFIXES: .java .m
 .PHONY: default clean translate link
 
-# Change to where distribution was unzipped.
 J2OBJC_DIST = ~/dev/tools/lib/j2objc/dist
 M2_REPO = ~/.m2/repository
 
-SOURCE_LIST = $(JAVA_BUILD_DIR)/java.sources.list
-JAVA_SRC_DIR = src/main/java
-JAVA_GEN_DIR = src/main/generated_objectivec
-JAVA_BUILD_DIR = target/objectivec
+BUILD_DIR = java/target/j2objc
+SOURCE_LIST = $(BUILD_DIR)/java.sources.list
+JAVA_SRC_DIR = java/src/main/java
+JAVA_GEN_DIR = objectivec/Classes/generated
 JAVA_SOURCES = $(shell find $(JAVA_SRC_DIR) -name *.java ! -name NativeInterface.java \
   ! -name JreNativeInterfaceFactory.java ! -name JsNativeInterfaceFactory.java \
   ! -name JsJson*.java ! -name JsMap*.java)
 JAVA_TEMP_SOURCES = $(subst $(JAVA_SRC_DIR), $(JAVA_GEN_DIR), $(JAVA_SOURCES))
 JAVA_GEN_SOURCES = $(JAVA_TEMP_SOURCES:.java=.m)
-JAVA_TEMP_OBJCS = $(subst $(JAVA_SRC_DIR), $(JAVA_BUILD_DIR), $(JAVA_SOURCES))
-JAVA_OBJCS = $(JAVA_TEMP_OBJCS:.java=.o)
-JAVA_LIB = $(JAVA_BUILD_DIR)/libjava.a
 
-JNI_SRC_DIR = src/main/objectivec/Classes/java
-JNI_SOURCES = $(JNI_SRC_DIR)/com/goodow/realtime/util/NativeInterface.java
-JNI_TEMP_OBJCS = $(subst $(JNI_SRC_DIR), $(JAVA_BUILD_DIR), $(JNI_SOURCES))
-JNI_OBJCS = $(JNI_TEMP_OBJCS:.java=.o)
-JNI_OBJC_SOURCES = $(JNI_OBJCS:.o=.placeholder)
+JNI_SRC_DIR = java/src/main/objectivec
+JNI_SOURCES = $(shell find $(JNI_SRC_DIR) -name *.java)
+JNI_TEMP_SOURCES = $(subst $(JNI_SRC_DIR), $(BUILD_DIR), $(JNI_SOURCES))
+JNI_GEN_SOURCES = $(JNI_TEMP_SOURCES:.java=.placeholder)
 
-TEST_SRC_DIR = src/test/java
-TEST_GEN_DIR = src/test/generated_objectivec
-TEST_BUILD_DIR = target/test-objectivec
+TEST_SRC_DIR = java/src/test/java
+TEST_GEN_DIR = objectivec/Classes/test_generated
 TEST_SOURCES = $(shell find $(TEST_SRC_DIR) -name *.java)
-TEST_SOURCE_LIST = $(TEST_BUILD_DIR)/test.sources.list
+TEST_SOURCE_LIST = $(BUILD_DIR)/test.sources.list
 TEST_TEMP_SOURCES = $(subst $(TEST_SRC_DIR), $(TEST_GEN_DIR), $(TEST_SOURCES))
 TEST_GEN_SOURCES = $(TEST_TEMP_SOURCES:.java=.m)
-TEST_TEMP_OBJCS = $(subst $(TEST_SRC_DIR), $(TEST_BUILD_DIR), $(TEST_SOURCES))
-TEST_OBJCS = $(TEST_TEMP_OBJCS:.java=.o)
-TEST_BINS = $(TEST_OBJCS:.o=)
 
-J2OBJC = $(J2OBJC_DIST)/j2objc --prefixes src/main/objectivec/package-prefixes.properties \
-  --mapping src/main/objectivec/method-mappings.properties
-J2OBJCC = $(J2OBJC_DIST)/j2objcc
+J2OBJC = $(J2OBJC_DIST)/j2objc --prefixes java/src/main/resources/j2objc/package-prefixes.properties \
+  --mapping java/src/main/resources/j2objc/method-mappings.properties
 JUNIT_JAR = $(J2OBJC_DIST)/lib/junit-4.10.jar
 
-default: test 
+default: translate translate-test
+	@cd objectivec/Project;xcodebuild -workspace GDRealtime.xcworkspace/ -scheme test
 
 pre_translate: $(JAVA_GEN_DIR)
 	@rm -f $(SOURCE_LIST)
@@ -49,27 +40,18 @@ pre_translate: $(JAVA_GEN_DIR)
         
 $(JAVA_GEN_DIR)/%.m $(JAVA_GEN_DIR)/%.h: $(JAVA_SRC_DIR)/%.java
 	@echo $? >> $(SOURCE_LIST)
-$(JAVA_BUILD_DIR)/%.placeholder: $(JNI_SRC_DIR)/%.java
+$(BUILD_DIR)/%.placeholder: $(JNI_SRC_DIR)/%.java
 	@echo $? >> $(SOURCE_LIST)
 	@mkdir -p `dirname $@`
 	@touch $@
 
-translate: pre_translate $(JAVA_GEN_SOURCES) $(JNI_OBJC_SOURCES)
+translate: pre_translate $(JAVA_GEN_SOURCES) $(JNI_GEN_SOURCES)
 	@if [ `cat $(SOURCE_LIST) | wc -l` -ge 1 ] ; then \
 	  $(J2OBJC) -sourcepath $(JAVA_SRC_DIR) -d $(JAVA_GEN_DIR) \
 	    -classpath '$(J2OBJC_DIST)/lib/guava-13.0.jar:$(M2_REPO)/org/timepedia/exporter/gwtexporter/2.5.0-SNAPSHOT/gwtexporter-2.5.0-SNAPSHOT.jar:\
 $(M2_REPO)/com/google/gwt/gwt-elemental/2.5.1/gwt-elemental-2.5.1.jar:$(M2_REPO)/com/google/gwt/gwt-user/2.5.1/gwt-user-2.5.1.jar' \
 	    `cat $(SOURCE_LIST)` ; \
 	fi
-
-$(JAVA_BUILD_DIR)/%.o: $(JAVA_GEN_DIR)/%.m $(JAVA_SRC_DIR)/%.java
-	@mkdir -p `dirname $@`
-	@$(J2OBJCC) -c $< -o $@ -g -I$(JAVA_GEN_DIR)
-
-$(JAVA_LIB): $(JAVA_OBJCS) $(JNI_OBJCS)
-	libtool -static -o $(JAVA_LIB) $(JAVA_OBJCS) $(JNI_OBJCS)
-
-link: translate $(JAVA_GEN_DIR) $(JAVA_LIB)
 
 pre_translate_test: $(TEST_GEN_DIR)
 	@rm -f $(TEST_SOURCE_LIST)
@@ -86,35 +68,13 @@ translate-test: pre_translate_test $(TEST_GEN_SOURCES)
 	    `cat $(TEST_SOURCE_LIST)` ; \
 	fi
 
-$(TEST_BUILD_DIR)/%.o: $(TEST_GEN_DIR)/%.m $(TEST_SRC_DIR)/%.java
-	@mkdir -p `dirname $@`
-	@$(J2OBJCC) -c $< -o $@ \
-	  -g -I$(JAVA_GEN_DIR) -I$(TEST_GEN_DIR) \
-	  -Wno-objc-redundant-literal-use -Wno-format \
-	  -Werror -Wno-parentheses
-
-$(TEST_BUILD_DIR)/%: $(TEST_BUILD_DIR)/%.o $(JAVA_LIB)
-	@$(J2OBJCC) $< -o $@ \
-	  -g -Werror \
-	  -ljunit -ljava -L$(JAVA_BUILD_DIR)
-
-link-test: link translate-test $(TEST_GEN_DIR) $(TEST_OBJCS) $(TEST_BINS)
-
-test2: link-test $(TEST_BINS)
-	@/bin/sh runtests.sh $(TEST_BINS)
-	
-test: translate translate-test
-	@cd src/main/objectivec/Project;xcodebuild -workspace GDRealtime.xcworkspace/ -scheme test
-
 $(JAVA_GEN_DIR):
 	@mkdir -p $(JAVA_GEN_DIR)
 $(TEST_GEN_DIR):
 	@mkdir -p $(TEST_GEN_DIR)
-$(JAVA_BUILD_DIR):
-	@mkdir -p $(JAVA_BUILD_DIR)
-$(TEST_BUILD_DIR):
-	@mkdir -p $(TEST_BUILD_DIR)
+$(BUILD_DIR):
+	@mkdir -p $(BUILD_DIR)
 
 clean:
-	@rm -rf $(JAVA_GEN_DIR) $(TEST_GEN_DIR) $(JAVA_BUILD_DIR) $(TEST_BUILD_DIR)
-	@cd src/main/objectivec/Project;xcodebuild -workspace GDRealtime.xcworkspace/ -scheme test clean
+	@rm -rf $(JAVA_GEN_DIR) $(TEST_GEN_DIR) $(BUILD_DIR)
+	@cd objectivec/Project;xcodebuild -workspace GDRealtime.xcworkspace/ -scheme test clean
