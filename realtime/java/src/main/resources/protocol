@@ -151,9 +151,13 @@ displayObjectChangedEvent = function (evt) {
 displayReferenceShiftedEvent = function (evt) {
   console.log('displayReferenceShiftedEvent isLocal:' + evt.isLocal + ' oldIndex:' + evt.oldIndex + ' newIndex:' + evt.newIndex);
 }
+displayStringEvent = function(evt){
+  console.log('type='+evt.type+',index='+evt.index+',text='+evt.text);
+}
 root.addEventListener(gapi.drive.realtime.EventType.OBJECT_CHANGED, displayObjectChangedEvent)
 root.removeEventListener(gapi.drive.realtime.EventType.OBJECT_CHANGED,displayObjectChangedEvent)
 r.addEventListener(gapi.drive.realtime.EventType.REFERENCE_SHIFTED, displayReferenceShiftedEvent)
+
 
 onFileLoaded = function(doc){
   window.doc2 = doc;

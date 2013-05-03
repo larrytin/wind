@@ -61,12 +61,12 @@ public class IndexReference extends CollaborativeObject {
       },
       index : {
         get : function() {
-          return this.g.@com.goodow.realtime.IndexReference::getIndex()();
+          return this.g.@com.goodow.realtime.IndexReference::index()();
         }
       },
       referencedObject : {
         get : function() {
-          var v = this.g.@com.goodow.realtime.IndexReference::getReferencedObject()();
+          var v = this.g.@com.goodow.realtime.IndexReference::referencedObject()();
           return @org.timepedia.exporter.client.ExporterUtil::wrap(Ljava/lang/Object;)(v);
         }
       }
@@ -102,7 +102,7 @@ public class IndexReference extends CollaborativeObject {
    *         change the referenced index.
    */
   @NoExport
-  public int getIndex() {
+  public int index() {
     return (int) snapshot.getNumber(1);
   }
 
@@ -110,7 +110,7 @@ public class IndexReference extends CollaborativeObject {
    * @return The object this reference points to. Read-only.
    */
   @NoExport
-  public CollaborativeObject getReferencedObject() {
+  public CollaborativeObject referencedObject() {
     return model.getObject(snapshot.getString(0));
   }
 
@@ -140,7 +140,7 @@ public class IndexReference extends CollaborativeObject {
   }
 
   void setIndex(boolean isInsert, int index, int length, String sessionId, String userId) {
-    int cursor = getIndex();
+    int cursor = index();
     if (cursor < index) {
       return;
     }
@@ -179,8 +179,8 @@ public class IndexReference extends CollaborativeObject {
     seen.add(id);
     sb.append("DefaultIndexReference [");
     sb.append("id=").append(getId());
-    sb.append(", objectId=").append(getReferencedObject().getId());
-    sb.append(", index=").append(getIndex());
+    sb.append(", objectId=").append(referencedObject().getId());
+    sb.append(", index=").append(index());
     sb.append(", canBeDeleted=").append(canBeDeleted());
     sb.append("]");
   }

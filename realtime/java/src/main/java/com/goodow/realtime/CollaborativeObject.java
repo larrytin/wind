@@ -89,7 +89,7 @@ public abstract class CollaborativeObject implements EventTarget {
   }
 
   void fireEvent(BaseModelEvent event) {
-    model.document.fireEvent(id, event);
+    model.document.scheduleEvent(id, event.type, event);
   }
 
   abstract Op<?> toInitialization();

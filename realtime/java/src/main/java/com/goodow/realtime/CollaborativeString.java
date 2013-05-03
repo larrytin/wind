@@ -173,7 +173,7 @@ public class CollaborativeString extends CollaborativeObject {
     if (text == null) {
       throw new IllegalArgumentException("Expected string for text, but was: null");
     }
-    model.beginCompoundOperation(null);
+    model.beginCompoundOperation("replaceText");
     NativeInterface.get().setText(this, text);
     model.endCompoundOperation();
   }

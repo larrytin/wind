@@ -2,7 +2,7 @@
 #import "GDRealtime.h"
 
 @interface GDRCollaborativeString (ObjC)
-@property(readonly,getter = __length) int length;
+@property(readonly) int length;
 
 //-(void)addTextDeletedListener:(void(^)(GDRTextDeletedEvent * event))handler;
 //-(void)addTextInsertedListener:(void(^)(GDRTextInsertedEvent * event))handler;

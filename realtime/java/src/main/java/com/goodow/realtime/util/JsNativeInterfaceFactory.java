@@ -47,31 +47,11 @@ public class JsNativeInterfaceFactory implements NativeInterfaceFactory, EntryPo
   public void onModuleLoad() {
     ExporterUtil.exportAll();
     onLoadImpl();
-    // Realtime.load("", new DocumentLoadedHandler() {
-    //
-    // @Override
-    // public void onLoaded(Document document) {
-    // log.info("onLoaded");
-    // }
-    // }, new ModelInitializerHandler() {
-    //
-    // @Override
-    // public void onInitializer(Model model) {
-    // log.info("onInitializer");
-    // }
-    // }, new ErrorHandler() {
-    //
-    // @Override
-    // public void handleError(Error error) {
-    // log.info("handleError");
-    // }
-    // });
   }
 
   @Override
   public void scheduleDeferred(final Runnable cmd) {
     Scheduler.get().scheduleDeferred(new ScheduledCommand() {
-
       @Override
       public void execute() {
         cmd.run();
@@ -80,13 +60,33 @@ public class JsNativeInterfaceFactory implements NativeInterfaceFactory, EntryPo
   }
 
   @Override
-  public void setText(CollaborativeString str, String text) {
-    // TODO Auto-generated method stub
-
-  }
+  public native void setText(CollaborativeString str, String text) /*-{
+		var dmp = new $wnd.diff_match_patch();
+		var text1 = str.@com.goodow.realtime.CollaborativeString::getText()();
+		var d = dmp.diff_main(text1, text);
+		dmp.diff_cleanupSemantic(d);
+		var cursor = 0;
+		for ( var i in d) {
+			var t = d[i][1], len = t.length;
+			switch (d[i][0]) {
+			case 0:
+				cursor += len;
+				break;
+			case 1:
+				str.@com.goodow.realtime.CollaborativeString::insertString(ILjava/lang/String;)(cursor, t);
+				cursor += len;
+				break;
+			case -1:
+				str.@com.goodow.realtime.CollaborativeString::removeRange(II)(cursor, cursor + len);
+				break;
+			default:
+				throw @java.lang.RuntimeException::new(Ljava/lang/String;)("Shouldn't reach here!");
+			}
+		}
+  }-*/;
 
   private native void onLoadImpl() /*-{
-    if ($wnd.gdr.onLoad && typeof $wnd.gdr.onLoad == 'function')
-      $wnd.gdr.onLoad();
+		if ($wnd.gdr.onLoad && typeof $wnd.gdr.onLoad == 'function')
+			$wnd.gdr.onLoad();
   }-*/;
 }

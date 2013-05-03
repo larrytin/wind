@@ -11,16 +11,18 @@
   [dmp diff_cleanupSemantic:diffs];
   int cursor = 0;
   for(Diff *diff in diffs){
+    text = diff.text;
+    int len = text.length;
     switch (diff.operation) {
       case DIFF_EQUAL:
-        cursor += [diff.text length];
+        cursor += len;
         break;
       case DIFF_INSERT:
-        [str insertString:cursor text:diff.text];
-        cursor += [diff.text length];
+        [str insertString:cursor text:text];
+        cursor += len;
         break;
       case DIFF_DELETE:
-        [str removeRangeFrom:cursor to:cursor+[diff.text length]];
+        [str removeRangeFrom:cursor to:cursor+len];
         break;
       default:
         @throw [[JavaLangRuntimeException alloc] initWithNSString:@"Shouldn't reach here!"];

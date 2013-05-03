@@ -2,7 +2,7 @@
 #import "GDRealtime.h"
 
 @interface GDRIndexReference (ObjC)
-@property(readonly, getter = __canBeDeleted) BOOL canBeDeleted;
-@property(readonly, getter = __index) int index;
-@property(readonly, getter = __referencedObject) GDRCollaborativeObject * referencedObject;
+@property(readonly) BOOL canBeDeleted;
+@property(readonly) int index;
+@property(readonly) GDRCollaborativeObject * referencedObject;
 @end

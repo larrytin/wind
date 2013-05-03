@@ -34,19 +34,21 @@ public class JreNativeInterfaceFactory implements NativeInterfaceFactory {
     dmp.diff_cleanupSemantic(diffs);
     int cursor = 0;
     for (Diff diff : diffs) {
+      text = diff.text;
+      int len = text.length();
       switch (diff.operation) {
         case EQUAL:
-          cursor += diff.text.length();
+          cursor += len;
           break;
         case INSERT:
-          str.insertString(cursor, diff.text);
-          cursor += diff.text.length();
+          str.insertString(cursor, text);
+          cursor += len;
           break;
         case DELETE:
-          str.removeRange(cursor, cursor + diff.text.length());
+          str.removeRange(cursor, cursor + len);
           break;
         default:
-          throw new RuntimeException();
+          throw new RuntimeException("Shouldn't reach here!");
       }
     }
     assert cursor == str.length();

@@ -130,7 +130,7 @@ public class Model implements EventTarget {
    * @param opt_name An optional name for this compound operation.
    */
   public void beginCompoundOperation(String opt_name) {
-    log.info("beginCompoundOperation" + opt_name == null ? "" : (" " + opt_name));
+    log.info("beginCompoundOperation" + (opt_name == null ? "" : (" " + opt_name)));
   }
 
   /**

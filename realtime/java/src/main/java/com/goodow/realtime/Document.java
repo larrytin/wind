@@ -15,7 +15,9 @@ package com.goodow.realtime;
 
 import com.goodow.realtime.Error.ErrorHandler;
 import com.goodow.realtime.util.JsonSerializer;
+import com.goodow.realtime.util.NativeInterface;
 import com.goodow.realtime.util.NativeInterfaceFactory;
+import com.goodow.realtime.util.Pair;
 
 import org.timepedia.exporter.client.Export;
 import org.timepedia.exporter.client.ExportPackage;
@@ -57,8 +59,71 @@ public class Document implements EventTarget {
   private List<Collaborator> collaborators;
   String sessionId;
   private final Model model;
-  private Map<String, Map<EventType, List<EventHandler<?>>>> handlers;
+  private Map<Pair<String, EventType>, List<EventHandler<?>>> handlers;
   private final Map<String, List<String>> parents = new HashMap<String, List<String>>();
+
+  private boolean isEventsScheduled = false;
+  private List<Pair<Pair<String, EventType>, Disposable>> events;
+  private Map<String, List<BaseModelEvent>> eventsById;
+  private final Runnable eventsTask = new Runnable() {
+    private List<Pair<Pair<String, EventType>, Disposable>> evts;
+    private Map<String, List<BaseModelEvent>> evtsById;
+
+    @Override
+    public void run() {
+      evts = events;
+      evtsById = eventsById;
+      events = null;
+      eventsById = null;
+      isEventsScheduled = false;
+      for (int i = 0, len = evts.size(); i < len; i++) {
+        Pair<Pair<String, EventType>, Disposable> evt = evts.get(i);
+        produceObjectChangedEvent(evt.first.first, evt.second);
+      }
+      for (Pair<Pair<String, EventType>, Disposable> evt : evts) {
+        fireEvent(evt.first, evt.second);
+      }
+      assert evtsById.isEmpty();
+      evts = null;
+      evtsById = null;
+    }
+
+    private void bubblingToAncestors(String id, ObjectChangedEvent objectChangedEvent) {
+      evts.add(Pair.of(Pair.of(id, objectChangedEvent.type), (Disposable) objectChangedEvent));
+
+      String[] parents = getParents(id);
+      if (parents != null) {
+        for (String parent : parents) {
+          bubblingToAncestors(parent, objectChangedEvent);
+        }
+      }
+    }
+
+    @SuppressWarnings("unchecked")
+    private void fireEvent(Pair<String, EventType> key, Disposable event) {
+      List<EventHandler<?>> handlers = getEventHandlers(key, false);
+      if (handlers == null) {
+        return;
+      }
+      for (int i = 0, len = handlers.size(); i < len; i++) {
+        ((EventHandler<Disposable>) handlers.get(i)).handleEvent(event);
+      }
+    }
+
+    private void produceObjectChangedEvent(String id, Disposable event) {
+      if (!evtsById.containsKey(id)) {
+        return;
+      }
+      BaseModelEvent evt = (BaseModelEvent) event;
+      assert !evt.bubbles;
+      List<BaseModelEvent> eventsPerId = evtsById.get(id);
+      evtsById.remove(id);
+      ObjectChangedEvent objectChangedEvent =
+          new ObjectChangedEvent(evt.target, evt.sessionId, evt.userId, evt.isLocal, eventsPerId
+              .toArray(new BaseModelEvent[0]));
+      bubblingToAncestors(id, objectChangedEvent);
+    }
+  };
 
   /**
    * @param bridge The driver for the GWT collaborative libraries.
@@ -140,12 +205,12 @@ public class Document implements EventTarget {
     removeEventListener(EVENT_HANDLER_KEY, type, handler, opt_capture);
   }
 
-  void addEventListener(String key, EventType type, EventHandler<?> handler, boolean opt_capture) {
-    if (key == null || type == null || handler == null) {
-      throw new NullPointerException((key == null ? "Key" : type == null ? "Type" : "Handler")
+  void addEventListener(String id, EventType type, EventHandler<?> handler, boolean opt_capture) {
+    if (id == null || type == null || handler == null) {
+      throw new NullPointerException((id == null ? "id" : type == null ? "type" : "handler")
           + " was null.");
     }
-    List<EventHandler<?>> handlersPerType = getEventHandlers(key, type, true);
+    List<EventHandler<?>> handlersPerType = getEventHandlers(Pair.of(id, type), true);
     if (handlersPerType.contains(handler)) {
       log.warning("The same handler can only be added once per the type.");
     } else {
@@ -177,22 +242,6 @@ public class Document implements EventTarget {
     }
   }
 
-  void fireEvent(String key, BaseModelEvent event) {
-    fireEvent(key, event.type, event);
-    if (!event.bubbles) {
-      ObjectChangedEvent objectChangedEvent =
-          new ObjectChangedEvent(event.target, event.sessionId, event.userId, event.isLocal, event);
-      fireEvent(key, objectChangedEvent);
-    } else {
-      String[] parents = getParents(key);
-      if (parents != null) {
-        for (String parent : parents) {
-          fireEvent(parent, event);
-        }
-      }
-    }
-  }
-
   boolean isLocalSession(String sessionId) {
     return this.sessionId == null || this.sessionId.equals(sessionId);
   }
@@ -201,60 +250,55 @@ public class Document implements EventTarget {
     if (handlers == null || handler == null) {
       return;
     }
-    Map<EventType, List<EventHandler<?>>> handlersPerKey = handlers.get(key);
-    if (handlersPerKey == null) {
-      return;
-    }
-    List<EventHandler<?>> handlersPerType = handlersPerKey.get(type);
+    List<EventHandler<?>> handlersPerType = handlers.get(Pair.of(key, type));
     if (handlersPerType == null) {
       return;
     }
     handlersPerType.remove(handler);
     if (handlersPerType.isEmpty()) {
-      handlersPerKey.remove(handlersPerType);
-      if (handlersPerKey.isEmpty()) {
-        handlers.remove(handlersPerKey);
-        if (handlers.isEmpty()) {
-          handlers = null;
-        }
+      handlers.remove(handlersPerType);
+      if (handlers.isEmpty()) {
+        handlers = null;
       }
     }
   }
 
-  @SuppressWarnings("unchecked")
-  private void fireEvent(String key, EventType type, Disposable event) {
-    List<EventHandler<?>> handlers = getEventHandlers(key, type, false);
-    if (handlers == null) {
-      return;
+  void scheduleEvent(String id, EventType type, Disposable event) {
+    if (events == null) {
+      initializeEvents();
     }
-    for (int i = 0, len = handlers.size(); i < len; i++) {
-      ((EventHandler<Disposable>) handlers.get(i)).handleEvent(event);
+    events.add(Pair.of(Pair.of(id, type), event));
+    if (event instanceof BaseModelEvent) {
+      BaseModelEvent evt = (BaseModelEvent) event;
+      assert !evt.bubbles;
+      List<BaseModelEvent> eventsPerId = eventsById.get(id);
+      if (eventsPerId == null) {
+        eventsPerId = new ArrayList<BaseModelEvent>();
+        eventsById.put(id, eventsPerId);
+      }
+      eventsPerId.add(evt);
+    }
+    if (!isEventsScheduled) {
+      isEventsScheduled = true;
+      NativeInterface.get().scheduleDeferred(eventsTask);
     }
   }
 
-  private List<EventHandler<?>> getEventHandlers(String key, EventType type,
+  private List<EventHandler<?>> getEventHandlers(Pair<String, EventType> key,
       boolean createIfNotExist) {
     if (handlers == null) {
       if (!createIfNotExist) {
         return null;
       }
-      handlers = new HashMap<String, Map<EventType, List<EventHandler<?>>>>();
+      handlers = new HashMap<Pair<String, EventType>, List<EventHandler<?>>>();
     }
-    Map<EventType, List<EventHandler<?>>> handlersPerKey = handlers.get(key);
-    if (handlersPerKey == null) {
-      if (!createIfNotExist) {
-        return null;
-      }
-      handlersPerKey = new HashMap<EventType, List<EventHandler<?>>>();
-      handlers.put(key, handlersPerKey);
-    }
-    List<EventHandler<?>> handlersPerType = handlersPerKey.get(type);
+    List<EventHandler<?>> handlersPerType = handlers.get(key);
     if (handlersPerType == null) {
       if (!createIfNotExist) {
         return null;
       }
       handlersPerType = new ArrayList<EventHandler<?>>();
-      handlersPerKey.put(type, handlersPerType);
+      handlers.put(key, handlersPerType);
     }
     return handlersPerType;
   }
@@ -266,5 +310,10 @@ public class Document implements EventTarget {
     }
     Set<String> set = new HashSet<String>(list);
     return set.toArray(new String[0]);
+  }
+
+  private void initializeEvents() {
+    events = new ArrayList<Pair<Pair<String, EventType>, Disposable>>();
+    eventsById = new HashMap<String, List<BaseModelEvent>>();
   }
 }

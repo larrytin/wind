@@ -1,7 +1,7 @@
 #import "com/goodow/realtime/Model.h"
 
 @interface GDRModel (ObjC)
-@property(readonly, getter = __canRedo) BOOL canRedo;
-@property(readonly, getter = __canUndo) BOOL canUndo;
-@property(readonly, getter = __isReadOnly) BOOL isReadOnly;
+@property(readonly) BOOL canRedo;
+@property(readonly) BOOL canUndo;
+@property(readonly) BOOL isReadOnly;
 @end
