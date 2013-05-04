@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface GDRViewController : UIViewController
-
+@property(readonly) int a;
+-(BOOL)b;
+-(BOOL)c:(int)a;
 @end

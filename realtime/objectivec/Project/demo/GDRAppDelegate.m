@@ -7,11 +7,15 @@
 //
 
 #import "GDRAppDelegate.h"
+#import "GDRViewController.h"
 
 @implementation GDRAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  GDRViewController *v;
+
+  [v a];
     // Override point for customization after application launch.
     return YES;
 }

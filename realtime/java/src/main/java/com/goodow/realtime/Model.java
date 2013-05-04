@@ -188,7 +188,7 @@ public class Model implements EventTarget {
     obj.initializeCreate(generateObjectId(), opt_initialValue);
     endCompoundOperation();
     return obj;
-  };
+  }
 
   /**
    * Creates a collaborative string.
@@ -261,7 +261,7 @@ public class Model implements EventTarget {
    * Starts a compound operation for the creation of the document's initial state.
    */
   void beginCreationCompoundOperation() {
-    log.info("beginCreationCompoundOperation");
+    beginCompoundOperation("initialize");
   }
 
   IndexReference createIndexReference(CollaborativeObject referencedObject, int index,

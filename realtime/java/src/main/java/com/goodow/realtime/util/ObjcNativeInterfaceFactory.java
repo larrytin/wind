@@ -23,8 +23,12 @@ public class ObjcNativeInterfaceFactory implements NativeInterfaceFactory {
 
   @Override
   public native void scheduleDeferred(Runnable cmd) /*-[
-    [[NSRunLoop currentRunLoop] performSelector:@selector(run:) target:cmd argument:nil order:0 modes:@[NSDefaultRunLoopMode]];
-  ]-*/;;
+    #if TARGET_OS_IPHONE == 1 || TARGET_OS_IPHONE_SIMULATOR == 1
+      [[NSRunLoop currentRunLoop] performSelector:@selector(run:) target:cmd argument:nil order:0 modes:@[NSDefaultRunLoopMode]];
+    #else
+      [cmd run];
+    #endif
+  ]-*/;
 
   @Override
   public native void setText(CollaborativeString str, String text) /*-[

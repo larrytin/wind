@@ -185,8 +185,9 @@ displayObjectChangedEvent = function (evt) {
   }
   console.log('end');
 }
-gdr.load('', function(doc){window.doc = doc;})
-mod = doc.getModel()
-str = mod.createString('ab')
-str.addObjectChangedListener(displayObjectChangedEvent)
-str.append('d')
+gdr.load('', function(doc){window.doc = doc;});
+mod = doc.getModel();
+root = mod.getRoot();
+str = mod.createString('ab');
+str.addObjectChangedListener(displayObjectChangedEvent);
+str.append('d');

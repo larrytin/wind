@@ -21,16 +21,33 @@
 		8DBB7471172BD0B70052F0ED /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DBB7470172BD0B70052F0ED /* Default-568h@2x.png */; };
 		8DBB7474172BD0B70052F0ED /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DBB7472172BD0B70052F0ED /* MainStoryboard.storyboard */; };
 		8DBB7477172BD0B70052F0ED /* GDRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB7476172BD0B70052F0ED /* GDRViewController.m */; };
-		8DBB74C8172C136C0052F0ED /* ObjcNativeInterfaceFactory+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB74AC172BD1300052F0ED /* ObjcNativeInterfaceFactory+ObjC.m */; };
-		8DBB74C9172C13700052F0ED /* GDRealtime.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB74AE172BD1300052F0ED /* GDRealtime.m */; };
-		8DBB74D1172D68EF0052F0ED /* GDRCollaborativeString+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB74D0172D68EF0052F0ED /* GDRCollaborativeString+ObjC.m */; };
-		8DBB74D4172D6D650052F0ED /* GDRCollaborativeMap+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB74D3172D6D650052F0ED /* GDRCollaborativeMap+ObjC.m */; };
-		8DBB74D7172D70AF0052F0ED /* GDRCollaborativeList+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB74D6172D70AF0052F0ED /* GDRCollaborativeList+ObjC.m */; };
-		8DBB74DA172D7D180052F0ED /* GDRIndexReference+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB74D9172D7D180052F0ED /* GDRIndexReference+ObjC.m */; };
-		8DBB74DD172D82350052F0ED /* GDRModel+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB74DC172D82340052F0ED /* GDRModel+ObjC.m */; };
+		8DBB74C8172C136C0052F0ED /* ObjcNativeInterfaceFactory+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB74AC172BD1300052F0ED /* ObjcNativeInterfaceFactory+OCNI.m */; };
+		8DBB74D1172D68EF0052F0ED /* GDRCollaborativeString+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB74D0172D68EF0052F0ED /* GDRCollaborativeString+OCNI.m */; };
+		8DBB74D4172D6D650052F0ED /* GDRCollaborativeMap+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB74D3172D6D650052F0ED /* GDRCollaborativeMap+OCNI.m */; };
+		8DBB74D7172D70AF0052F0ED /* GDRCollaborativeList+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB74D6172D70AF0052F0ED /* GDRCollaborativeList+OCNI.m */; };
+		8DBB74DA172D7D180052F0ED /* GDRIndexReference+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB74D9172D7D180052F0ED /* GDRIndexReference+OCNI.m */; };
+		8DBB74DD172D82350052F0ED /* GDRModel+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB74DC172D82340052F0ED /* GDRModel+OCNI.m */; };
+		8DD585081733F81500E4EB66 /* GDRCollaborativeObject+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD585071733F81500E4EB66 /* GDRCollaborativeObject+OCNI.m */; };
+		8DD5850D1734C50C00E4EB66 /* GDRRealtime+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD5850C1734C50B00E4EB66 /* GDRRealtime+OCNI.m */; };
+		8DD585101734CA5100E4EB66 /* GDRError+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD5850F1734CA5000E4EB66 /* GDRError+OCNI.m */; };
 		8DD88ADB172F7811006DCFA8 /* test.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD88ADA172F7811006DCFA8 /* test.m */; };
+		8DF804E7173397C600B67EDC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DBB747E172BD0B70052F0ED /* SenTestingKit.framework */; };
+		8DF804E8173397C600B67EDC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DD88AD0172F7811006DCFA8 /* Cocoa.framework */; };
+		8DF804F6173397CE00B67EDC /* test.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB74A3172BD0F20052F0ED /* test.m */; };
+		8DF804F7173398F300B67EDC /* UnitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF804DA1733979300B67EDC /* UnitTest.m */; };
+		8DF804FA1733B6EB00B67EDC /* GDRDocument+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF804F91733B6EB00B67EDC /* GDRDocument+OCNI.m */; };
 		E358178C59DA4C24A7880E03 /* libPods-test.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 934154E8F61A46D3939CD886 /* libPods-test.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8DD585091734C40800E4EB66 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D8CA148172BC9B400652CC1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DD88ACE172F7811006DCFA8;
+			remoteInfo = test;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		8D8CA14E172BC9B400652CC1 /* CopyFiles */ = {
@@ -71,20 +88,25 @@
 		8DBB74A2172BD0F20052F0ED /* test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
 		8DBB74A3172BD0F20052F0ED /* test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = test.m; sourceTree = "<group>"; };
 		8DBB74A5172BD0F20052F0ED /* test-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "test-Prefix.pch"; sourceTree = "<group>"; };
-		8DBB74AB172BD1300052F0ED /* ObjcNativeInterfaceFactory+ObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ObjcNativeInterfaceFactory+ObjC.h"; sourceTree = "<group>"; };
-		8DBB74AC172BD1300052F0ED /* ObjcNativeInterfaceFactory+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ObjcNativeInterfaceFactory+ObjC.m"; sourceTree = "<group>"; };
-		8DBB74AD172BD1300052F0ED /* GDRealtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDRealtime.h; sourceTree = "<group>"; };
-		8DBB74AE172BD1300052F0ED /* GDRealtime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDRealtime.m; sourceTree = "<group>"; };
-		8DBB74CF172D68EF0052F0ED /* GDRCollaborativeString+ObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRCollaborativeString+ObjC.h"; sourceTree = "<group>"; };
-		8DBB74D0172D68EF0052F0ED /* GDRCollaborativeString+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRCollaborativeString+ObjC.m"; sourceTree = "<group>"; };
-		8DBB74D2172D6D650052F0ED /* GDRCollaborativeMap+ObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRCollaborativeMap+ObjC.h"; sourceTree = "<group>"; };
-		8DBB74D3172D6D650052F0ED /* GDRCollaborativeMap+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRCollaborativeMap+ObjC.m"; sourceTree = "<group>"; };
-		8DBB74D5172D70AF0052F0ED /* GDRCollaborativeList+ObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRCollaborativeList+ObjC.h"; sourceTree = "<group>"; };
-		8DBB74D6172D70AF0052F0ED /* GDRCollaborativeList+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRCollaborativeList+ObjC.m"; sourceTree = "<group>"; };
-		8DBB74D8172D7D180052F0ED /* GDRIndexReference+ObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRIndexReference+ObjC.h"; sourceTree = "<group>"; };
-		8DBB74D9172D7D180052F0ED /* GDRIndexReference+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRIndexReference+ObjC.m"; sourceTree = "<group>"; };
-		8DBB74DB172D82340052F0ED /* GDRModel+ObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRModel+ObjC.h"; sourceTree = "<group>"; };
-		8DBB74DC172D82340052F0ED /* GDRModel+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRModel+ObjC.m"; sourceTree = "<group>"; };
+		8DBB74AB172BD1300052F0ED /* ObjcNativeInterfaceFactory+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ObjcNativeInterfaceFactory+OCNI.h"; sourceTree = "<group>"; };
+		8DBB74AC172BD1300052F0ED /* ObjcNativeInterfaceFactory+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ObjcNativeInterfaceFactory+OCNI.m"; sourceTree = "<group>"; };
+		8DBB74AD172BD1300052F0ED /* GDRealtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = GDRealtime.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		8DBB74CF172D68EF0052F0ED /* GDRCollaborativeString+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRCollaborativeString+OCNI.h"; sourceTree = "<group>"; };
+		8DBB74D0172D68EF0052F0ED /* GDRCollaborativeString+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRCollaborativeString+OCNI.m"; sourceTree = "<group>"; };
+		8DBB74D2172D6D650052F0ED /* GDRCollaborativeMap+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRCollaborativeMap+OCNI.h"; sourceTree = "<group>"; };
+		8DBB74D3172D6D650052F0ED /* GDRCollaborativeMap+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRCollaborativeMap+OCNI.m"; sourceTree = "<group>"; };
+		8DBB74D5172D70AF0052F0ED /* GDRCollaborativeList+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRCollaborativeList+OCNI.h"; sourceTree = "<group>"; };
+		8DBB74D6172D70AF0052F0ED /* GDRCollaborativeList+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRCollaborativeList+OCNI.m"; sourceTree = "<group>"; };
+		8DBB74D8172D7D180052F0ED /* GDRIndexReference+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRIndexReference+OCNI.h"; sourceTree = "<group>"; };
+		8DBB74D9172D7D180052F0ED /* GDRIndexReference+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRIndexReference+OCNI.m"; sourceTree = "<group>"; };
+		8DBB74DB172D82340052F0ED /* GDRModel+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRModel+OCNI.h"; sourceTree = "<group>"; };
+		8DBB74DC172D82340052F0ED /* GDRModel+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRModel+OCNI.m"; sourceTree = "<group>"; };
+		8DD585061733F81500E4EB66 /* GDRCollaborativeObject+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRCollaborativeObject+OCNI.h"; sourceTree = "<group>"; };
+		8DD585071733F81500E4EB66 /* GDRCollaborativeObject+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRCollaborativeObject+OCNI.m"; sourceTree = "<group>"; };
+		8DD5850B1734C50B00E4EB66 /* GDRRealtime+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRRealtime+OCNI.h"; sourceTree = "<group>"; };
+		8DD5850C1734C50B00E4EB66 /* GDRRealtime+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRRealtime+OCNI.m"; sourceTree = "<group>"; };
+		8DD5850E1734CA5000E4EB66 /* GDRError+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRError+OCNI.h"; sourceTree = "<group>"; };
+		8DD5850F1734CA5000E4EB66 /* GDRError+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRError+OCNI.m"; sourceTree = "<group>"; };
 		8DD88ACF172F7811006DCFA8 /* libtest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libtest.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DD88AD0172F7811006DCFA8 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		8DD88AD3172F7811006DCFA8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -93,6 +115,15 @@
 		8DD88AD8172F7811006DCFA8 /* test-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "test-Prefix.pch"; sourceTree = "<group>"; };
 		8DD88AD9172F7811006DCFA8 /* test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
 		8DD88ADA172F7811006DCFA8 /* test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = test.m; sourceTree = "<group>"; };
+		8DF804C91733969600B67EDC /* EventTarget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventTarget.h; sourceTree = "<group>"; };
+		8DF804D51733979300B67EDC /* UnitTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UnitTest-Info.plist"; sourceTree = "<group>"; };
+		8DF804D71733979300B67EDC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8DF804D91733979300B67EDC /* UnitTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnitTest.h; sourceTree = "<group>"; };
+		8DF804DA1733979300B67EDC /* UnitTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnitTest.m; sourceTree = "<group>"; };
+		8DF804DC1733979300B67EDC /* UnitTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UnitTest-Prefix.pch"; sourceTree = "<group>"; };
+		8DF804E6173397C600B67EDC /* UnitTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DF804F81733B6EB00B67EDC /* GDRDocument+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRDocument+OCNI.h"; sourceTree = "<group>"; };
+		8DF804F91733B6EB00B67EDC /* GDRDocument+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRDocument+OCNI.m"; sourceTree = "<group>"; };
 		934154E8F61A46D3939CD886 /* libPods-test.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-test.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EE324FAA28F4670B4B27AEC /* libPods-demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB8E7EADF911421F977C3180 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +161,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8DF804E2173397C600B67EDC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DF804E7173397C600B67EDC /* SenTestingKit.framework in Frameworks */,
+				8DF804E8173397C600B67EDC /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -140,6 +180,7 @@
 				8DBB7460172BD0B60052F0ED /* demo */,
 				8DBB749C172BD0F20052F0ED /* test */,
 				8DD88AD6172F7811006DCFA8 /* test */,
+				8DF804D31733979300B67EDC /* UnitTest */,
 				8D8CA152172BC9B400652CC1 /* Frameworks */,
 				8D8CA151172BC9B400652CC1 /* Products */,
 				CC32686C9A964CE998DA7A84 /* Pods.xcconfig */,
@@ -154,6 +195,7 @@
 				8D8CA150172BC9B400652CC1 /* libGDRealtime.a */,
 				8DBB745A172BD0B60052F0ED /* demo.app */,
 				8DD88ACF172F7811006DCFA8 /* libtest.a */,
+				8DF804E6173397C600B67EDC /* UnitTest.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -227,6 +269,7 @@
 		8DBB74A9172BD1300052F0ED /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				8DF804C51733969600B67EDC /* override_generated */,
 				8DBB74AA172BD1300052F0ED /* ios */,
 			);
 			name = Classes;
@@ -236,20 +279,27 @@
 		8DBB74AA172BD1300052F0ED /* ios */ = {
 			isa = PBXGroup;
 			children = (
-				8DBB74DB172D82340052F0ED /* GDRModel+ObjC.h */,
-				8DBB74DC172D82340052F0ED /* GDRModel+ObjC.m */,
-				8DBB74CF172D68EF0052F0ED /* GDRCollaborativeString+ObjC.h */,
-				8DBB74D0172D68EF0052F0ED /* GDRCollaborativeString+ObjC.m */,
-				8DBB74D2172D6D650052F0ED /* GDRCollaborativeMap+ObjC.h */,
-				8DBB74D3172D6D650052F0ED /* GDRCollaborativeMap+ObjC.m */,
-				8DBB74D5172D70AF0052F0ED /* GDRCollaborativeList+ObjC.h */,
-				8DBB74D6172D70AF0052F0ED /* GDRCollaborativeList+ObjC.m */,
-				8DBB74D8172D7D180052F0ED /* GDRIndexReference+ObjC.h */,
-				8DBB74D9172D7D180052F0ED /* GDRIndexReference+ObjC.m */,
-				8DBB74AB172BD1300052F0ED /* ObjcNativeInterfaceFactory+ObjC.h */,
-				8DBB74AC172BD1300052F0ED /* ObjcNativeInterfaceFactory+ObjC.m */,
 				8DBB74AD172BD1300052F0ED /* GDRealtime.h */,
-				8DBB74AE172BD1300052F0ED /* GDRealtime.m */,
+				8DD5850B1734C50B00E4EB66 /* GDRRealtime+OCNI.h */,
+				8DD5850C1734C50B00E4EB66 /* GDRRealtime+OCNI.m */,
+				8DBB74DB172D82340052F0ED /* GDRModel+OCNI.h */,
+				8DBB74DC172D82340052F0ED /* GDRModel+OCNI.m */,
+				8DF804F81733B6EB00B67EDC /* GDRDocument+OCNI.h */,
+				8DF804F91733B6EB00B67EDC /* GDRDocument+OCNI.m */,
+				8DD585061733F81500E4EB66 /* GDRCollaborativeObject+OCNI.h */,
+				8DD585071733F81500E4EB66 /* GDRCollaborativeObject+OCNI.m */,
+				8DBB74CF172D68EF0052F0ED /* GDRCollaborativeString+OCNI.h */,
+				8DBB74D0172D68EF0052F0ED /* GDRCollaborativeString+OCNI.m */,
+				8DBB74D2172D6D650052F0ED /* GDRCollaborativeMap+OCNI.h */,
+				8DBB74D3172D6D650052F0ED /* GDRCollaborativeMap+OCNI.m */,
+				8DBB74D5172D70AF0052F0ED /* GDRCollaborativeList+OCNI.h */,
+				8DBB74D6172D70AF0052F0ED /* GDRCollaborativeList+OCNI.m */,
+				8DBB74D8172D7D180052F0ED /* GDRIndexReference+OCNI.h */,
+				8DBB74D9172D7D180052F0ED /* GDRIndexReference+OCNI.m */,
+				8DBB74AB172BD1300052F0ED /* ObjcNativeInterfaceFactory+OCNI.h */,
+				8DBB74AC172BD1300052F0ED /* ObjcNativeInterfaceFactory+OCNI.m */,
+				8DD5850E1734CA5000E4EB66 /* GDRError+OCNI.h */,
+				8DD5850F1734CA5000E4EB66 /* GDRError+OCNI.m */,
 			);
 			path = ios;
 			sourceTree = "<group>";
@@ -278,6 +328,58 @@
 			isa = PBXGroup;
 			children = (
 				8DD88AD8172F7811006DCFA8 /* test-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8DF804C51733969600B67EDC /* override_generated */ = {
+			isa = PBXGroup;
+			children = (
+				8DF804C61733969600B67EDC /* com */,
+			);
+			path = override_generated;
+			sourceTree = "<group>";
+		};
+		8DF804C61733969600B67EDC /* com */ = {
+			isa = PBXGroup;
+			children = (
+				8DF804C71733969600B67EDC /* goodow */,
+			);
+			path = com;
+			sourceTree = "<group>";
+		};
+		8DF804C71733969600B67EDC /* goodow */ = {
+			isa = PBXGroup;
+			children = (
+				8DF804C81733969600B67EDC /* realtime */,
+			);
+			path = goodow;
+			sourceTree = "<group>";
+		};
+		8DF804C81733969600B67EDC /* realtime */ = {
+			isa = PBXGroup;
+			children = (
+				8DF804C91733969600B67EDC /* EventTarget.h */,
+			);
+			path = realtime;
+			sourceTree = "<group>";
+		};
+		8DF804D31733979300B67EDC /* UnitTest */ = {
+			isa = PBXGroup;
+			children = (
+				8DF804D91733979300B67EDC /* UnitTest.h */,
+				8DF804DA1733979300B67EDC /* UnitTest.m */,
+				8DF804D41733979300B67EDC /* Supporting Files */,
+			);
+			path = UnitTest;
+			sourceTree = "<group>";
+		};
+		8DF804D41733979300B67EDC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8DF804D51733979300B67EDC /* UnitTest-Info.plist */,
+				8DF804D61733979300B67EDC /* InfoPlist.strings */,
+				8DF804DC1733979300B67EDC /* UnitTest-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -353,6 +455,25 @@
 			productReference = 8DD88ACF172F7811006DCFA8 /* libtest.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		8DF804E5173397C600B67EDC /* UnitTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8DF804F3173397C600B67EDC /* Build configuration list for PBXNativeTarget "UnitTest" */;
+			buildPhases = (
+				8DF804E1173397C600B67EDC /* Sources */,
+				8DF804E2173397C600B67EDC /* Frameworks */,
+				8DF804E3173397C600B67EDC /* Resources */,
+				8DF804E4173397C600B67EDC /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8DD5850A1734C40800E4EB66 /* PBXTargetDependency */,
+			);
+			name = UnitTest;
+			productName = UnitTest;
+			productReference = 8DF804E6173397C600B67EDC /* UnitTest.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -377,6 +498,7 @@
 				8D8CA14F172BC9B400652CC1 /* GDRealtime */,
 				8DBB7459172BD0B60052F0ED /* demo */,
 				8DD88ACE172F7811006DCFA8 /* test */,
+				8DF804E5173397C600B67EDC /* UnitTest */,
 			);
 		};
 /* End PBXProject section */
@@ -391,6 +513,13 @@
 				8DBB746F172BD0B70052F0ED /* Default@2x.png in Resources */,
 				8DBB7471172BD0B70052F0ED /* Default-568h@2x.png in Resources */,
 				8DBB7474172BD0B70052F0ED /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DF804E3173397C600B67EDC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +595,19 @@
 			shellPath = /bin/sh;
 			shellScript = "if [ x$ACTION == xclean ]; then make clean; else make; fi";
 		};
+		8DF804E4173397C600B67EDC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
 		B560A6E7B3354EA78C7B9449 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -501,13 +643,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DBB74C8172C136C0052F0ED /* ObjcNativeInterfaceFactory+ObjC.m in Sources */,
-				8DBB74C9172C13700052F0ED /* GDRealtime.m in Sources */,
-				8DBB74D1172D68EF0052F0ED /* GDRCollaborativeString+ObjC.m in Sources */,
-				8DBB74D4172D6D650052F0ED /* GDRCollaborativeMap+ObjC.m in Sources */,
-				8DBB74D7172D70AF0052F0ED /* GDRCollaborativeList+ObjC.m in Sources */,
-				8DBB74DA172D7D180052F0ED /* GDRIndexReference+ObjC.m in Sources */,
-				8DBB74DD172D82350052F0ED /* GDRModel+ObjC.m in Sources */,
+				8DBB74C8172C136C0052F0ED /* ObjcNativeInterfaceFactory+OCNI.m in Sources */,
+				8DBB74D1172D68EF0052F0ED /* GDRCollaborativeString+OCNI.m in Sources */,
+				8DBB74D4172D6D650052F0ED /* GDRCollaborativeMap+OCNI.m in Sources */,
+				8DBB74D7172D70AF0052F0ED /* GDRCollaborativeList+OCNI.m in Sources */,
+				8DBB74DA172D7D180052F0ED /* GDRIndexReference+OCNI.m in Sources */,
+				8DBB74DD172D82350052F0ED /* GDRModel+OCNI.m in Sources */,
+				8DF804FA1733B6EB00B67EDC /* GDRDocument+OCNI.m in Sources */,
+				8DD585081733F81500E4EB66 /* GDRCollaborativeObject+OCNI.m in Sources */,
+				8DD5850D1734C50C00E4EB66 /* GDRRealtime+OCNI.m in Sources */,
+				8DD585101734CA5100E4EB66 /* GDRError+OCNI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,7 +674,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8DF804E1173397C600B67EDC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DF804F6173397CE00B67EDC /* test.m in Sources */,
+				8DF804F7173398F300B67EDC /* UnitTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8DD5850A1734C40800E4EB66 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DD88ACE172F7811006DCFA8 /* test */;
+			targetProxy = 8DD585091734C40800E4EB66 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8DBB7463172BD0B60052F0ED /* InfoPlist.strings */ = {
@@ -552,6 +714,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				8DBB74A0172BD0F20052F0ED /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8DF804D61733979300B67EDC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8DF804D71733979300B67EDC /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -708,6 +878,43 @@
 			};
 			name = Release;
 		};
+		8DF804F4173397C600B67EDC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UnitTest/UnitTest-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "UnitTest/UnitTest-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		8DF804F5173397C600B67EDC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UnitTest/UnitTest-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "UnitTest/UnitTest-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -743,6 +950,15 @@
 			buildConfigurations = (
 				8DD88ADD172F7811006DCFA8 /* Debug */,
 				8DD88ADE172F7811006DCFA8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8DF804F3173397C600B67EDC /* Build configuration list for PBXNativeTarget "UnitTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DF804F4173397C600B67EDC /* Debug */,
+				8DF804F5173397C600B67EDC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

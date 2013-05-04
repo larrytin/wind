@@ -87,10 +87,10 @@ public class Custom implements Exportable {
    * with a call to registerType.
    * 
    * @param type The type to register.
-   * @param initializerFn An initializer function that will be called in the context of the
+   * @param initializer An initializer function that will be called in the context of the
    *          initialized object.
    */
-  public static void setInitializer(Object type, ModelInitializerHandler initializerFn) {
+  public static void setInitializer(Object type, ModelInitializerHandler initializer) {
   }
 
   /**
@@ -98,9 +98,9 @@ public class Custom implements Exportable {
    * a call to registerType.
    * 
    * @param type The type to register.
-   * @param opt_onLoadedFn An optional onLoaded function that will be called in the context of the
+   * @param opt_onLoaded An optional onLoaded function that will be called in the context of the
    *          newly-loaded object. If not specified, a default onLoaded handler will be used.
    */
-  public static void setOnLoaded(Object type, DocumentLoadedHandler opt_onLoadedFn) {
+  public static void setOnLoaded(Object type, DocumentLoadedHandler opt_onLoaded) {
   }
 }

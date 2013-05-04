@@ -1,6 +1,6 @@
 #import "com/goodow/realtime/util/ObjcNativeInterfaceFactory.h"
-#import "GDRealtime.h"
+@class GDRCollaborativeString;
 
-@interface ComGoodowRealtimeUtilObjcNativeInterfaceFactory (ObjC)
+@interface ComGoodowRealtimeUtilObjcNativeInterfaceFactory (OCNI)
 -(void)setTextImpl:(GDRCollaborativeString *)str text:(NSString *)text;
 @end

@@ -56,20 +56,20 @@ public class Realtime implements Exportable {
   /**
    * Loads the realtime data model associated with {@code docId}. If no realtime data model is
    * associated with {@code docId}, a new realtime document will be created and
-   * {@code opt_initializerFn} will be called (if it is provided).
+   * {@code opt_initializer} will be called (if it is provided).
    * 
    * @param docId The ID of the document to load.
    * @param onLoaded A callback that will be called when the realtime document is ready. The created
    *          or opened realtime document object will be passed to this function.
-   * @param opt_initializerFn An optional initialization function that will be called before
+   * @param opt_initializer An optional initialization function that will be called before
    *          {@code onLoaded} only the first time that the document is loaded. The document's
    *          {@link com.goodow.realtime.Model} object will be passed to this function.
-   * @param opt_errorFn An optional error handling function that will be called if an error occurs
+   * @param opt_error An optional error handling function that will be called if an error occurs
    *          while the document is being loaded or edited. A {@link com.goodow.realtime.Error}
    *          object describing the error will be passed to this function.
    */
   public static void load(String docId, DocumentLoadedHandler onLoaded,
-      ModelInitializerHandler opt_initializerFn, ErrorHandler opt_errorFn) {
+      ModelInitializerHandler opt_initializer, ErrorHandler opt_error) {
     Document document = new DocumentBridge().create(Json.createArray());
     onLoaded.onLoaded(document);
   }

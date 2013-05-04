@@ -246,11 +246,11 @@ public class Document implements EventTarget {
     return this.sessionId == null || this.sessionId.equals(sessionId);
   }
 
-  void removeEventListener(String key, EventType type, EventHandler<?> handler, boolean opt_capture) {
+  void removeEventListener(String id, EventType type, EventHandler<?> handler, boolean opt_capture) {
     if (handlers == null || handler == null) {
       return;
     }
-    List<EventHandler<?>> handlersPerType = handlers.get(Pair.of(key, type));
+    List<EventHandler<?>> handlersPerType = handlers.get(Pair.of(id, type));
     if (handlersPerType == null) {
       return;
     }

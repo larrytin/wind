@@ -13,6 +13,7 @@ JAVA_SOURCES = $(shell find $(JAVA_SRC_DIR) -name *.java ! -name NativeInterface
   ! -name JsJson*.java ! -name JsMap*.java)
 JAVA_TEMP_SOURCES = $(subst $(JAVA_SRC_DIR), $(JAVA_GEN_DIR), $(JAVA_SOURCES))
 JAVA_GEN_SOURCES = $(JAVA_TEMP_SOURCES:.java=.m)
+OVERRIDE_GEN_DIR = objectivec/Classes/override_generated
 
 JNI_SRC_DIR = java/src/main/objectivec
 JNI_SOURCES = $(shell find $(JNI_SRC_DIR) -name *.java)
@@ -52,6 +53,7 @@ translate: pre_translate $(JAVA_GEN_SOURCES) $(JNI_GEN_SOURCES)
 $(M2_REPO)/com/google/gwt/gwt-elemental/2.5.1/gwt-elemental-2.5.1.jar:$(M2_REPO)/com/google/gwt/gwt-user/2.5.1/gwt-user-2.5.1.jar' \
 	    `cat $(SOURCE_LIST)` ; \
 	fi
+#	@cp -r $(OVERRIDE_GEN_DIR)/ $(JAVA_GEN_DIR)
 
 pre_translate_test: $(TEST_GEN_DIR)
 	@rm -f $(TEST_SOURCE_LIST)
