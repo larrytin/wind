@@ -5,6 +5,6 @@
 @dynamic canRedo, canUndo, isReadOnly;
 
 -(void)addUndoRedoStateChangedListener:(GDRUndoRedoStateChangedBlock)handler{
-
+  [self addUndoRedoStateChangedListenerWithGDREventHandler:handler];
 }
 @end

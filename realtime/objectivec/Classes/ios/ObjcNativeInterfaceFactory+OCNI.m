@@ -1,6 +1,7 @@
 #import "ObjcNativeInterfaceFactory+OCNI.h"
 #import "Google-Diff-Match-Patch/DiffMatchPatch.h"
 #import "GDRealtime.h"
+#import "java/lang/RuntimeException.h"
 
 @implementation ComGoodowRealtimeUtilObjcNativeInterfaceFactory (OCNI)
 -(void)setTextImpl:(GDRCollaborativeString *)str text:(NSString *)text {

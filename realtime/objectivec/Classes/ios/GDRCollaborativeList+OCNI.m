@@ -5,17 +5,15 @@
 @dynamic length;
 
 -(void)addValuesAddedListener:(GDRValuesAddedBlock)handler{
-  [self addEventListener:[GDREventTypeEnum VALUES_ADDED] handler:handler opt_capture:NO];
+  [self addValuesAddedListenerWithGDREventHandler:handler];
 }
 -(void)addValuesRemovedListener:(GDRValuesRemovedBlock)handler{
-  [self addEventListener:[GDREventTypeEnum VALUES_REMOVED] handler:handler opt_capture:NO];
+  [self addValuesRemovedListenerWithGDREventHandler:handler];
 }
 -(void)addValuesSetListener:(GDRValuesSetBlock)handler{
-  [self addEventListener:[GDREventTypeEnum VALUES_SET] handler:handler opt_capture:NO];
+  [self addValuesSetListenerWithGDREventHandler:handler];
 }
--(void)removeListListener:(GDREventHandlerBlock)handler{
-  [self removeEventListener:[GDREventTypeEnum VALUES_ADDED] handler:handler opt_capture:NO];
-  [self removeEventListener:[GDREventTypeEnum VALUES_REMOVED] handler:handler opt_capture:NO];
-  [self removeEventListener:[GDREventTypeEnum VALUES_SET] handler:handler opt_capture:NO];
+-(void)removeListListener:(GDREventBlock)handler{
+  [self removeListListenerWithGDREventHandler:handler];
 }
 @end

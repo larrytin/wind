@@ -13,6 +13,9 @@
  */
 package com.goodow.realtime.util;
 
+/*-[
+  #import "GDRealtime.h"
+]-*/
 public class NativeInterface {
   public static NativeInterfaceFactory get() {
     return new ObjcNativeInterfaceFactory();

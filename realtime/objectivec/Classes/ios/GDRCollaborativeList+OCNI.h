@@ -1,11 +1,4 @@
 #import "com/goodow/realtime/CollaborativeList.h"
-#import "GDRCollaborativeObject+OCNI.h"
-@class GDRValuesAddedEvent;
-@class GDRValuesRemovedEvent;
-@class GDRValuesSetEvent;
-typedef void (^GDRValuesAddedBlock)(GDRValuesAddedEvent * event);
-typedef void (^GDRValuesRemovedBlock)(GDRValuesRemovedEvent * event);
-typedef void (^GDRValuesSetBlock)(GDRValuesSetEvent * event);
 
 @interface GDRCollaborativeList (OCNI)
 @property int length;
@@ -13,5 +6,5 @@ typedef void (^GDRValuesSetBlock)(GDRValuesSetEvent * event);
 -(void)addValuesAddedListener:(GDRValuesAddedBlock)handler;
 -(void)addValuesRemovedListener:(GDRValuesRemovedBlock)handler;
 -(void)addValuesSetListener:(GDRValuesSetBlock)handler;
--(void)removeListListener:(GDREventHandlerBlock)handler;
+-(void)removeListListener:(GDREventBlock)handler;
 @end

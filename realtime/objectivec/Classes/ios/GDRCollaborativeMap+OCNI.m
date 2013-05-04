@@ -5,9 +5,9 @@
 @dynamic size;
 
 -(void)addValueChangedListener:(GDRValueChangedBlock)handler{
-  [self addEventListener:[GDREventTypeEnum VALUE_CHANGED] handler:handler opt_capture:NO];
+  [self addValueChangedListenerWithGDREventHandler:handler];
 }
 -(void)removeValueChangedListener:(GDRValueChangedBlock)handler{
-  [self removeEventListener:[GDREventTypeEnum VALUE_CHANGED] handler:handler opt_capture:NO];
+  [self removeValueChangedListenerWithGDREventHandler:handler];
 }
 @end

@@ -106,7 +106,12 @@ public class Document implements EventTarget {
         return;
       }
       for (int i = 0, len = handlers.size(); i < len; i++) {
-        ((EventHandler<Disposable>) handlers.get(i)).handleEvent(event);
+        Object handler = handlers.get(i);
+        if (handler instanceof EventHandler) {
+          ((EventHandler<Disposable>) handler).handleEvent(event);
+        } else {
+          ocniFireEvent(handler, event);
+        }
       }
     }
 
@@ -316,4 +321,11 @@ public class Document implements EventTarget {
     events = new ArrayList<Pair<Pair<String, EventType>, Disposable>>();
     eventsById = new HashMap<String, List<BaseModelEvent>>();
   }
+
+  // @formatter:off
+  private native void ocniFireEvent(Object handler, Object event) /*-[
+    GDREventBlock block = (GDREventBlock)handler;
+    block(event);
+  ]-*/;
+  // @formatter:on
 }

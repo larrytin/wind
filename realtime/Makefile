@@ -53,7 +53,7 @@ translate: pre_translate $(JAVA_GEN_SOURCES) $(JNI_GEN_SOURCES)
 $(M2_REPO)/com/google/gwt/gwt-elemental/2.5.1/gwt-elemental-2.5.1.jar:$(M2_REPO)/com/google/gwt/gwt-user/2.5.1/gwt-user-2.5.1.jar' \
 	    `cat $(SOURCE_LIST)` ; \
 	fi
-#	@cp -r $(OVERRIDE_GEN_DIR)/ $(JAVA_GEN_DIR)
+	@cp -r $(OVERRIDE_GEN_DIR)/ $(JAVA_GEN_DIR)
 
 pre_translate_test: $(TEST_GEN_DIR)
 	@rm -f $(TEST_SOURCE_LIST)

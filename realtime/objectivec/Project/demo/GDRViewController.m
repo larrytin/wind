@@ -7,6 +7,7 @@
 //
 
 #import "GDRViewController.h"
+#import "GDRealtime.h"
 
 @interface GDRViewController ()
 
@@ -17,6 +18,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+  [GDRRealtime load:@"" onLoaded:^(GDRDocument *document) {
+    GDRModel *mod = document.getModel;
+    GDRCollaborativeString * str = [mod createString:@"abc"];
+    [str addTextInsertedListener:^(GDRTextInsertedEvent *event) {
+      NSLog(@"abc888");
+    }];
+    [str append:@"de"];
+    NSLog(@"yyy");
+  } initializer:nil error:nil];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 

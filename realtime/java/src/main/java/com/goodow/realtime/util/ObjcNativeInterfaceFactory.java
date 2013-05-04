@@ -15,6 +15,7 @@ package com.goodow.realtime.util;
 
 /*-[
  #import "GDRealtime.h"
+ #import "ObjcNativeInterfaceFactory+OCNI.h"
  ]-*/
 import com.goodow.realtime.CollaborativeString;
 
@@ -24,7 +25,7 @@ public class ObjcNativeInterfaceFactory implements NativeInterfaceFactory {
   @Override
   public native void scheduleDeferred(Runnable cmd) /*-[
     #if TARGET_OS_IPHONE == 1 || TARGET_OS_IPHONE_SIMULATOR == 1
-      [[NSRunLoop currentRunLoop] performSelector:@selector(run:) target:cmd argument:nil order:0 modes:@[NSDefaultRunLoopMode]];
+      [[NSRunLoop currentRunLoop] performSelector:@selector(run) target:cmd argument:nil order:0 modes:@[NSDefaultRunLoopMode]];
     #else
       [cmd run];
     #endif

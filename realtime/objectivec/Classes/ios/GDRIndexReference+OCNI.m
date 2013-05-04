@@ -5,9 +5,9 @@
 @dynamic canBeDeleted, index, referencedObject;
 
 -(void)addReferenceShiftedListener:(GDRReferenceShiftedBlock)handler{
-  [self addEventListener:[GDREventTypeEnum REFERENCE_SHIFTED] handler:handler opt_capture:NO];
+  [self addReferenceShiftedListenerWithGDREventHandler:handler];
 }
 -(void)removeReferenceShiftedListener:(GDRReferenceShiftedBlock)handler{
-  [self removeEventListener:[GDREventTypeEnum REFERENCE_SHIFTED] handler:handler opt_capture:NO];
+  [self removeReferenceShiftedListenerWithGDREventHandler:handler];
 }
 @end

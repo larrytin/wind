@@ -1,10 +1,4 @@
 #import "com/goodow/realtime/Document.h"
-@class GDRCollaboratorJoinedEvent;
-@class GDRCollaboratorLeftEvent;
-@class GDRDocumentSaveStateChangedEvent;
-typedef void (^GDRCollaboratorJoinedBlock)(GDRCollaboratorJoinedEvent * event);
-typedef void (^GDRCollaboratorLeftBlock)(GDRCollaboratorLeftEvent * event);
-typedef void (^GDRDocumentSaveStateChangedBlock)(GDRDocumentSaveStateChangedEvent * event);
 
 @interface GDRDocument (OCNI)
 -(void)addCollaboratorJoinedListener:(GDRCollaboratorJoinedBlock)handler;

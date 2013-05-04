@@ -1,7 +1,4 @@
 #import "com/goodow/realtime/IndexReference.h"
-@class GDRCollaborativeObject;
-@class GDRReferenceShiftedEvent;
-typedef void (^GDRReferenceShiftedBlock)(GDRReferenceShiftedEvent * event);
 
 @interface GDRIndexReference (OCNI)
 @property(readonly) BOOL canBeDeleted;
