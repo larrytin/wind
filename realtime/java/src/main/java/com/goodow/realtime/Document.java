@@ -88,25 +88,30 @@ public class Document implements EventTarget {
       evtsById = null;
     }
 
-    private void bubblingToAncestors(String id, ObjectChangedEvent objectChangedEvent) {
+    private void bubblingToAncestors(String id, ObjectChangedEvent objectChangedEvent,
+        Set<String> seen) {
+      if (seen.contains(id)) {
+        return;
+      }
+      seen.add(id);
       evts.add(Pair.of(Pair.of(id, objectChangedEvent.type), (Disposable) objectChangedEvent));
 
       String[] parents = getParents(id);
       if (parents != null) {
         for (String parent : parents) {
-          bubblingToAncestors(parent, objectChangedEvent);
+          bubblingToAncestors(parent, objectChangedEvent, seen);
         }
       }
     }
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({"unchecked", "cast"})
     private void fireEvent(Pair<String, EventType> key, Disposable event) {
       List<EventHandler<?>> handlers = getEventHandlers(key, false);
       if (handlers == null) {
         return;
       }
       for (int i = 0, len = handlers.size(); i < len; i++) {
-        Object handler = handlers.get(i);
+        EventHandler<?> handler = handlers.get(i);
         if (handler instanceof EventHandler) {
           ((EventHandler<Disposable>) handler).handleEvent(event);
         } else {
@@ -126,7 +131,8 @@ public class Document implements EventTarget {
       ObjectChangedEvent objectChangedEvent =
           new ObjectChangedEvent(evt.target, evt.sessionId, evt.userId, evt.isLocal, eventsPerId
               .toArray(new BaseModelEvent[0]));
-      bubblingToAncestors(id, objectChangedEvent);
+      Set<String> seen = new HashSet<String>();
+      bubblingToAncestors(id, objectChangedEvent, seen);
     }
   };
 
@@ -326,6 +332,7 @@ public class Document implements EventTarget {
   private native void ocniFireEvent(Object handler, Object event) /*-[
     GDREventBlock block = (GDREventBlock)handler;
     block(event);
-  ]-*/;
+  ]-*/ /*-{
+  }-*/;
   // @formatter:on
 }

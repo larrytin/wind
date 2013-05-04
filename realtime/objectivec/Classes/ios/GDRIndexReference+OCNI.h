@@ -2,7 +2,7 @@
 
 @interface GDRIndexReference (OCNI)
 @property(readonly) BOOL canBeDeleted;
-@property(readonly) int index;
+@property int index;
 @property(readonly) GDRCollaborativeObject * referencedObject;
 
 -(void)addReferenceShiftedListener:(GDRReferenceShiftedBlock)handler;

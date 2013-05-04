@@ -6,4 +6,7 @@
 @property(readonly) BOOL isReadOnly;
 
 -(void)addUndoRedoStateChangedListener:(GDRUndoRedoStateChangedBlock)handler;
+
+-(GDRCollaborativeList *)createList:(NSArray *)opt_initialValue;
+-(GDRCollaborativeMap *)createMap:(NSDictionary *)opt_initialValue;
 @end

@@ -4,4 +4,5 @@
 
 -(void)addObjectChangedListener:(GDRObjectChangedBlock)handler;
 -(void)removeObjectChangedListener:(GDRObjectChangedBlock)handler;
+
 @end

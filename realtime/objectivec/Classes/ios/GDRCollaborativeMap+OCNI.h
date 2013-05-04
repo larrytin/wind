@@ -5,4 +5,9 @@
 
 -(void)addValueChangedListener:(GDRValueChangedBlock)handler;
 -(void)removeValueChangedListener:(GDRValueChangedBlock)handler;
+
+-(NSArray *)items;
+-(NSArray *)keys;
+-(NSArray *)values;
+
 @end

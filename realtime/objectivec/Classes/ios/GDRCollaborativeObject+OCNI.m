@@ -8,4 +8,5 @@
 -(void)removeObjectChangedListener:(GDRObjectChangedBlock)handler{
   [self removeObjectChangedListenerWithGDREventHandler:handler];
 }
+
 @end

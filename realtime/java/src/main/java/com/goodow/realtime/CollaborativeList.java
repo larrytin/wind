@@ -71,6 +71,67 @@ public class CollaborativeList extends CollaborativeObject {
         }
       }
     });
+		_.asArray = function() {
+			var values = [];
+			for ( var i = 0, len = this.length; i < len; i++) {
+				values[i] = this.get(i);
+			}
+			return values;
+		};
+		_.get = function(index) {
+			this.g.@com.goodow.realtime.CollaborativeList::checkIndex(IZ)(index, false)
+			var p = this.g.@com.goodow.realtime.CollaborativeList::snapshot[index];
+			if (p === undefined) {
+				return undefined;
+			} else if (p[0] != @com.goodow.realtime.util.JsonSerializer::REFERENCE_TYPE) {
+				return p[1];
+			} else {
+				var v = this.g.@com.goodow.realtime.CollaborativeList::get(I)(index);
+				return @org.timepedia.exporter.client.ExporterUtil::wrap(Ljava/lang/Object;)(v);
+			}
+		};
+		_.indexOf = function(value, opt_comparatorFn) {
+			if (opt_comparatorFn === undefined) {
+				var v = @org.timepedia.exporter.client.ExporterUtil::gwtInstance(Ljava/lang/Object;)(value);
+				return this.g.@com.goodow.realtime.CollaborativeList::indexOf(Ljava/lang/Object;Ljava/util/Comparator;)(v, null);
+			} else {
+				for ( var i = 0, len = this.length; i < len; i++) {
+					if (opt_comparatorFn(value, this.get(i)) == 0) {
+						return i;
+					}
+				}
+				return -1;
+			}
+		};
+		_.insert = function(index, value) {
+			var v = @org.timepedia.exporter.client.ExporterUtil::gwtInstance(Ljava/lang/Object;)(value);
+			this.g.@com.goodow.realtime.CollaborativeList::insert(ILjava/lang/Object;)(index,v);
+		};
+		_.lastIndexOf = function(value, opt_comparatorFn) {
+			if (opt_comparatorFn === undefined) {
+				var v = @org.timepedia.exporter.client.ExporterUtil::gwtInstance(Ljava/lang/Object;)(value);
+				return this.g.@com.goodow.realtime.CollaborativeList::lastIndexOf(Ljava/lang/Object;Ljava/util/Comparator;)(v, null);
+			} else {
+				for ( var i = this.length - 1; i >= 0; i--) {
+					if (opt_comparatorFn(value, this.get(i)) == 0) {
+						return i;
+					}
+				}
+				return -1;
+			}
+		};
+		_.push = function(value) {
+			this.insert(this.length, value);
+			return this.length;
+		};
+		_.removeValue = function(value) {
+			var v = @org.timepedia.exporter.client.ExporterUtil::gwtInstance(Ljava/lang/Object;)(value);
+			return this.g.@com.goodow.realtime.CollaborativeList::removeValue(Ljava/lang/Object;)(v);
+		};
+		_.set = function(index, value) {
+			var v = @org.timepedia.exporter.client.ExporterUtil::gwtInstance(Ljava/lang/Object;)(value);
+			this.g.@com.goodow.realtime.CollaborativeList::set(ILjava/lang/Object;)(index,v);
+		};
   }-*/;
 
   private JsonArray snapshot;
@@ -95,11 +156,12 @@ public class CollaborativeList extends CollaborativeObject {
   }
 
   /**
-   * Returns a copy of the contents of this collaborative list as a array. Changes to the returned
+   * Returns a copy of the contents of this collaborative list as an array. Changes to the returned
    * object will not affect the original collaborative list.
    * 
    * @return A copy of the contents of this collaborative list.
    */
+  @NoExport
   public Object[] asArray() {
     int length = length();
     Object[] objects = new Object[length];
@@ -124,6 +186,7 @@ public class CollaborativeList extends CollaborativeObject {
    * @exception java.lang.ArrayIndexOutOfBoundsException
    */
   @SuppressWarnings("unchecked")
+  @NoExport
   public <T> T get(int index) {
     checkIndex(index, false);
     return (T) JsonSerializer.jsonToObj(snapshot.get(index), model.objects);
@@ -136,6 +199,7 @@ public class CollaborativeList extends CollaborativeObject {
    * @param opt_comparator Optional comparator function used to determine the equality of two items.
    * @return The index of the given value, or -1 if it cannot be found.
    */
+  @NoExport
   public int indexOf(Object value, Comparator<Object> opt_comparator) {
     if (opt_comparator == null) {
       JsonArray jsonValue;
@@ -151,7 +215,7 @@ public class CollaborativeList extends CollaborativeObject {
       }
     } else {
       for (int i = 0, len = length(); i < len; i++) {
-        if (opt_comparator.compare(value, get(i)) == 0) {
+        if (compare(opt_comparator, value, get(i)) == 0) {
           return i;
         }
       }
@@ -166,6 +230,7 @@ public class CollaborativeList extends CollaborativeObject {
    * @param value The value to add.
    * @exception java.lang.ArrayIndexOutOfBoundsException
    */
+  @NoExport
   public void insert(int index, Object value) {
     insertAll(index, value);
   }
@@ -200,6 +265,7 @@ public class CollaborativeList extends CollaborativeObject {
    * @param opt_comparator Optional comparator function used to determine the equality of two items.
    * @return The index of the given value, or -1 if it cannot be found.
    */
+  @NoExport
   public int lastIndexOf(Object value, Comparator<Object> opt_comparator) {
     if (opt_comparator == null) {
       JsonArray jsonValue;
@@ -215,7 +281,7 @@ public class CollaborativeList extends CollaborativeObject {
       }
     } else {
       for (int i = length() - 1; i >= 0; i--) {
-        if (opt_comparator.compare(value, get(i)) == 0) {
+        if (compare(opt_comparator, value, get(i)) == 0) {
           return i;
         }
       }
@@ -239,6 +305,7 @@ public class CollaborativeList extends CollaborativeObject {
    * @param value The value to add.
    * @return The new array length.
    */
+  @NoExport
   public int push(Object value) {
     insert(length(), value);
     return length();
@@ -300,7 +367,7 @@ public class CollaborativeList extends CollaborativeObject {
     }
     JsonArray array = Json.createArray();
     for (int i = startIndex; i < endIndex; i++) {
-      array.set(i, snapshot.get(i));
+      array.set(i - startIndex, snapshot.get(i));
     }
     ArrayOp op = new ArrayOp(false, startIndex, array, length);
     consumeAndSubmit(op);
@@ -312,6 +379,7 @@ public class CollaborativeList extends CollaborativeObject {
    * @param value The value to remove.
    * @return Whether the item was removed.
    */
+  @NoExport
   public boolean removeValue(Object value) {
     int index = indexOf(value, null);
     if (index == -1) {
@@ -329,8 +397,10 @@ public class CollaborativeList extends CollaborativeObject {
    * @exception java.lang.ArrayIndexOutOfBoundsException
    */
   public void replaceRange(int index, Object... values) {
-    model.beginCompoundOperation(null);
-    removeRange(index, index + values.length);
+    model.beginCompoundOperation("list.replaceRange");
+    int endIndex = index + values.length;
+    int length = length();
+    removeRange(index, endIndex > length ? length : endIndex);
     insertAll(index, values);
     model.endCompoundOperation();
   }
@@ -342,9 +412,10 @@ public class CollaborativeList extends CollaborativeObject {
    * @param value The value to set.
    * @exception java.lang.ArrayIndexOutOfBoundsException
    */
+  @NoExport
   public void set(int index, Object value) {
     checkIndex(index, false);
-    model.beginCompoundOperation(null);
+    model.beginCompoundOperation("list.set");
     remove(index);
     insert(index, value);
     model.endCompoundOperation();
@@ -359,9 +430,10 @@ public class CollaborativeList extends CollaborativeObject {
   public void setLength(int length) {
     checkIndex(length, true);
     int len = length();
-    if (length < len) {
-      removeRange(length, len);
+    if (length == len) {
+      return;
     }
+    removeRange(length, len);
   }
 
   @Override
@@ -460,6 +532,15 @@ public class CollaborativeList extends CollaborativeObject {
     }
   }
 
+  @SuppressWarnings("cast")
+  private int compare(Comparator<Object> comparator, Object object1, Object object2) {
+    if (comparator instanceof Comparator) {
+      return comparator.compare(object1, object2);
+    } else {
+      return ocniCompare(comparator, object1, object2);
+    }
+  }
+
   private void insertAndFireEvent(int index, JsonArray array, String sessionId, String userId) {
     int length = array.length();
     Object[] objects = new Object[length];
@@ -474,6 +555,14 @@ public class CollaborativeList extends CollaborativeObject {
     fireEvent(event);
     model.setIndexReferenceIndex(id, true, index, length, sessionId, userId);
   }
+
+  // @formatter:off
+  private native int ocniCompare(Object comparator, Object object1, Object object2) /*-[
+    GDRComparatorBlock block = (GDRComparatorBlock)comparator;
+    return block(object1, object2);
+  ]-*/ /*-{
+  }-*/;
+  // @formatter:on
 
   private void removeAndFireEvent(int index, JsonArray array, String sessionId, String userId) {
     int length = array.length();
