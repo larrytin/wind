@@ -2,7 +2,7 @@
 .PHONY: default clean
 
 # Change to where distribution was unzipped.
-J2OBJC_DIST = /Users/retechretech/dev/tools/lib/j2objc/dist
+J2OBJC_DIST = ~/dev/tools/lib/j2objc/dist
 
 ifdef CONFIGURATION_BUILD_DIR
 # In Xcode build
@@ -34,7 +34,7 @@ endif
 J2OBJCC_FLAGS = -ObjC $(WARNINGS) $(SDKFLAGS) $(ARCHFLAGS) $(DEBUGFLAGS)
 J2OBJCC = $(J2OBJC_DIST)/j2objcc $(J2OBJCC_FLAGS)
 
-JAVA_GEN_DIR = ../Classes/generated
+MAIN_GEN_DIR = ../Classes/generated
 SUPPORT_LIB = $(CONFIGURATION_BUILD_DIR)/libtest.a
 
 TEST_SRC_DIR = ../../java/src/test/java
@@ -50,7 +50,7 @@ default: test
 $(TEST_BUILD_DIR)/%.o: $(TEST_GEN_DIR)/%.m $(TEST_SRC_DIR)/%.java
 	@mkdir -p `dirname $@`
 	@$(J2OBJCC) -c $< -o $@ \
-	  -g -I$(JAVA_GEN_DIR) -I$(TEST_GEN_DIR) \
+	  -g -I$(MAIN_GEN_DIR) -I$(TEST_GEN_DIR) \
 	  -Wno-objc-redundant-literal-use -Wno-format \
 	  -Werror -Wno-parentheses
 

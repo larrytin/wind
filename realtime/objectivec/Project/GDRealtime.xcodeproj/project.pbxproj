@@ -70,6 +70,7 @@
 		8D31C8111734F9A900F21114 /* StringOpTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StringOpTest.m; sourceTree = "<group>"; };
 		8D31C8131734F9A900F21114 /* MapOpTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapOpTest.h; sourceTree = "<group>"; };
 		8D31C8141734F9A900F21114 /* MapOpTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapOpTest.m; sourceTree = "<group>"; };
+		8D8344591737567700253F19 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		8D8CA150172BC9B400652CC1 /* libGDRealtime.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGDRealtime.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D8CA153172BC9B400652CC1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8DBB745A172BD0B60052F0ED /* demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -268,6 +269,7 @@
 				CC32686C9A964CE998DA7A84 /* Pods.xcconfig */,
 				7902CBF143B343B1A5AF066B /* Pods-demo.xcconfig */,
 				1EA2B19E5F2040AC9E967E49 /* Pods-test.xcconfig */,
+				8D8344591737567700253F19 /* Makefile */,
 			);
 			sourceTree = "<group>";
 		};

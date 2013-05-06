@@ -13,11 +13,11 @@
  */
 package com.goodow.realtime;
 
-import com.goodow.realtime.op.Op;
-import com.goodow.realtime.op.RealtimeOp;
-import com.goodow.realtime.op.list.StringOp;
-import com.goodow.realtime.op.list.algorithm.ListOp;
-import com.goodow.realtime.op.list.algorithm.ListTarget;
+import com.goodow.realtime.operation.Operation;
+import com.goodow.realtime.operation.RealtimeOperation;
+import com.goodow.realtime.operation.list.StringOp;
+import com.goodow.realtime.operation.list.algorithm.ListOp;
+import com.goodow.realtime.operation.list.algorithm.ListTarget;
 import com.goodow.realtime.util.NativeInterface;
 import com.goodow.realtime.util.NativeInterfaceFactory;
 
@@ -179,7 +179,7 @@ public class CollaborativeString extends CollaborativeObject {
   }
 
   @Override
-  protected void consume(final RealtimeOp operation) {
+  protected void consume(final RealtimeOperation operation) {
     operation.<ListTarget<String>> getOp().apply(new ListTarget<String>() {
       private int cursor;
 
@@ -214,7 +214,7 @@ public class CollaborativeString extends CollaborativeObject {
   }
 
   @Override
-  Op<?> toInitialization() {
+  Operation<?> toInitialization() {
     if (length() == 0) {
       return null;
     }

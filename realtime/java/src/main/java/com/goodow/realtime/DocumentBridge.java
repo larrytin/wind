@@ -35,8 +35,10 @@ public class DocumentBridge {
           CollaborativeString string = new CollaborativeString(model);
           string.initialize(key, array.getString(2));
         case 4:
-          IndexReference indexReference = new IndexReference(model);
-          indexReference.initialize(key, array.getArray(2));
+          JsonArray idxRef = array.getArray(2);
+          IndexReference indexReference =
+              new IndexReference(model, model.getObject(idxRef.getString(0)), idxRef.getBoolean(2));
+          indexReference.initialize(key, (int) idxRef.getNumber(1));
         default:
           throw new RuntimeException("Shouldn't reach here!");
       }

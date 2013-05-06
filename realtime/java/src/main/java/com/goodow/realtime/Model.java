@@ -267,8 +267,8 @@ public class Model implements EventTarget {
   IndexReference createIndexReference(CollaborativeObject referencedObject, int index,
       boolean canBeDeleted) {
     beginCreationCompoundOperation();
-    IndexReference indexReference = new IndexReference(this);
-    indexReference.initializeCreate(generateObjectId(), referencedObject, index, canBeDeleted);
+    IndexReference indexReference = new IndexReference(this, referencedObject, canBeDeleted);
+    indexReference.initialize(generateObjectId(), index);
     endCompoundOperation();
     return indexReference;
   }

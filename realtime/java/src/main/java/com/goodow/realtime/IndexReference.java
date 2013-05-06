@@ -13,8 +13,8 @@
  */
 package com.goodow.realtime;
 
-import com.goodow.realtime.op.Op;
-import com.goodow.realtime.op.RealtimeOp;
+import com.goodow.realtime.operation.Operation;
+import com.goodow.realtime.operation.RealtimeOperation;
 import com.goodow.realtime.util.NativeInterfaceFactory;
 
 import com.google.common.annotations.GwtIncompatible;
@@ -25,9 +25,6 @@ import org.timepedia.exporter.client.ExportPackage;
 import org.timepedia.exporter.client.NoExport;
 
 import java.util.Set;
-
-import elemental.json.Json;
-import elemental.json.JsonArray;
 
 /**
  * An IndexReference is a pointer to a specific location in a collaborative list or string. This
@@ -54,47 +51,41 @@ public class IndexReference extends CollaborativeObject {
           return this.g.@com.goodow.realtime.CollaborativeObject::id;
         }
       },
-      canBeDeleted : {
-        get : function() {
-          return this.g.@com.goodow.realtime.IndexReference::canBeDeleted()();
-        }
-      },
       index : {
         get : function() {
           return this.g.@com.goodow.realtime.IndexReference::index()();
-        }
-      },
-      referencedObject : {
-        get : function() {
-          var v = this.g.@com.goodow.realtime.IndexReference::referencedObject()();
-          return @org.timepedia.exporter.client.ExporterUtil::wrap(Ljava/lang/Object;)(v);
+        },
+        set : function(index) {
+          this.g.@com.goodow.realtime.IndexReference::setIndex(I)(index);
         }
       }
     });
   }-*/;
 
-  private JsonArray snapshot;
+  /**
+   * Whether this reference can be deleted. Read-only. This property affects the behavior of the
+   * index reference when the index the reference points to is deleted. If this is true, the index
+   * reference will be deleted. If it is false, the index reference will move to point at the
+   * beginning of the deleted range.
+   */
+  public final boolean canBeDeleted;
+  /**
+   * The object this reference points to. Read-only.
+   */
+  public final CollaborativeObject referencedObject;
+  private int index;
 
   /**
    * @param model The document model.
    */
-  IndexReference(Model model) {
+  IndexReference(Model model, CollaborativeObject referencedObject, boolean canBeDeleted) {
     super(model);
+    this.canBeDeleted = canBeDeleted;
+    this.referencedObject = referencedObject;
   }
 
   public void addReferenceShiftedListener(EventHandler<ReferenceShiftedEvent> handler) {
     addEventListener(EventType.REFERENCE_SHIFTED, handler, false);
-  }
-
-  /**
-   * @return Whether this reference can be deleted. Read-only. This property affects the behavior of
-   *         the index reference when the index the reference points to is deleted. If this is true,
-   *         the index reference will be deleted. If it is false, the index reference will move to
-   *         point at the beginning of the deleted range.
-   */
-  @NoExport
-  public boolean canBeDeleted() {
-    return snapshot.getBoolean(2);
   }
 
   /**
@@ -103,40 +94,31 @@ public class IndexReference extends CollaborativeObject {
    */
   @NoExport
   public int index() {
-    return (int) snapshot.getNumber(1);
-  }
-
-  /**
-   * @return The object this reference points to. Read-only.
-   */
-  @NoExport
-  public CollaborativeObject referencedObject() {
-    return model.getObject(snapshot.getString(0));
+    return index;
   }
 
   public void removeReferenceShiftedListener(EventHandler<ReferenceShiftedEvent> handler) {
     removeEventListener(EventType.REFERENCE_SHIFTED, handler, false);
   }
 
+  public void setIndex(int index) {
+    ReferenceShiftedEvent event =
+        new ReferenceShiftedEvent(this, this.index, index, model.document.sessionId, Realtime
+            .getUserId(), true);
+    this.index = index;
+    fireEvent(event);
+  }
+
   @Override
-  protected void consume(RealtimeOp operation) {
+  protected void consume(RealtimeOperation operation) {
     throw new UnsupportedOperationException();
   }
 
-  void initialize(String id, JsonArray snapshot) {
+  void initialize(String id, int index) {
     this.id = id;
-    this.snapshot = snapshot;
+    this.index = index;
     model.objects.put(id, this);
-    model.registerIndexReference(id, snapshot.getString(0));
-  }
-
-  void initializeCreate(String id, CollaborativeObject referencedObject, int index,
-      boolean canBeDeleted) {
-    JsonArray snapshot = Json.createArray();
-    snapshot.set(0, referencedObject.id);
-    snapshot.set(1, index);
-    snapshot.set(2, canBeDeleted);
-    initialize(id, snapshot);
+    model.registerIndexReference(id, referencedObject.id);
   }
 
   void setIndex(boolean isInsert, int index, int length, String sessionId, String userId) {
@@ -149,7 +131,7 @@ public class IndexReference extends CollaborativeObject {
       newIndex = cursor + length;
     } else {
       if (cursor < index + length) {
-        if (canBeDeleted()) {
+        if (canBeDeleted) {
           newIndex = -1;
         } else {
           newIndex = index;
@@ -161,12 +143,12 @@ public class IndexReference extends CollaborativeObject {
     boolean isLocal = model.document.isLocalSession(sessionId);
     ReferenceShiftedEvent event =
         new ReferenceShiftedEvent(this, cursor, newIndex, sessionId, userId, isLocal);
-    snapshot.set(1, newIndex);
+    this.index = newIndex;
     fireEvent(event);
   }
 
   @Override
-  Op<?> toInitialization() {
+  Operation<?> toInitialization() {
     return null;
   }
 
@@ -179,9 +161,9 @@ public class IndexReference extends CollaborativeObject {
     seen.add(id);
     sb.append("DefaultIndexReference [");
     sb.append("id=").append(getId());
-    sb.append(", objectId=").append(referencedObject().getId());
+    sb.append(", objectId=").append(referencedObject.getId());
     sb.append(", index=").append(index());
-    sb.append(", canBeDeleted=").append(canBeDeleted());
+    sb.append(", canBeDeleted=").append(canBeDeleted);
     sb.append("]");
   }
 }

@@ -13,10 +13,10 @@
  */
 package com.goodow.realtime;
 
-import com.goodow.realtime.op.Op;
-import com.goodow.realtime.op.RealtimeOp;
-import com.goodow.realtime.op.list.ArrayOp;
-import com.goodow.realtime.op.list.algorithm.ListTarget;
+import com.goodow.realtime.operation.Operation;
+import com.goodow.realtime.operation.RealtimeOperation;
+import com.goodow.realtime.operation.list.ArrayOp;
+import com.goodow.realtime.operation.list.algorithm.ListTarget;
 import com.goodow.realtime.util.JsonSerializer;
 import com.goodow.realtime.util.NativeInterfaceFactory;
 
@@ -71,67 +71,67 @@ public class CollaborativeList extends CollaborativeObject {
         }
       }
     });
-		_.asArray = function() {
-			var values = [];
-			for ( var i = 0, len = this.length; i < len; i++) {
-				values[i] = this.get(i);
-			}
-			return values;
-		};
-		_.get = function(index) {
-			this.g.@com.goodow.realtime.CollaborativeList::checkIndex(IZ)(index, false)
-			var p = this.g.@com.goodow.realtime.CollaborativeList::snapshot[index];
-			if (p === undefined) {
-				return undefined;
-			} else if (p[0] != @com.goodow.realtime.util.JsonSerializer::REFERENCE_TYPE) {
-				return p[1];
-			} else {
-				var v = this.g.@com.goodow.realtime.CollaborativeList::get(I)(index);
-				return @org.timepedia.exporter.client.ExporterUtil::wrap(Ljava/lang/Object;)(v);
-			}
-		};
-		_.indexOf = function(value, opt_comparatorFn) {
-			if (opt_comparatorFn === undefined) {
-				var v = @org.timepedia.exporter.client.ExporterUtil::gwtInstance(Ljava/lang/Object;)(value);
-				return this.g.@com.goodow.realtime.CollaborativeList::indexOf(Ljava/lang/Object;Ljava/util/Comparator;)(v, null);
-			} else {
-				for ( var i = 0, len = this.length; i < len; i++) {
-					if (opt_comparatorFn(value, this.get(i)) == 0) {
-						return i;
-					}
-				}
-				return -1;
-			}
-		};
-		_.insert = function(index, value) {
-			var v = @org.timepedia.exporter.client.ExporterUtil::gwtInstance(Ljava/lang/Object;)(value);
-			this.g.@com.goodow.realtime.CollaborativeList::insert(ILjava/lang/Object;)(index,v);
-		};
-		_.lastIndexOf = function(value, opt_comparatorFn) {
-			if (opt_comparatorFn === undefined) {
-				var v = @org.timepedia.exporter.client.ExporterUtil::gwtInstance(Ljava/lang/Object;)(value);
-				return this.g.@com.goodow.realtime.CollaborativeList::lastIndexOf(Ljava/lang/Object;Ljava/util/Comparator;)(v, null);
-			} else {
-				for ( var i = this.length - 1; i >= 0; i--) {
-					if (opt_comparatorFn(value, this.get(i)) == 0) {
-						return i;
-					}
-				}
-				return -1;
-			}
-		};
-		_.push = function(value) {
-			this.insert(this.length, value);
-			return this.length;
-		};
-		_.removeValue = function(value) {
-			var v = @org.timepedia.exporter.client.ExporterUtil::gwtInstance(Ljava/lang/Object;)(value);
-			return this.g.@com.goodow.realtime.CollaborativeList::removeValue(Ljava/lang/Object;)(v);
-		};
-		_.set = function(index, value) {
-			var v = @org.timepedia.exporter.client.ExporterUtil::gwtInstance(Ljava/lang/Object;)(value);
-			this.g.@com.goodow.realtime.CollaborativeList::set(ILjava/lang/Object;)(index,v);
-		};
+    _.asArray = function() {
+      var values = [];
+      for ( var i = 0, len = this.length; i < len; i++) {
+        values[i] = this.get(i);
+      }
+      return values;
+    };
+    _.get = function(index) {
+      this.g.@com.goodow.realtime.CollaborativeList::checkIndex(IZ)(index, false)
+      var p = this.g.@com.goodow.realtime.CollaborativeList::snapshot[index];
+      if (p === undefined) {
+        return undefined;
+      } else if (p[0] != @com.goodow.realtime.util.JsonSerializer::REFERENCE_TYPE) {
+        return p[1];
+      } else {
+        var v = this.g.@com.goodow.realtime.CollaborativeList::get(I)(index);
+        return @org.timepedia.exporter.client.ExporterUtil::wrap(Ljava/lang/Object;)(v);
+      }
+    };
+    _.indexOf = function(value, opt_comparatorFn) {
+      if (opt_comparatorFn === undefined) {
+        var v = @org.timepedia.exporter.client.ExporterUtil::gwtInstance(Ljava/lang/Object;)(value);
+        return this.g.@com.goodow.realtime.CollaborativeList::indexOf(Ljava/lang/Object;Ljava/util/Comparator;)(v, null);
+      } else {
+        for ( var i = 0, len = this.length; i < len; i++) {
+          if (opt_comparatorFn(value, this.get(i)) == 0) {
+            return i;
+          }
+        }
+        return -1;
+      }
+    };
+    _.insert = function(index, value) {
+      var v = @org.timepedia.exporter.client.ExporterUtil::gwtInstance(Ljava/lang/Object;)(value);
+      this.g.@com.goodow.realtime.CollaborativeList::insert(ILjava/lang/Object;)(index,v);
+    };
+    _.lastIndexOf = function(value, opt_comparatorFn) {
+      if (opt_comparatorFn === undefined) {
+        var v = @org.timepedia.exporter.client.ExporterUtil::gwtInstance(Ljava/lang/Object;)(value);
+        return this.g.@com.goodow.realtime.CollaborativeList::lastIndexOf(Ljava/lang/Object;Ljava/util/Comparator;)(v, null);
+      } else {
+        for ( var i = this.length - 1; i >= 0; i--) {
+          if (opt_comparatorFn(value, this.get(i)) == 0) {
+            return i;
+          }
+        }
+        return -1;
+      }
+    };
+    _.push = function(value) {
+      this.insert(this.length, value);
+      return this.length;
+    };
+    _.removeValue = function(value) {
+      var v = @org.timepedia.exporter.client.ExporterUtil::gwtInstance(Ljava/lang/Object;)(value);
+      return this.g.@com.goodow.realtime.CollaborativeList::removeValue(Ljava/lang/Object;)(v);
+    };
+    _.set = function(index, value) {
+      var v = @org.timepedia.exporter.client.ExporterUtil::gwtInstance(Ljava/lang/Object;)(value);
+      this.g.@com.goodow.realtime.CollaborativeList::set(ILjava/lang/Object;)(index,v);
+    };
   }-*/;
 
   private JsonArray snapshot;
@@ -437,7 +437,7 @@ public class CollaborativeList extends CollaborativeObject {
   }
 
   @Override
-  protected void consume(final RealtimeOp operation) {
+  protected void consume(final RealtimeOperation operation) {
     operation.<ListTarget<JsonArray>> getOp().apply(new ListTarget<JsonArray>() {
       private int cursor;
 
@@ -489,7 +489,7 @@ public class CollaborativeList extends CollaborativeObject {
   }
 
   @Override
-  Op<?> toInitialization() {
+  Operation<?> toInitialization() {
     if (length() == 0) {
       return null;
     }

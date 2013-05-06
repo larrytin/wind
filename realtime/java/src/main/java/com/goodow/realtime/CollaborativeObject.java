@@ -13,8 +13,8 @@
  */
 package com.goodow.realtime;
 
-import com.goodow.realtime.op.Op;
-import com.goodow.realtime.op.RealtimeOp;
+import com.goodow.realtime.operation.Operation;
+import com.goodow.realtime.operation.RealtimeOperation;
 import com.goodow.realtime.util.NativeInterfaceFactory;
 
 import org.timepedia.exporter.client.Export;
@@ -80,10 +80,10 @@ public abstract class CollaborativeObject implements EventTarget {
     return sb.toString();
   }
 
-  abstract void consume(RealtimeOp operation);
+  abstract void consume(RealtimeOperation operation);
 
-  void consumeAndSubmit(Op<?> op) {
-    RealtimeOp operation = new RealtimeOp(id, model.document.sessionId, Realtime.getUserId(), op);
+  void consumeAndSubmit(Operation<?> op) {
+    RealtimeOperation operation = new RealtimeOperation(id, model.document.sessionId, Realtime.getUserId(), op);
     consume(operation);
     submit(operation);
   }
@@ -92,10 +92,10 @@ public abstract class CollaborativeObject implements EventTarget {
     model.document.scheduleEvent(id, event.type, event);
   }
 
-  abstract Op<?> toInitialization();
+  abstract Operation<?> toInitialization();
 
   abstract void toString(Set<String> seen, StringBuilder sb);
 
-  private void submit(RealtimeOp operation) {
+  private void submit(RealtimeOperation operation) {
   }
 }

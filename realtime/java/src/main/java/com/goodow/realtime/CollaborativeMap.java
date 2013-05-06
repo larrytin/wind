@@ -13,10 +13,10 @@
  */
 package com.goodow.realtime;
 
-import com.goodow.realtime.op.Op;
-import com.goodow.realtime.op.RealtimeOp;
-import com.goodow.realtime.op.map.MapOp;
-import com.goodow.realtime.op.map.MapTarget;
+import com.goodow.realtime.operation.Operation;
+import com.goodow.realtime.operation.RealtimeOperation;
+import com.goodow.realtime.operation.map.MapOp;
+import com.goodow.realtime.operation.map.MapTarget;
 import com.goodow.realtime.util.JsonSerializer;
 import com.goodow.realtime.util.NativeInterfaceFactory;
 
@@ -264,7 +264,7 @@ public class CollaborativeMap extends CollaborativeObject {
   }
 
   @Override
-  protected void consume(final RealtimeOp operation) {
+  protected void consume(final RealtimeOperation operation) {
     operation.<MapTarget> getOp().apply(new MapTarget() {
       @Override
       public MapTarget update(String key, JsonValue oldValue, JsonValue newValue) {
@@ -303,7 +303,7 @@ public class CollaborativeMap extends CollaborativeObject {
   }
 
   @Override
-  Op<?> toInitialization() {
+  Operation<?> toInitialization() {
     if (isEmpty()) {
       return null;
     }
