@@ -1,5 +1,5 @@
 #import "GDRCollaborativeObject+OCNI.h"
-#import "GDRealtime.h"
+#import "GDR.h"
 @implementation GDRCollaborativeObject (OCNI)
 
 -(void)addObjectChangedListener:(GDRObjectChangedBlock)handler{

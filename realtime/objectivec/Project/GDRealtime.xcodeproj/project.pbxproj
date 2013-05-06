@@ -86,7 +86,7 @@
 		8DBB7470172BD0B70052F0ED /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		8DBB7473172BD0B70052F0ED /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		8DBB7475172BD0B70052F0ED /* GDRViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDRViewController.h; sourceTree = "<group>"; };
-		8DBB7476172BD0B70052F0ED /* GDRViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDRViewController.m; sourceTree = "<group>"; };
+		8DBB7476172BD0B70052F0ED /* GDRViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = GDRViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		8DBB747E172BD0B70052F0ED /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		8DBB749E172BD0F20052F0ED /* test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "test-Info.plist"; sourceTree = "<group>"; };
 		8DBB74A0172BD0F20052F0ED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -94,22 +94,22 @@
 		8DBB74A3172BD0F20052F0ED /* test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = test.m; sourceTree = "<group>"; };
 		8DBB74A5172BD0F20052F0ED /* test-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "test-Prefix.pch"; sourceTree = "<group>"; };
 		8DBB74AB172BD1300052F0ED /* ObjcNativeInterfaceFactory+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ObjcNativeInterfaceFactory+OCNI.h"; sourceTree = "<group>"; };
-		8DBB74AC172BD1300052F0ED /* ObjcNativeInterfaceFactory+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ObjcNativeInterfaceFactory+OCNI.m"; sourceTree = "<group>"; };
-		8DBB74AD172BD1300052F0ED /* GDRealtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = GDRealtime.h; sourceTree = "<group>"; };
+		8DBB74AC172BD1300052F0ED /* ObjcNativeInterfaceFactory+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "ObjcNativeInterfaceFactory+OCNI.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		8DBB74AD172BD1300052F0ED /* GDR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = GDR.h; sourceTree = "<group>"; };
 		8DBB74CF172D68EF0052F0ED /* GDRCollaborativeString+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRCollaborativeString+OCNI.h"; sourceTree = "<group>"; };
-		8DBB74D0172D68EF0052F0ED /* GDRCollaborativeString+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRCollaborativeString+OCNI.m"; sourceTree = "<group>"; };
+		8DBB74D0172D68EF0052F0ED /* GDRCollaborativeString+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "GDRCollaborativeString+OCNI.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		8DBB74D2172D6D650052F0ED /* GDRCollaborativeMap+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRCollaborativeMap+OCNI.h"; sourceTree = "<group>"; };
-		8DBB74D3172D6D650052F0ED /* GDRCollaborativeMap+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRCollaborativeMap+OCNI.m"; sourceTree = "<group>"; };
+		8DBB74D3172D6D650052F0ED /* GDRCollaborativeMap+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "GDRCollaborativeMap+OCNI.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		8DBB74D5172D70AF0052F0ED /* GDRCollaborativeList+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRCollaborativeList+OCNI.h"; sourceTree = "<group>"; };
-		8DBB74D6172D70AF0052F0ED /* GDRCollaborativeList+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRCollaborativeList+OCNI.m"; sourceTree = "<group>"; };
+		8DBB74D6172D70AF0052F0ED /* GDRCollaborativeList+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "GDRCollaborativeList+OCNI.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		8DBB74D8172D7D180052F0ED /* GDRIndexReference+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRIndexReference+OCNI.h"; sourceTree = "<group>"; };
-		8DBB74D9172D7D180052F0ED /* GDRIndexReference+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRIndexReference+OCNI.m"; sourceTree = "<group>"; };
+		8DBB74D9172D7D180052F0ED /* GDRIndexReference+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "GDRIndexReference+OCNI.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		8DBB74DB172D82340052F0ED /* GDRModel+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRModel+OCNI.h"; sourceTree = "<group>"; };
-		8DBB74DC172D82340052F0ED /* GDRModel+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRModel+OCNI.m"; sourceTree = "<group>"; };
+		8DBB74DC172D82340052F0ED /* GDRModel+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "GDRModel+OCNI.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		8DD585061733F81500E4EB66 /* GDRCollaborativeObject+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRCollaborativeObject+OCNI.h"; sourceTree = "<group>"; };
-		8DD585071733F81500E4EB66 /* GDRCollaborativeObject+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRCollaborativeObject+OCNI.m"; sourceTree = "<group>"; };
+		8DD585071733F81500E4EB66 /* GDRCollaborativeObject+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "GDRCollaborativeObject+OCNI.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		8DD5850B1734C50B00E4EB66 /* GDRRealtime+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRRealtime+OCNI.h"; sourceTree = "<group>"; };
-		8DD5850C1734C50B00E4EB66 /* GDRRealtime+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRRealtime+OCNI.m"; sourceTree = "<group>"; };
+		8DD5850C1734C50B00E4EB66 /* GDRRealtime+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "GDRRealtime+OCNI.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		8DD5850E1734CA5000E4EB66 /* GDRError+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRError+OCNI.h"; sourceTree = "<group>"; };
 		8DD5850F1734CA5000E4EB66 /* GDRError+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRError+OCNI.m"; sourceTree = "<group>"; };
 		8DD88ACF172F7811006DCFA8 /* libtest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libtest.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,7 +125,7 @@
 		8DF804DC1733979300B67EDC /* UnitTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UnitTest-Prefix.pch"; sourceTree = "<group>"; };
 		8DF804E6173397C600B67EDC /* UnitTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DF804F81733B6EB00B67EDC /* GDRDocument+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRDocument+OCNI.h"; sourceTree = "<group>"; };
-		8DF804F91733B6EB00B67EDC /* GDRDocument+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRDocument+OCNI.m"; sourceTree = "<group>"; };
+		8DF804F91733B6EB00B67EDC /* GDRDocument+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "GDRDocument+OCNI.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		934154E8F61A46D3939CD886 /* libPods-test.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-test.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EE324FAA28F4670B4B27AEC /* libPods-demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB8E7EADF911421F977C3180 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -361,7 +361,7 @@
 		8DBB74AA172BD1300052F0ED /* ios */ = {
 			isa = PBXGroup;
 			children = (
-				8DBB74AD172BD1300052F0ED /* GDRealtime.h */,
+				8DBB74AD172BD1300052F0ED /* GDR.h */,
 				8DD5850B1734C50B00E4EB66 /* GDRRealtime+OCNI.h */,
 				8DD5850C1734C50B00E4EB66 /* GDRRealtime+OCNI.m */,
 				8DBB74DB172D82340052F0ED /* GDRModel+OCNI.h */,

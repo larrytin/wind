@@ -1,5 +1,5 @@
 #import "GDRIndexReference+OCNI.h"
-#import "GDRealtime.h"
+#import "GDR.h"
 
 @implementation GDRIndexReference (OCNI)
 @dynamic canBeDeleted, index, referencedObject;

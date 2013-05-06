@@ -1,5 +1,5 @@
 #import "GDRCollaborativeString+OCNI.h"
-#import "GDRealtime.h"
+#import "GDR.h"
 
 @implementation GDRCollaborativeString (OCNI)
 @dynamic length;

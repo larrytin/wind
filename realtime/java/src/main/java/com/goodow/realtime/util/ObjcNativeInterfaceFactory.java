@@ -14,7 +14,7 @@
 package com.goodow.realtime.util;
 
 /*-[
- #import "GDRealtime.h"
+ #import "GDR.h"
  #import "ObjcNativeInterfaceFactory+OCNI.h"
  ]-*/
 import com.goodow.realtime.CollaborativeString;

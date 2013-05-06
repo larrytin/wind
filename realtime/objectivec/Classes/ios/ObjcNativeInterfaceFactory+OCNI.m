@@ -1,6 +1,6 @@
 #import "ObjcNativeInterfaceFactory+OCNI.h"
 #import "Google-Diff-Match-Patch/DiffMatchPatch.h"
-#import "GDRealtime.h"
+#import "GDR.h"
 #import "java/lang/RuntimeException.h"
 
 @implementation ComGoodowRealtimeUtilObjcNativeInterfaceFactory (OCNI)

@@ -1,5 +1,5 @@
 #import "GDRDocument+OCNI.h"
-#import "GDRealtime.h"
+#import "GDR.h"
 
 @implementation GDRDocument (OCNI)
 -(void)addCollaboratorJoinedListener:(GDRCollaboratorJoinedBlock)handler{

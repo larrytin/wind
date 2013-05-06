@@ -37,8 +37,3 @@
 #import "elemental/json/JsonString.h"
 #import "elemental/json/JsonType.h"
 #import "elemental/json/JsonValue.h"
-
-
-//@interface GDRealtime : NSObject
-//
-//@end

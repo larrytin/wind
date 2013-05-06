@@ -1,5 +1,5 @@
 #import "GDRModel+OCNI.h"
-#import "GDRealtime.h"
+#import "GDR.h"
 #import "java/util/HashMap.h"
 
 @implementation GDRModel (OCNI)

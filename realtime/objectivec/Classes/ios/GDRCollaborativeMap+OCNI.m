@@ -1,5 +1,5 @@
 #import "GDRCollaborativeMap+OCNI.h"
-#import "GDRealtime.h"
+#import "GDR.h"
 
 @implementation GDRCollaborativeMap (OCNI)
 @dynamic size;
